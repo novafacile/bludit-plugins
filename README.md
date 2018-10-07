@@ -8,3 +8,7 @@
 
 ## Support
 - Forum: https://forum.bludit.com
+
+## Get a Plugin
+
+- [Contact3 v1.0](https://github.com/novafacile/bludit-plugins/releases/download/contact3-v1/contact3.zip) 
