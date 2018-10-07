@@ -1,0 +1,32 @@
+{
+  "plugin-data":
+  {
+    "name": "Contact3",
+    "description": "Kontaktformular für Bludit 3, das es erlaubt, auch eine eigene Vorlage zu verwenden."
+  },  
+  "contact": "Kontakt",
+  "select-a-content": "Wählen Sie eine Seite für das Kontaktformular.",
+  "content-type": "Content Type",
+  "html": "HTML Format",
+  "text": "TEXT Format",  
+  "static-pages" : "Statische Seiten",
+  "the-list-is-based-only-on-published-content" : "Es verden nur veröffentlichte Inhalte angezeigt. Das Kontaktformular wird unter dem Inhalt eingefügt.",
+  "new-contact-from": "Neue Nachricht",
+  "name": "Name",
+  "email": "E-Mail",
+  "message": "Mitteilung",
+  "send": "Senden",
+  "reset": "Zurücksetzen",
+  "please-enter-your-name": "Geben Sie bitte Ihren Namen ein.",
+  "please-enter-a-valid-email-address": "Geben Sie bitte eine gültige E-Mail-Adresse ein.",
+  "please-enter-the-content-of-your-message": "Geben Sie bitte eine Mitteilung ein.",
+  "oh-my-god-a-bot!": "Grundgütiger! Ein Bot!",
+  "thank-you-for-contact": "Vielen Dank für Ihre Mitteilung. Ich werde Sie umgehend kontaktieren.",
+  "an-error-occurred-while-sending": "Es ist ein Fehler beim Versenden der Mitteilung aufgetreten. Bitte versuchen Sie es später noch einmal.",
+  "email-subject": "E-Mail-Betreff",
+  "smtp-options": "Füllen Sie folgende Felder nur aus, wenn Sie die E-Mails über ein SMTP-E-Mail-Konto versenden möchten.",
+  "smtp-host": "SMTP Host",
+  "smtp-port": "SMTP Port",
+  "smtp-username": "SMTP Benutzername",
+  "smtp-password": "SMTP Passwort"
+}

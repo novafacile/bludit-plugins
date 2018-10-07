@@ -1,0 +1,32 @@
+{
+  "plugin-data":
+  {
+    "name": "İletişim3",
+    "description": "Özel bir şablon kullanma olanağı ile Bludit'e bir iletişim formu ekleyin."
+  },
+  "contact": "İletişim",
+  "select-a-content": "Bir sayfa seçin",
+  "content-type": "Content type",
+  "html": "HTML format",
+  "text": "TEXT format",	
+  "static-pages" : "Statik sayfalar",
+  "the-list-is-based-only-on-published-content" : "Liste yalnızca yayınlanmış içeriğe dayanmaktadır. İletişim formu bunun altına yerleştirilecektir.",
+  "new-contact-from": "Yeni iletişim",
+  "name": "Ad:",
+  "email": "Email:",
+  "message": "Mesaj:",
+  "send": "Gönder",
+  "reset": "Sıfırla",
+  "please-enter-your-name": "Lütfen adınızı giriniz",
+  "please-enter-a-valid-email-address": "Lütfen onaylanmış bir mail adresi girin",
+  "please-enter-the-content-of-your-message": "Lütfen mesajınızı girin",
+  "oh-my-god-a-bot!": "Bir bot görüyorum!",
+  "thank-you-for-contact": "Benimle iletişime geçtiğin için teşekkür ederim. Size en kısa zamanda cevap vereceğim.",
+  "an-error-occurred-while-sending": "Oops! Mesajınızı gönderirken bir hata oluştu, daha sonra tekrar deneyin lütfen, teşekkürler.",
+  "email-subject": "Subject",
+  "smtp-options": "Please fill in the following values if you want to send messages by a smtp account.",
+  "smtp-host": "SMTP Host",
+  "smtp-port": "SMTP Port",
+  "smtp-username": "SMTP Username",
+  "smtp-password": "SMTP Password"
+}

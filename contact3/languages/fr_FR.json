@@ -1,0 +1,32 @@
+{
+  "plugin-data":
+  {
+    "name": "Contact3",
+    "description": "Ajoute un formulaire de contact à Bludit, avec la possibilité d’utiliser un template personnalisé."
+  },
+  "contact": "Contact",
+  "select-a-content": "Sélectionnez un contenu",
+  "content-type": "Type de contenu",
+  "html": "Format HTML",
+  "text": "Format TEXTE",
+  "static-pages" : "Pages statiques",
+  "the-list-is-based-only-on-published-content" : "La liste est basé uniquement sur du contenu publié. Le formulaire de contact se positionnera en dessous de celui-ci.",
+  "new-contact-from": "Nouveau contact",
+  "name": "Nom :",
+  "email": "Email :",
+  "message": "Message :",
+  "send": "Envoyer mon message",
+  "reset": "Réinitialiser",
+  "please-enter-your-name": "Veuillez saisir votre nom",
+  "please-enter-a-valid-email-address": "Veuillez saisir une adresse email valide",
+  "please-enter-the-content-of-your-message": "Veuillez saisir le contenu de votre message",
+  "oh-my-god-a-bot!": "Oh mon dieu un Bot ! :)",
+  "thank-you-for-contact": "Merci de m’avoir contacté. Je vous répondrai le plus rapidement possible.",
+  "an-error-occurred-while-sending": "Oops ! Une erreur est survenue pendant l’envoi de votre message, merci de réessayer ultérieurement.",
+  "email-subject": "Email Objet :",
+  "smtp-options": "Veuillez remplir les valeurs suivantes si vous voulez envoyer des messages par un compte SMTP.",
+  "smtp-host": "Hôte SMTP :",
+  "smtp-port": "Port SMTP :",
+  "smtp-username": "Nom d’utilisateur SMTP :",
+  "smtp-password": "Mot de passe SMTP :"
+}

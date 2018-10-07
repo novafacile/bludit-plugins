@@ -1,0 +1,10 @@
+{
+	"author": "novafacile",
+	"email": "",
+	"website": "https://www.novafacile.com",
+	"version":"1.0",
+	"releaseDate": "2018-10-07",
+	"license": "MIT",
+	"compatible": "3.0",
+	"notes": "Plugin based on contact plugin by Frédéric K. (http://flatboard.free.fr)"
+}

@@ -1,0 +1,32 @@
+{
+  "plugin-data":
+  {
+    "name": "Contact3",
+    "description": "Add a contact form to Bludit, with the ability to use a custom template."
+  },
+  "contact": "Contact",
+  "select-a-content": "Select a content",
+  "content-type": "Content type",
+  "html": "HTML format",
+  "text": "TEXT format",	
+  "static-pages" : "Static pages",
+  "the-list-is-based-only-on-published-content" : "The list is based only on published content. The contact form will be positioned below it.",
+  "new-contact-from": "New Message",
+  "name": "Name:",
+  "email": "Email:",
+  "message": "Message:",
+  "send": "Send my message",
+  "reset": "Reset",
+  "please-enter-your-name": "Please enter your name",
+  "please-enter-a-valid-email-address": "Please enter a valid email address",
+  "please-enter-the-content-of-your-message": "Please enter the content of your message",
+  "oh-my-god-a-bot!": "Oh my god a Bot!",
+  "thank-you-for-contact": "Thank you for having contacted me. I will reply you as soon as possible.",
+  "an-error-occurred-while-sending": "Oops! An error occurred while sending your message, thank you to try again later.",
+  "email-subject": "Email Subject",	
+  "smtp-options": "Please fill in the following values if you want to send messages by a smtp account.",
+  "smtp-host": "SMTP Host",
+  "smtp-port": "SMTP Port",
+  "smtp-username": "SMTP Username",
+  "smtp-password": "SMTP Password"
+}
