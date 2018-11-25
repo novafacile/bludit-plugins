@@ -5,8 +5,8 @@
  *  @package Bludit
  *  @subpackage Plugins
  *  @author novafacile OÜ
- *  @version 1.0
- *  @release 2018-10-07
+ *  @version 1.0.1
+ *  @release 2018-11-25
  *  @info plugin based on contact plugin by Frédéric K (http://flatboard.free.fr)
  *
  */
