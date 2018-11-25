@@ -210,7 +210,7 @@ class pluginContact3 extends Plugin {
       $this->senderName =  trim(strip_tags($_POST['name']));
     }
     if(isset($_POST['email'])) {
-      $this->senderEmail =  trim(preg_replace("/[^0-9a-zA-ZäöüÄÖÜÈèÉéÂâáÁàÀíÍìÌâÂ@ -\+\_\.]/", " ", $_POST['email']));
+      $this->senderEmail =  trim(preg_replace("/[^0-9a-zA-ZäöüÄÖÜÈèÉéÂâáÁàÀíÍìÌâÂ@ \-\+\_\.]/", " ", $_POST['email']));
     }
     if(isset($_POST['message'])){
       $this->message = nl2br(trim(strip_tags($_POST['message'])));
