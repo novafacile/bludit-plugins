@@ -8,7 +8,7 @@
 
 ## Support
 - Forum: https://forum.bludit.com
-- Bug Rports: https://github.com/novafacile/bludit-plugins/issues
+- Bug Reports: https://github.com/novafacile/bludit-plugins/issues
 
 ## Get a Plugin
 
