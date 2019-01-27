@@ -12,9 +12,9 @@
   "static-pages" : "Pages statiques",
   "the-list-is-based-only-on-published-content" : "La liste est basé uniquement sur du contenu publié. Le formulaire de contact se positionnera en dessous de celui-ci.",
   "new-contact-from": "Nouveau contact",
-  "name": "Nom :",
-  "email": "Email :",
-  "message": "Message :",
+  "your-name": "Nom :",
+  "your-email": "Email :",
+  "your-message": "Message :",
   "send": "Envoyer mon message",
   "reset": "Réinitialiser",
   "please-enter-your-name": "Veuillez saisir votre nom",
@@ -28,5 +28,10 @@
   "smtp-host": "Hôte SMTP :",
   "smtp-port": "Port SMTP :",
   "smtp-username": "Nom d’utilisateur SMTP :",
-  "smtp-password": "Mot de passe SMTP :"
+  "smtp-password": "Mot de passe SMTP :",
+  "anti-spam-info": "Enables Google reCAPTCHA v2 in contact form. Before activation, you need to register your website at <a href='https://www.google.com/recaptcha' target='_blank'>Google reCaptcha</a>.<br>Choose Version 2. <i>Site Key</i> and <i>Secret Key</i> are required.",
+  "activate-google-recaptcha-v2": "Google reCAPTCHA v2",
+  "recaptcha-website-key": "reCAPTCHA: Site Key",
+  "recaptcha-secret-key": "reCAPTCHA: Secret Key",
+  "please-check-that-you-are-not-a-robot": "Activez la case à cocher &quot;Je ne suis pas un robot&quot;."
 }
