@@ -1,0 +1,32 @@
+{
+  "plugin-data":
+  {
+    "name": "Contact3",
+    "description": "Voeg een contactformulier toe aan Bludit, met de mogelijkheid om een eigen sjabloon te gebruiken."
+  },
+  "contact": "Contact",
+  "select-a-content": "Kies gekoppelde inhoud",
+  "content-type": "Opmaak e-mail",
+  "html": "HTML",
+  "text": "Platte tekst",	
+  "static-pages" : "Statische pagina's",
+  "the-list-is-based-only-on-published-content" : "Deze lijst is gebaseerd op de gepubliceerde inhoud. Het contactformulier zal onder de inhoud worden getoond.",
+  "new-contact-from": "Nieuw bericht",
+  "name": "Naam:",
+  "email": "E-mail:",
+  "message": "Uw bericht:",
+  "send": "Versturen",
+  "reset": "Resetten",
+  "please-enter-your-name": "Voer uw naam in",
+  "please-enter-a-valid-email-address": "Voer een geldig e-mailadres in",
+  "please-enter-the-content-of-your-message": "Voer uw vraag of opmerking in",
+  "oh-my-god-a-bot!": "Bot gedetecteerd!",
+  "thank-you-for-contact": "Bedankt voor uw bericht! Ik zal zo spoedig mogelijk reageren.",
+  "an-error-occurred-while-sending": "Fout opgetreden bij het verzenden van uw bericht. Probeer het later nog eens.",
+  "email-subject": "Onderwerp e-mail",
+  "smtp-options": "Vul de volgende velden in als de berichten via een SMTP-server moeten worden verzonden.",
+  "smtp-host": "SMTP-hostnaam",
+  "smtp-port": "Poort",
+  "smtp-username": "Gebruikersnaam",
+  "smtp-password": "Wachtwoord"
+}
