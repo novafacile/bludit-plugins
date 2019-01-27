@@ -17,6 +17,7 @@ class pluginContact3 extends Plugin {
   private $message = '';
   private $success = false;
   private $error = false;
+  private $reCaptchaResult = false;
 
 	// install plugin
   public function init() {
@@ -28,7 +29,10 @@ class pluginContact3 extends Plugin {
       'smtphost' => '',
       'smtpport' => '',
       'username' => '',
-      'password' => ''
+      'password' => '',
+      'google-recaptcha' => '',
+      'recaptcha-site-key' => '',
+      'recaptcha-secret-key' => '',
     );
   }
 
@@ -50,7 +54,7 @@ class pluginContact3 extends Plugin {
 
     // email
     $html .= '<div>';
-    $html .= '<label>'.$L->get('email').'</label>';
+    $html .= '<label>'.$L->get('Your Email').'</label>';
     $html .= '<input id="jsemail" name="email" type="text" class="form-control" value="'.$this->getValue('email').'">';
     $html .= '</div>'.PHP_EOL;
 
@@ -68,7 +72,7 @@ class pluginContact3 extends Plugin {
 
     // select email type
     $html .= '<div>';
-    $html .= '<label>'.$L->get('content-type').'</label>';
+    $html .= '<label>'.$L->get('Content Type').'</label>';
     $html .= '<select name="type">'.PHP_EOL;
     $html .= '<option value="text" '.($this->getValue('type')=='text'?'selected':'').'>'.$L->get('text').'</option>'.PHP_EOL;
     $html .= '<option value="html" '.($this->getValue('type')=='html'?'selected':'').'>'.$L->get('html').'</option>'.PHP_EOL;
@@ -77,7 +81,7 @@ class pluginContact3 extends Plugin {
 
     // email Subject
     $html .= '<div>';
-    $html .= '<label>'.$L->get('email-subject').'</label>';
+    $html .= '<label>'.$L->get('Email Subject').'</label>';
     $html .= '<input name="subject" type="text" class="form-control" value="'.$this->getValue('subject').'">';
     $html .= '</div>'.PHP_EOL;
 
@@ -93,27 +97,58 @@ class pluginContact3 extends Plugin {
 
     // SMTP Host
     $html .= '<div>';
-    $html .= '<label>'.$L->get('smtp-host').'</label>';
+    $html .= '<label>'.$L->get('SMTP Host').'</label>';
     $html .= '<input name="smtphost" type="text" class="form-control" value="'.$this->getValue('smtphost').'">';
     $html .= '</div>'.PHP_EOL;
 
     // SMTP Port
     $html .= '<div>';
-    $html .= '<label>'.$L->get('smtp-port').'</label>';
+    $html .= '<label>'.$L->get('SMTP Port').'</label>';
     $html .= '<input name="smtpport" type="text" class="form-control" value="'.$this->getValue('smtpport').'">';
     $html .= '</div>'.PHP_EOL;
 
     // SMTP Username
     $html .= '<div>';
-    $html .= '<label>'.$L->get('smtp-username').'</label>';
+    $html .= '<label>'.$L->get('SMTP Username').'</label>';
     $html .= '<input name="username" type="text" class="form-control" value="'.$this->getValue('username').'">';
     $html .= '</div>'.PHP_EOL;
 
     // SMTP Password
     $html .= '<div>';
-    $html .= '<label>'.$L->get('smtp-password').'</label>';
+    $html .= '<label>'.$L->get('SMTP Password').'</label>';
     $html .= '<input name="password" type="password" class="form-control" value="'.$this->getValue('password').'">';
     $html .= '</div>'.PHP_EOL;
+
+    
+    $html .= '<br><br>';
+
+
+    // Google reCaptcha v2
+    $html .= '<h4>Spam Protection</h4>';
+    $html .= $L->get('anti-spam-info');
+
+    // activate reCaptcha
+    $html .= '<div>';
+    $html .= '<label>'.$L->get('Google reCAPTCHA v2').'</label>';
+    $html .= '<select name="google-recaptcha">'.PHP_EOL;
+    $html .= '<option value="false" '.($this->getValue('google-recaptcha')==false?'selected':'').'>'.$L->get('deactivate').'</option>'.PHP_EOL;
+    $html .= '<option value="true" '.($this->getValue('google-recaptcha')==true?'selected':'').'>'.$L->get('activate').'</option>'.PHP_EOL;
+    $html .= '</select>';
+    $html .= '</div>'.PHP_EOL;
+
+    // website key
+    $html .= '<div>';
+    $html .= '<label>'.$L->get('reCaptcha Website Key').'</label>';
+    $html .= '<input name="recaptcha-site-key" type="text" class="form-control" value="'.$this->getValue('recaptcha-site-key').'">';
+    $html .= '</div>'.PHP_EOL;
+
+    // secret key
+    $html .= '<div>';
+    $html .= '<label>'.$L->get('reCaptcha Secret Key').'</label>';
+    $html .= '<input name="recaptcha-secret-key" type="text" class="form-control" value="'.$this->getValue('recaptcha-secret-key').'">';
+    $html .= '</div>'.PHP_EOL;
+
+    $html .= '<br><br>';
 
     // output
     $html .= '<br><br>';
@@ -126,12 +161,18 @@ class pluginContact3 extends Plugin {
   public function siteHead() {
     $webhook = $this->getValue('page');
     if($this->webhook($webhook)) {
+      $html = '';
       $css = THEME_DIR_CSS . 'contact3.css';
       if(file_exists($css)) {
-        $html = Theme::css('css' . DS . 'contact.css');
+        $html .= Theme::css('css' . DS . 'contact.css');
       } else {
-        $html = '<link rel="stylesheet" href="' .$this->htmlPath(). 'layout' . DS . 'contact3.css">' .PHP_EOL;
+        $html .= '<link rel="stylesheet" href="' .$this->htmlPath(). 'layout' . DS . 'contact3.css">' .PHP_EOL;
       }
+
+      if($this->getValue('google-recaptcha')){
+        $html .= '<script src="https://www.google.com/recaptcha/api.js"></script>';
+      }
+
       return $html;
     }
 	} 
@@ -145,6 +186,9 @@ class pluginContact3 extends Plugin {
       // send email if submit 
       if(isset($_POST['submit'])) {
 
+
+        $this->reCaptchaResult = $this->googleRecaptchaValidation();
+
         // get post paramaters
         $this->readPost();
         $this->error = $this->validatePost();
@@ -155,7 +199,6 @@ class pluginContact3 extends Plugin {
           // fake success for bot
           $this->success = true;
         }
-
 
         // if no error until now, then create and send email
         if(!$this->error){
@@ -179,17 +222,28 @@ class pluginContact3 extends Plugin {
   }
 
 
+  public function googleRecaptchaForm(){
+    if($this->getValue('google-recaptcha')){
+      return $html = '<div class="g-recaptcha" data-sitekey="'.$this->getValue('recaptcha-site-key').'"></div>';
+    } else {
+      return;
+    }
+  }
+
 
 /****
  * private functions
  *****/
 
   private function isBot(){
+    $bot = false;
+    
+    // check interested checkbox (simple honey pot)
     if(isset($_POST['interested'])) {
-      return true;
-    } else {
-      return false;
+      $bot = true;
     }
+    // return bot status
+    return $bot;
   }
 
 
@@ -225,6 +279,9 @@ class pluginContact3 extends Plugin {
       $error = $L->get('Please enter a valid email address');
     elseif(trim($this->message)==='')
       $error = $L->get('Please enter the content of your message');
+    elseif(!$this->reCaptchaResult){
+      $error = $L->get('Please check that you are not a robot');
+    }
     else
       $error = false;
     return $error;
@@ -352,8 +409,19 @@ class pluginContact3 extends Plugin {
       include($template);
     } else {
       include(__DIR__ . DS . 'layout' . DS . 'contact3.php');
-    }
-
-        
+    }   
   }
+
+  private function googleRecaptchaValidation(){
+    if($this->getValue('google-recaptcha')){
+      $secretKey = $this->getValue('recaptcha-secret-key');
+      $json = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secretKey.'&response='.$_POST['g-recaptcha-response']);
+      $data = json_decode($json);
+      return $data->success;
+    } else {
+      return true;
+    }
+  }
+
+
 }

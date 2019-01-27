@@ -12,9 +12,9 @@
   "static-pages" : "Statische Seiten",
   "the-list-is-based-only-on-published-content" : "Es verden nur veröffentlichte Inhalte angezeigt. Das Kontaktformular wird unter dem Inhalt eingefügt.",
   "new-contact-from": "Neue Nachricht",
-  "name": "Name",
-  "email": "E-Mail",
-  "message": "Mitteilung",
+  "your-name": "Name",
+  "your-email": "E-Mail",
+  "your-message": "Mitteilung",
   "send": "Senden",
   "reset": "Zurücksetzen",
   "please-enter-your-name": "Geben Sie bitte Ihren Namen ein.",
@@ -28,5 +28,10 @@
   "smtp-host": "SMTP Host",
   "smtp-port": "SMTP Port",
   "smtp-username": "SMTP Benutzername",
-  "smtp-password": "SMTP Passwort"
+  "smtp-password": "SMTP Passwort",
+  "anti-spam-info": "Aktiviert Google reCAPTCHA v2 im Formular. Vor Aktivierung ist eine Registrierung der Website bei <a href='https://www.google.com/recaptcha' target='_blank'>Google reCaptcha</a> notwendig.<br>Wähle Version 2. Es werden <i>Websiteschlüssel</i> und <i>Geheimer Schlüssel</i> benötigt.",
+  "activate-google-recaptcha-v2": "Google reCAPTCHA v2",
+  "recaptcha-website-key": "reCAPTCHA: Websiteschlüssel",
+  "recaptcha-secret-key": "reCAPTCHA: Geheimer Schlüssel",
+  "please-check-that-you-are-not-a-robot": "Bitte setzen Sie den Haken bei &quot;Ich bin kein Roboter&quot;."
 }

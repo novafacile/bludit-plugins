@@ -12,9 +12,9 @@
   "static-pages" : "Statik sayfalar",
   "the-list-is-based-only-on-published-content" : "Liste yalnızca yayınlanmış içeriğe dayanmaktadır. İletişim formu bunun altına yerleştirilecektir.",
   "new-contact-from": "Yeni iletişim",
-  "name": "Ad:",
-  "email": "Email:",
-  "message": "Mesaj:",
+  "your-name": "Ad:",
+  "your-email": "Email:",
+  "your-message": "Mesaj:",
   "send": "Gönder",
   "reset": "Sıfırla",
   "please-enter-your-name": "Lütfen adınızı giriniz",
@@ -28,5 +28,10 @@
   "smtp-host": "SMTP Host",
   "smtp-port": "SMTP Port",
   "smtp-username": "SMTP Username",
-  "smtp-password": "SMTP Password"
+  "smtp-password": "SMTP Password",
+  "anti-spam-info": "Enables Google reCAPTCHA v2 in contact form. Before activation, you need to register your website at <a href='https://www.google.com/recaptcha' target='_blank'>Google reCaptcha</a>.<br>Choose Version 2. <i>Site Key</i> and <i>Secret Key</i> are required.",
+  "activate-google-recaptcha-v2": "Google reCAPTCHA v2",
+  "recaptcha-website-key": "reCAPTCHA: Site Key",
+  "recaptcha-secret-key": "reCAPTCHA: Secret Key",
+  "please-check-that-you-are-not-a-robot": "Lütfen  &quot;Ben robot değilim&quot; onay kutusunu etkinleştirin."
 }

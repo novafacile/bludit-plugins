@@ -12,9 +12,9 @@
   "static-pages" : "Static pages",
   "the-list-is-based-only-on-published-content" : "The list is based only on published content. The contact form will be positioned below it.",
   "new-contact-from": "New Message",
-  "name": "Name:",
-  "email": "Email:",
-  "message": "Message:",
+  "your-name": "Name:",
+  "your-email": "Email:",
+  "your-message": "Message:",
   "send": "Send my message",
   "reset": "Reset",
   "please-enter-your-name": "Please enter your name",
@@ -28,5 +28,10 @@
   "smtp-host": "SMTP Host",
   "smtp-port": "SMTP Port",
   "smtp-username": "SMTP Username",
-  "smtp-password": "SMTP Password"
+  "smtp-password": "SMTP Password",
+  "anti-spam-info": "Enables Google reCAPTCHA v2 in contact form. Before activation, you need to register your website at <a href='https://www.google.com/recaptcha' target='_blank'>Google reCaptcha</a>.<br>Choose Version 2. <i>Site Key</i> and <i>Secret Key</i> are required.",
+  "activate-google-recaptcha-v2": "Google reCAPTCHA v2",
+  "recaptcha-website-key": "reCAPTCHA: Site Key",
+  "recaptcha-secret-key": "reCAPTCHA: Secret Key",
+  "please-check-that-you-are-not-a-robot": "Please activate the checkbox &quot;I'm not a robot&quot;."
 }

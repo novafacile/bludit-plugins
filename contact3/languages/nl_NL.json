@@ -12,9 +12,9 @@
   "static-pages" : "Statische pagina's",
   "the-list-is-based-only-on-published-content" : "Deze lijst is gebaseerd op de gepubliceerde inhoud. Het contactformulier zal onder de inhoud worden getoond.",
   "new-contact-from": "Nieuw bericht",
-  "name": "Naam:",
-  "email": "E-mail:",
-  "message": "Uw bericht:",
+  "your-name": "Naam:",
+  "your-email": "E-mail:",
+  "your-message": "Uw bericht:",
   "send": "Versturen",
   "reset": "Resetten",
   "please-enter-your-name": "Voer uw naam in",
@@ -28,5 +28,10 @@
   "smtp-host": "SMTP-hostnaam",
   "smtp-port": "Poort",
   "smtp-username": "Gebruikersnaam",
-  "smtp-password": "Wachtwoord"
+  "smtp-password": "Wachtwoord",
+  "anti-spam-info": "Enables Google reCAPTCHA v2 in contact form. Before activation, you need to register your website at <a href='https://www.google.com/recaptcha' target='_blank'>Google reCaptcha</a>.<br>Choose Version 2. <i>Site Key</i> and <i>Secret Key</i> are required.",
+  "activate-google-recaptcha-v2": "Google reCAPTCHA v2",
+  "recaptcha-website-key": "reCAPTCHA: Site Key",
+  "recaptcha-secret-key": "reCAPTCHA: Secret Key",
+  "please-check-that-you-are-not-a-robot": "Activeer het hokje &quot;Ik ben geen robot&quot;."
 }
