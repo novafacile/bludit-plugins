@@ -29,9 +29,9 @@
   "smtp-port": "Port SMTP :",
   "smtp-username": "Nom d’utilisateur SMTP :",
   "smtp-password": "Mot de passe SMTP :",
-  "anti-spam-info": "Enables Google reCAPTCHA v2 in contact form. Before activation, you need to register your website at <a href='https://www.google.com/recaptcha' target='_blank'>Google reCaptcha</a>.<br>Choose Version 2. <i>Site Key</i> and <i>Secret Key</i> are required.",
+  "anti-spam-info": "Autorise le reCAPTCHA v2 de Google dans un formulaire de contact. Avant de l'activer, vous devez enregistrer votre site web sur <a href='https://www.google.com/recaptcha' target='_blank'>Google reCaptcha</a>.<br>Choisissez la version 2. <i>Clef du site</i> et<i>clé secrète</i> sont obligatoires.",
   "activate-google-recaptcha-v2": "Google reCAPTCHA v2",
-  "recaptcha-website-key": "reCAPTCHA: Site Key",
-  "recaptcha-secret-key": "reCAPTCHA: Secret Key",
-  "please-check-that-you-are-not-a-robot": "Activez la case à cocher &quot;Je ne suis pas un robot&quot;."
+  "recaptcha-website-key": "reCAPTCHA: clef du site",
+  "recaptcha-secret-key": "reCAPTCHA: clef secrète",
+  "please-check-that-you-are-not-a-robot": "Cochez la case &quot;Je ne suis pas un robot&quot;."
 }
