@@ -139,13 +139,13 @@ class pluginContact3 extends Plugin {
     // website key
     $html .= '<div>';
     $html .= '<label>'.$L->get('reCaptcha Website Key').'</label>';
-    $html .= '<input name="recaptcha-site-key" type="text" class="form-control" value="'.$this->getValue('recaptcha-site-key').'">';
+    $html .= '<input name="recaptcha-site-key" type="text" class="form-control" value="'.$this->getValue('recaptcha-site-key').'" autocomplete="off">';
     $html .= '</div>'.PHP_EOL;
 
     // secret key
     $html .= '<div>';
     $html .= '<label>'.$L->get('reCaptcha Secret Key').'</label>';
-    $html .= '<input name="recaptcha-secret-key" type="text" class="form-control" value="'.$this->getValue('recaptcha-secret-key').'">';
+    $html .= '<input name="recaptcha-secret-key" type="text" class="form-control" value="'.$this->getValue('recaptcha-secret-key').'" autocomplete="off">';
     $html .= '</div>'.PHP_EOL;
 
     $html .= '<br><br>';
@@ -302,13 +302,13 @@ class pluginContact3 extends Plugin {
   private function getEmailText(){
     global $L;
     if($this->isHtml()) {
-      $emailText  = '<b>'.$L->get('Name').': </b>'.$this->senderName.'<br>';
-      $emailText .= '<b>'.$L->get('Email').': </b>'.$this->senderEmail.'<br>';
-      $emailText .= '<b>'.$L->get('Message').': </b><br>'.$this->message.'<br>';
+      $emailText  = '<b>'.$L->get('Your Name').': </b>'.$this->senderName.'<br>';
+      $emailText .= '<b>'.$L->get('Your Email').': </b>'.$this->senderEmail.'<br>';
+      $emailText .= '<b>'.$L->get('Your Message').': </b><br>'.$this->message.'<br>';
     } else {
-      $emailText  = $L->get('Name').': '.$this->senderName."\r\n\r";
-      $emailText .= $L->get('Email').': '.$this->senderEmail."\r\n\r";
-      $emailText .= $L->get('Message').': '."\r\n".$this->message."\r\n\r";
+      $emailText  = $L->get('Your Name').': '.$this->senderName."\r\n\r";
+      $emailText .= $L->get('Your Email').': '.$this->senderEmail."\r\n\r";
+      $emailText .= $L->get('Your Message').': '."\r\n".$this->message."\r\n\r";
     }
     return $emailText;
   }
