@@ -8,7 +8,7 @@
   "select-a-content": "Select a content",
   "content-type": "Content type",
   "html": "HTML format",
-  "text": "TEXT format",  
+  "text": "TEXT format",
   "static-pages" : "Static pages",
   "the-list-is-based-only-on-published-content" : "The list is based only on published content. The contact form will be positioned below it.",
   "new-contact-from": "New Message",
@@ -23,7 +23,7 @@
   "oh-my-god-a-bot!": "Oh my god a Bot!",
   "thank-you-for-contact": "Thank you for having contacted me. I will reply you as soon as possible.",
   "an-error-occurred-while-sending": "Oops! An error occurred while sending your message, thank you to try again later.",
-  "email-subject": "Email Subject", 
+  "email-subject": "Email Subject",
   "smtp-options": "Please fill in the following values if you want to send messages by a smtp account.",
   "smtp-host": "SMTP Host",
   "smtp-port": "SMTP Port",
@@ -37,5 +37,5 @@
   "yes": "Yes",
   "No": "No",
   "use-own-email-as-sender": "Use own email as sender",
-  "activate-if-having-trouble-to-receive-email": "Activate this if you have some trouble to receive the email."
+  "activate-if-having-trouble-to-receive-email": "Activate this if you have some trouble receiving the email."
 }
