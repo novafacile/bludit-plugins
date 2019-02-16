@@ -8,7 +8,7 @@
   "select-a-content": "Kies gekoppelde inhoud",
   "content-type": "Opmaak e-mail",
   "html": "HTML",
-  "text": "Platte tekst",	
+  "text": "Platte tekst",
   "static-pages" : "Statische pagina's",
   "the-list-is-based-only-on-published-content" : "Deze lijst is gebaseerd op de gepubliceerde inhoud. Het contactformulier zal onder de inhoud worden getoond.",
   "new-contact-from": "Nieuw bericht",
@@ -33,9 +33,9 @@
   "activate-google-recaptcha-v2": "Google reCAPTCHA v2",
   "recaptcha-website-key": "reCAPTCHA: Site Key",
   "recaptcha-secret-key": "reCAPTCHA: Secret Key",
-  "please-check-that-you-are-not-a-robot": "Activeer het hokje &quot;Ik ben geen robot&quot;.",
+  "please-check-that-you-are-not-a-robot": "Zet een vinkje bij &quot;Ik ben geen robot&quot;.",
   "yes": "Ja",
-  "No": "Nee",
-  "use-own-email-as-sender": "Use own email as sender",
-  "activate-if-having-trouble-to-receive-email": "Activate this if you have some trouble to receive the email."
+  "no": "Nee",
+  "use-own-email-as-sender": "Gebruik eigen e-mailadres als afzender",
+  "activate-if-having-trouble-to-receive-email": "Kies deze optie indien er geen e-mail wordt ontvangen."
 }

@@ -35,7 +35,7 @@
   "recaptcha-secret-key": "reCAPTCHA: clef secrète",
   "please-check-that-you-are-not-a-robot": "Cochez la case &quot;Je ne suis pas un robot&quot;.",
   "yes": "Oui",
-  "No": "Non",
+  "no": "Non",
   "use-own-email-as-sender": "Use own email as sender",
   "activate-if-having-trouble-to-receive-email": "Activate this if you have some trouble to receive the email."
 }
