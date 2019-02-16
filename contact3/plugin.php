@@ -19,12 +19,12 @@ class pluginContact3 extends Plugin {
   private $error = false;
   private $reCaptchaResult = false;
 
-	// install plugin
+  // install plugin
   public function init() {
     $this->dbFields = array(
-      'email'	=> '',		// <= Your contact email
-      'page'	=> '',		// <= Slug url of contact page
-      'type'	=> 'text',	// <= True = HTML or False for text mail format
+      'email' => '',    // <= Your contact email
+      'page'  => '',    // <= Slug url of contact page
+      'type'  => 'text',  // <= True = HTML or False for text mail format
       'subject' => '', // subject for email (optional)
       'smtphost' => '',
       'smtpport' => '',
@@ -33,10 +33,11 @@ class pluginContact3 extends Plugin {
       'google-recaptcha' => '',
       'recaptcha-site-key' => '',
       'recaptcha-secret-key' => '',
+      'email-as-sender' => false,
     );
   }
 
-	// config form
+  // config form
   public function form() {
     global $L, $staticPages;
 
@@ -58,13 +59,24 @@ class pluginContact3 extends Plugin {
     $html .= '<input id="jsemail" name="email" type="text" class="form-control" value="'.$this->getValue('email').'">';
     $html .= '</div>'.PHP_EOL;
 
+    // own email as sender
+    $html .= '<div>';
+    $html .= '<label>'.$L->get('Use own email as sender').'</label>';
+    $html .= '<select name="email-as-sender">'.PHP_EOL;
+    $html .= '<option value="false" '.($this->getValue('email-as-sender')==false?'selected':'').'>'.$L->get('No').'</option>'.PHP_EOL;
+    $html .= '<option value="true" '.($this->getValue('email-as-sender')==true?'selected':'').'>'.$L->get('Yes').'</option>'.PHP_EOL;
+    $html .= '</select>';
+    $html .= '<span class="tip">'.$L->get('Activate if having trouble to receive email').'</span>';
+    $html .= '</div>'.PHP_EOL;
+
+
     // select static page
     $html .= '<div>';
     $html .= '<label>'.$L->get('Select a content').'</label>';
     $html .= '<select name="page">'.PHP_EOL;
     $html .= '<option value="">- '.$L->get('static-pages').' -</option>'.PHP_EOL;
     foreach ($pageOptions as $key => $value) {
-    	$html .= '<option value="'.$key.'" '.($this->getValue('page')==$key?'selected':'').'>'.$value.'</option>'.PHP_EOL;
+      $html .= '<option value="'.$key.'" '.($this->getValue('page')==$key?'selected':'').'>'.$value.'</option>'.PHP_EOL;
     }
     $html .= '</select>';
     $html .= '<span class="tip">'.$L->get('the-list-is-based-only-on-published-content').'</span>';
@@ -154,7 +166,7 @@ class pluginContact3 extends Plugin {
     $html .= '<br><br>';
     return $html;
 
-	}
+  }
 
 
   // Load CSS for contact form
@@ -175,7 +187,7 @@ class pluginContact3 extends Plugin {
 
       return $html;
     }
-	} 
+  } 
 
 
   // Load contact form and send email
@@ -333,8 +345,13 @@ class pluginContact3 extends Plugin {
     $success = false;
 
     // email headers
-    $email_headers  = "From: ".$this->senderName." <".$this->senderEmail.">\r\n";
-    $email_headers .= "Reply-To: ".$this->senderEmail."\r\n";
+    if($this->getValue('email-as-sender')){
+      $email_headers  = "From: ".$this->getValue('email')." <".$this->senderEmail.">\r\n";
+      $email_headers .= "Reply-To: ".$this->senderName." <".$this->senderEmail.">\r\n";
+    } else {
+      $email_headers  = "From: ".$this->senderName." <".$this->senderEmail.">\r\n";
+    }
+
     $email_headers .= 'MIME-Version: 1.0' ."\r\n";
 
     if($this->isHtml()){
@@ -376,7 +393,12 @@ class pluginContact3 extends Plugin {
       $mail->CharSet = CHARSET;
       $mail->isHTML($this->isHTML());
 
-      $mail->setFrom($this->senderEmail, $this->senderName);
+      if($this->getValue('email-as-sender')){
+        $mail->setFrom($this->getValue('email'));
+        $mail->addReplyTo($this->senderEmail, $this->senderName);
+      } else {
+        $mail->setFrom($this->senderEmail, $this->senderName);  
+      }
       $mail->addAddress($this->getValue('email'));
       $mail->Subject = $this->getSubject();
       $mail->Body = $this->getEmailText();

@@ -33,5 +33,9 @@
   "activate-google-recaptcha-v2": "Google reCAPTCHA v2",
   "recaptcha-website-key": "reCAPTCHA: Websiteschlüssel",
   "recaptcha-secret-key": "reCAPTCHA: Geheimer Schlüssel",
-  "please-check-that-you-are-not-a-robot": "Bitte setzen Sie den Haken bei &quot;Ich bin kein Roboter&quot;."
+  "please-check-that-you-are-not-a-robot": "Bitte setzen Sie den Haken bei &quot;Ich bin kein Roboter&quot;.",
+  "yes": "Ja",
+  "no": "Nein",
+  "use-own-email-as-sender": "Eigene E-Mail-Adresse als Absender verwenden",
+  "activate-if-having-trouble-to-receive-email": "Aktivieren Sie diese Funktion, wenn Sie Probleme beim Empfang der E-Mail haben."
 }
