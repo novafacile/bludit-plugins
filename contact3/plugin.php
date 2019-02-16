@@ -267,7 +267,7 @@ class pluginContact3 extends Plugin {
       $this->senderEmail =  trim(preg_replace("/[^0-9a-zA-ZäöüÄÖÜÈèÉéÂâáÁàÀíÍìÌâÂ@ \-\+\_\.]/", " ", $_POST['email']));
     }
     if(isset($_POST['message'])){
-      $this->message = nl2br(trim(strip_tags($_POST['message'])));
+      $this->message = trim(strip_tags($_POST['message']));
     }
   }
 
@@ -304,7 +304,7 @@ class pluginContact3 extends Plugin {
     if($this->isHtml()) {
       $emailText  = '<b>'.$L->get('Your Name').': </b>'.$this->senderName.'<br>';
       $emailText .= '<b>'.$L->get('Your Email').': </b>'.$this->senderEmail.'<br>';
-      $emailText .= '<b>'.$L->get('Your Message').': </b><br>'.$this->message.'<br>';
+      $emailText .= '<b>'.$L->get('Your Message').': </b><br>'.nl2br($this->message).'<br>';
     } else {
       $emailText  = $L->get('Your Name').': '.$this->senderName."\r\n\r";
       $emailText .= $L->get('Your Email').': '.$this->senderEmail."\r\n\r";
