@@ -35,7 +35,7 @@
   "recaptcha-secret-key": "reCAPTCHA: Secret Key",
   "please-check-that-you-are-not-a-robot": "Please activate the checkbox &quot;I'm not a robot&quot;.",
   "yes": "Yes",
-  "No": "No",
+  "no": "No",
   "use-own-email-as-sender": "Use own email as sender",
   "activate-if-having-trouble-to-receive-email": "Activate this if you have some trouble receiving the email."
 }

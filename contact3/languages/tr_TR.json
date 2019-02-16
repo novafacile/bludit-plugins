@@ -35,7 +35,7 @@
   "recaptcha-secret-key": "reCAPTCHA: Secret Key",
   "please-check-that-you-are-not-a-robot": "Lütfen  &quot;Ben robot değilim&quot; onay kutusunu etkinleştirin.",
   "yes": "Evet",
-  "No": "Hayır",
+  "no": "Hayır",
   "use-own-email-as-sender": "Use own email as sender",
   "activate-if-having-trouble-to-receive-email": "Activate this if you have some trouble to receive the email."
 }

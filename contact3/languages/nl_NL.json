@@ -35,7 +35,7 @@
   "recaptcha-secret-key": "reCAPTCHA: Secret Key",
   "please-check-that-you-are-not-a-robot": "Zet een vinkje bij &quot;Ik ben geen robot&quot;.",
   "yes": "Ja",
-  "No": "Nee",
+  "no": "Nee",
   "use-own-email-as-sender": "Gebruik eigen e-mailadres als afzender",
   "activate-if-having-trouble-to-receive-email": "Kies deze optie indien er geen e-mail wordt ontvangen."
 }
