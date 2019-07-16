@@ -14,6 +14,7 @@
   "new-contact-from": "Nouveau contact",
   "your-name": "Nom",
   "your-email": "Email",
+  "your-email-tip": "Ceci est l'adresse à laquelle vous voulez que l'email soit envoyé.",
   "your-message": "Message",
   "send": "Envoyer mon message",
   "reset": "RÃ©initialiser",
@@ -23,6 +24,7 @@
   "oh-my-god-a-bot!": "Oh mon dieu un Bot ! :)",
   "thank-you-for-contact": "Merci de mâ€™avoir contactÃ©. Je vous rÃ©pondrai le plus rapidement possible.",
   "an-error-occurred-while-sending": "Oopsâ€‰! Une erreur est survenue pendant lâ€™envoi de votre message, merci de rÃ©essayer ultÃ©rieurement.",
+  "last-error": "La dernière erreur était",
   "email-subject": "Email Objet",
   "smtp-options": "Veuillez remplir les valeurs suivantes si vous voulez envoyer des messages par un compte SMTP.",
   "smtp-host": "HÃ´te SMTP",
@@ -34,8 +36,11 @@
   "recaptcha-website-key": "reCAPTCHA: clef du site",
   "recaptcha-secret-key": "reCAPTCHA: clef secrÃ¨te",
   "please-check-that-you-are-not-a-robot": "Cochez la case &quot;Je ne suis pas un robot&quot;.",
-  "yes": "Oui",
-  "no": "Non",
-  "use-own-email-as-sender": "Use own email as sender",
-  "activate-if-having-trouble-to-receive-email": "Activate this if you have some trouble to receive the email."
+  "send-from-which-address": "Envoyer de quelle adresse",
+  "send-from-which-address-tip": "Si vous le pouvez, envoyez-le par l'utilisateur, mais certains hôtes insistent pour que le nom de domaine utilisé soit un courrier électronique. Dans le cas contraire, vous préférerez peut-être envoyer le courrier électronique DE votre adresse.",
+  "send-from-user": "Envoyer un email de l'utilisateur",
+  "send-from-to": "Envoyer un email à partir de l'adresse TO (ci-dessus)",
+  "send-from-domain": "Envoyer un email à partir de l'adresse du domaine (ci-dessous)",
+  "domain-email": "votre adresse DE domaine",
+  "domain-email-tip": "Ceci serait une boîte aux lettres active sur votre domaine. Certains hôtes n'autorisent que les courriers électroniques provenant d'une adresse connue."
 }

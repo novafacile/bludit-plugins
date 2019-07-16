@@ -33,7 +33,8 @@ class pluginContact3 extends Plugin {
       'google-recaptcha' => '',
       'recaptcha-site-key' => '',
       'recaptcha-secret-key' => '',
-      'email-as-sender' => false,
+      'sendEmailFrom' => 'fromUser',
+      'domainAddress' => '',
     );
   }
 
@@ -53,22 +54,30 @@ class pluginContact3 extends Plugin {
 
     $html = '';
 
-    // email
+    // TO: email address
     $html .= '<div>';
     $html .= '<label>'.$L->get('Your Email').'</label>';
     $html .= '<input id="jsemail" name="email" type="text" class="form-control" value="'.$this->getValue('email').'">';
+	$html .= '<span class="tip">'.$L->get('your-email-tip').'</span>';
     $html .= '</div>'.PHP_EOL;
 
-    // own email as sender
-    $html .= '<div>';
-    $html .= '<label>'.$L->get('Use own email as sender').'</label>';
-    $html .= '<select name="email-as-sender">'.PHP_EOL;
-    $html .= '<option value="false" '.($this->getValue('email-as-sender')==false?'selected':'').'>'.$L->get('No').'</option>'.PHP_EOL;
-    $html .= '<option value="true" '.($this->getValue('email-as-sender')==true?'selected':'').'>'.$L->get('Yes').'</option>'.PHP_EOL;
-    $html .= '</select>';
-    $html .= '<span class="tip">'.$L->get('Activate if having trouble to receive email').'</span>';
-    $html .= '</div>'.PHP_EOL;
+	// Send from which address
+	$html .= '<div>';
+	$html .= '<label>'.$L->get('send-from-which-address').'</label>';
+	$html .= '<select name="sendEmailFrom">'.PHP_EOL;
+	$html .= '<option value="fromUser" '	.($this->getValue('sendEmailFrom')==='fromUser'?'selected':'').'>'	.$L->get('send-from-user')	.'</option>'.PHP_EOL;
+	$html .= '<option value="fromTo" '		.($this->getValue('sendEmailFrom')==='fromTo'?'selected':'').'>'	.$L->get('send-from-to')	.'</option>'.PHP_EOL;
+	$html .= '<option value="fromDomain" '	.($this->getValue('sendEmailFrom')==='fromDomain'?'selected':'').'>'.$L->get('send-from-domain').'</option>'.PHP_EOL;
+	$html .= '</select>';
+	$html .= '<span class="tip">'.$L->get('send-from-which-address-tip').'</span>';
+	$html .= '</div>'.PHP_EOL;
 
+    // FROM domain email address
+	$html .= '<div>';
+	$html .= '<label>'.$L->get('Domain Email').'</label>';
+	$html .= '<input id="jsdomainFromAddress" name="domainAddress" type="text" class="form-control" value="'	.$this->getValue('domainAddress').'">';
+	$html .= '<span class="tip">'.$L->get('domain-email-tip').'</span>';
+	$html .= '</div>'.PHP_EOL;
 
     // select static page
     $html .= '<div>';
@@ -331,7 +340,7 @@ class pluginContact3 extends Plugin {
     if($this->success) {
       $html = '<div class="alert alert-success">' .$L->get('thank-you-for-contact'). '</div>' ."\r\n";
     } elseif(!is_bool($this->error)) {
-      $html = '<div class="alert alert-danger">' .$this->error. '</div>' ."\r\n";
+      $html = '<div class="alert alert-danger">' .$L->get('an-error-occurred-while-sending').'<br>' . $L->get('last-error').': ' . $this->error. '</div>' ."\r\n";
     } elseif($this->error) {
       $html = '<div class="alert alert-danger">' .$L->get('an-error-occurred-while-sending'). '</div>' ."\r\n";
     } else {
@@ -341,81 +350,116 @@ class pluginContact3 extends Plugin {
   }
 
 
-  private function useSendmail(){
-    $success = false;
+	private function useSendmail(){
+		$success = false;
+		$sendFrom = $this->getValue('sendEmailFrom');
+		$senderName = $this->senderName;
 
-    // email headers
-    if($this->getValue('email-as-sender')){
-      $email_headers  = "From: ".$this->getValue('email')." <".$this->senderEmail.">\r\n";
-      $email_headers .= "Reply-To: ".$this->senderName." <".$this->senderEmail.">\r\n";
-    } else {
-      $email_headers  = "From: ".$this->senderName." <".$this->senderEmail.">\r\n";
-    }
+		// email headers
+		switch ($sendFrom)
+			{
+				case "fromTo":
+					$email_headers	= "From: $senderName <"		. $this->getValue('email')			.">".PHP_EOL;
+					$email_headers .= "Reply-To: $senderName <"	. $this->senderEmail				.">".PHP_EOL;
+					break;
+				case "fromDomain":
+					$email_headers	= "From: $senderName <"		. $this->getValue('domainAddress')	.">".PHP_EOL;
+					$email_headers .= "Reply-To: $senderName <"	. $this->senderEmail				.">".PHP_EOL;
+					break;		
+				default: // fromUser
+					$email_headers	= "From: $senderName <"		. $this->senderEmail				.">".PHP_EOL;
+			}
 
-    $email_headers .= 'MIME-Version: 1.0' ."\r\n";
+		$email_headers .= 'MIME-Version: 1.0' ."\r\n";
 
-    if($this->isHtml()){
-      $email_headers .= 'Content-type: text/html; charset="' .CHARSET. '"' ."\r\n";
-    } else {
-      $email_headers .= 'Content-type: text/plain; charset="' .CHARSET. '"' ."\r\n";
-    }
+		if($this->isHtml()){
+		  $email_headers .= 'Content-type: text/html; charset="' .CHARSET. '"' ."\r\n";
+		} else {
+		  $email_headers .= 'Content-type: text/plain; charset="' .CHARSET. '"' ."\r\n";
+		}
 
-    $email_headers .= 'Content-transfer-encoding: 8bit' ."\r\n";
-    $email_headers .= 'Date: ' .date("D, j M Y G:i:s O")."\r\n"; // Sat, 7 Jun 2001 12:35:58 -0700
+		$email_headers .= 'Content-transfer-encoding: 8bit' ."\r\n";
+		$email_headers .= 'Date: ' .date("D, j M Y G:i:s O")."\r\n"; // Sat, 7 Jun 2001 12:35:58 -0700
 
-    // send email via sendmail
-    $success = mail($this->getValue('email'), $this->getSubject(), $this->getEmailText(), $email_headers);            
-    if(!$success){
-      $this->error = true;
-    }
+		// send email via sendmail
+		$success = mail($this->getValue('email'), $this->getSubject(), $this->getEmailText(), $email_headers);            
 
-    return $success;
-  }
+		if(!$success){
 
+			$errorMessage = error_get_last()['message'];
 
-  private function useSmtp(){
-    $success = false;
-    
-    // load PHPMailer
-    require __DIR__ . DS . 'phpmailer' . DS . 'PHPMailerAutoload.php';
+			if (isset($errorMessage)) {
+				$this->error = $errorMessage;		
+			}
+			else {
+					$this->error = true;
+			}		
+		}
+		return $success;
+	}
 
-    try {
-      $mail = new PHPMailer;
+	private function useSmtp()
+	{
+	$success = false;
+	$sendFrom = $this->getValue('sendEmailFrom');
 
-      $mail->isSMTP();
-      $mail->Host = $this->getValue('smtphost');
-      $mail->Port = $this->getValue('smtpport');
-      $mail->SMTPAuth = true;
-      $mail->Username = $this->getValue('username');
-      #Function is needed if Password contains special characters like &
-      $mail->Password = html_entity_decode($this->getValue('password'));
-      
-      $mail->CharSet = CHARSET;
-      $mail->isHTML($this->isHTML());
+	// load PHPMailer
+	require __DIR__ . DS . 'phpmailer' . DS . 'PHPMailerAutoload.php';
 
-      if($this->getValue('email-as-sender')){
-        $mail->setFrom($this->getValue('email'));
-        $mail->addReplyTo($this->senderEmail, $this->senderName);
-      } else {
-        $mail->setFrom($this->senderEmail, $this->senderName);  
-      }
-      $mail->addAddress($this->getValue('email'));
-      $mail->Subject = $this->getSubject();
-      $mail->Body = $this->getEmailText();
+	try {
+		$mail = new PHPMailer;
 
-      if($mail->send()) {
-        $success = true;
-      } else {
-        $this->error = true;
-      }
-    } catch (phpmailerException $e) {
-      echo $e->errorMessage(); //Pretty error messages from PHPMailer
-    } catch (Exception $e) {
-      echo $e->getMessage(); //Boring error messages from anything else!
-    }
+		$mail->isSMTP();
+		$mail->Host = $this->getValue('smtphost');
+		$mail->Port = $this->getValue('smtpport');
+		$mail->SMTPAuth = true;
+		$mail->Username = $this->getValue('username');
+		#Function is needed if Password contains special characters like &
+		$mail->Password = html_entity_decode($this->getValue('password'));
+		
+		$mail->CharSet = CHARSET;
+		$mail->isHTML($this->isHTML());
 
-    return $success;
-  }
+		switch ($sendFrom) // Set email FROM address
+			{
+				case "fromTo": 
+					$mail->setFrom($this->getValue('email'));
+					$mail->addReplyTo($this->senderEmail, $this->senderName);
+					break;
+				case "fromDomain":
+					$mail->setFrom($this->getValue('domainAddress'));
+					$mail->addReplyTo($this->senderEmail, $this->senderName);
+					break;		
+				default: // fromUser
+					$mail->setFrom($this->senderEmail, $this->senderName); 
+			}
+
+		  $mail->addAddress($this->getValue('email'));
+		  $mail->Subject = $this->getSubject();
+		  $mail->Body = $this->getEmailText();
+
+		if($mail->send()) {
+			$success = true;
+		} 
+		else {
+			$errorMessage = error_get_last()['message'];
+
+			if (isset($errorMessage)) {
+				$this->error = $errorMessage;		
+			}
+			else {
+					$this->error = true;
+			}	
+		}
+	}
+	catch (phpmailerException $e) {
+			echo $e->errorMessage();	//Pretty error messages from PHPMailer
+	}
+		catch (Exception $e) {
+			echo $e->getMessage();		//Boring error messages from anything else!
+		}
+	return $success;
+	}
 
 
   private function clearForm(){
