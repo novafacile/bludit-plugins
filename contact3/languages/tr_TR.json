@@ -39,7 +39,7 @@
   "send-from-which-address": "Hangi adresden FROM gönder",
   "send-from-which-address-tip": "Kullanabiliyorsanız, kullanıcıdan gönderebilir, ancak bazı ana bilgisayarlar bilinen bir etki alanı e-postasında ısrar ediyorlar.",
   "send-from-user": "Kullanıcıdan e-posta gönder",
-  "send-from-to": "SGönder-Gönder": "TO adresinden e-posta gönder (yukarıdaki)",
+  "send-from-to": "Kime adresinden (yukarıda) e-posta gönder.",
   "send-from-domain": "Etki alanı adresinden e-posta gönder (aşağıda)",
   "domain-email": "Etki alanınız FROM adresinizden",
   "domain-email-tip": "Bu, etki alanınızdaki aktif bir posta kutusu olacaktır. Bazı ana bilgisayarlar yalnızca bilinen bir adrese ait e-postalara izin verir."
