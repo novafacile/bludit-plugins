@@ -3,7 +3,7 @@
   {
     "name": "Contact3",
     "description": "Kontaktformular für Bludit 3, das es erlaubt, auch eine eigene Vorlage zu verwenden."
-  },  
+  },
   "contact": "Kontakt",
   "select-a-content": "Wählen Sie eine Seite für das Kontaktformular.",
   "content-type": "Content Type",
@@ -14,6 +14,7 @@
   "new-contact-from": "Neue Nachricht",
   "your-name": "Name",
   "your-email": "E-Mail",
+  "your-email-tip": "Dies ist die Adresse, an die die E-Mail gesendet werden soll.",
   "your-message": "Mitteilung",
   "send": "Senden",
   "reset": "Zurücksetzen",
@@ -23,6 +24,7 @@
   "oh-my-god-a-bot!": "Grundgütiger! Ein Bot!",
   "thank-you-for-contact": "Vielen Dank für Ihre Mitteilung. Ich werde Sie umgehend kontaktieren.",
   "an-error-occurred-while-sending": "Es ist ein Fehler beim Versenden der Mitteilung aufgetreten. Bitte versuchen Sie es später noch einmal.",
+  "last-error": "Der letzte Fehler war",
   "email-subject": "E-Mail-Betreff",
   "smtp-options": "Füllen Sie folgende Felder nur aus, wenn Sie die E-Mails über ein SMTP-E-Mail-Konto versenden möchten.",
   "smtp-host": "SMTP Host",
@@ -34,8 +36,11 @@
   "recaptcha-website-key": "reCAPTCHA: Websiteschlüssel",
   "recaptcha-secret-key": "reCAPTCHA: Geheimer Schlüssel",
   "please-check-that-you-are-not-a-robot": "Bitte setzen Sie den Haken bei &quot;Ich bin kein Roboter&quot;.",
-  "yes": "Ja",
-  "no": "Nein",
-  "use-own-email-as-sender": "Eigene E-Mail-Adresse als Absender verwenden",
-  "activate-if-having-trouble-to-receive-email": "Aktivieren Sie diese Funktion, wenn Sie Probleme beim Empfang der E-Mail haben."
+  "send-from-which-address": "Von welcher Adresse senden",
+  "send-from-which-address-tip": "Wenn Sie k�nnen, senden Sie vom Benutzer, aber einige Hosts bestehen auf einer bekannten Domain-E-Mail. Andernfalls m�chten Sie die E-Mail m�glicherweise von Ihrer Adresse aus senden.",
+  "send-from-user": "E-Mail vom Benutzer senden",
+  "send-from-to": "E-Mail von der TO-Adresse (oben) senden",
+  "send-from-domain": "E-Mail von der Domain-Adresse senden (unten)",
+  "domain-email": "Ihre Domain von Adresse",
+  "domain-email-tip": "Dies ist ein aktives Postfach in Ihrer Domain. Einige Hosts erlauben nur E-Mails von einer bekannten Adresse."
 }
