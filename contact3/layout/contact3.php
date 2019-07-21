@@ -28,6 +28,13 @@
 
 	<input type="checkbox" name="interested">
 
+	<?php if ($this->getValue('gdpr-checkbox')): ?>
+		<div class="form-check">
+			<input type="checkbox" name="gdpr-checkbox" id="gdpr-checkbox" class="form-check-input" required>
+			<label for="gdpr-checkbox" class="form-check-label"><?php echo sanitize::htmlDecode($this->getValue('gdpr-checkbox-text')); ?></label>
+		</div>
+	<?php endif; ?> 	
+
 	<?php echo $this->googleRecaptchaForm(); ?>
 
 	<button id="submit" name="submit" type="submit" class="btn btn-primary"><?php echo $L->get('Send'); ?></button>

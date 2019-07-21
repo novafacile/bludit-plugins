@@ -42,5 +42,10 @@
   "send-from-to": "Verzend e-mail van het TO-adres (hierboven)",
   "send-from-domain": "Stuur een e-mail van het domeinadres (hieronder)",
   "domain-email": "Your domain FROM address",
-  "domain-email-tip": "Dit zou een actieve mailbox in uw domein zijn, sommige hosts laten alleen e-mail vanaf een bekend adres toe."
+  "domain-email-tip": "Dit zou een actieve mailbox in uw domein zijn, sommige hosts laten alleen e-mail vanaf een bekend adres toe.",
+  "gdpr":"GDPR",
+  "gdpr-tip":"Indien nodig kan in het formulier een vinkje met uw eigen juridische tekst worden ingevoegd.<br>De bezoeker moet het vinkje activeren om te verzenden. De juridische tekst wordt ook in de e-mail ingevoegd.",
+  "gdpr-checkbox":"GDPR Checkbox",
+  "gdpr-checkbox-legal-text":"GDPR Checkbox Legal Text",
+  "gdpr-checkbox-text-tip":"HTML is toegestaan"
 }

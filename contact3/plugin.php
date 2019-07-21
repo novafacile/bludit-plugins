@@ -35,6 +35,8 @@ class pluginContact3 extends Plugin {
       'recaptcha-secret-key' => '',
       'sendEmailFrom' => 'fromUser',
       'domainAddress' => '',
+      'gdpr-checkbox' => '',
+      'gdpr-checkbox-text' => ''
     );
   }
 
@@ -58,26 +60,26 @@ class pluginContact3 extends Plugin {
     $html .= '<div>';
     $html .= '<label>'.$L->get('Your Email').'</label>';
     $html .= '<input id="jsemail" name="email" type="text" class="form-control" value="'.$this->getValue('email').'">';
-	$html .= '<span class="tip">'.$L->get('your-email-tip').'</span>';
+    $html .= '<span class="tip">'.$L->get('your-email-tip').'</span>';
     $html .= '</div>'.PHP_EOL;
 
-	// Send from which address
-	$html .= '<div>';
-	$html .= '<label>'.$L->get('send-from-which-address').'</label>';
-	$html .= '<select name="sendEmailFrom">'.PHP_EOL;
-	$html .= '<option value="fromUser" '	.($this->getValue('sendEmailFrom')==='fromUser'?'selected':'').'>'	.$L->get('send-from-user')	.'</option>'.PHP_EOL;
-	$html .= '<option value="fromTo" '		.($this->getValue('sendEmailFrom')==='fromTo'?'selected':'').'>'	.$L->get('send-from-to')	.'</option>'.PHP_EOL;
-	$html .= '<option value="fromDomain" '	.($this->getValue('sendEmailFrom')==='fromDomain'?'selected':'').'>'.$L->get('send-from-domain').'</option>'.PHP_EOL;
-	$html .= '</select>';
-	$html .= '<span class="tip">'.$L->get('send-from-which-address-tip').'</span>';
-	$html .= '</div>'.PHP_EOL;
+    // Send from which address
+    $html .= '<div>';
+    $html .= '<label>'.$L->get('send-from-which-address').'</label>';
+    $html .= '<select name="sendEmailFrom">'.PHP_EOL;
+    $html .= '<option value="fromUser" '	.($this->getValue('sendEmailFrom')==='fromUser'?'selected':'').'>'	.$L->get('send-from-user')	.'</option>'.PHP_EOL;
+    $html .= '<option value="fromTo" '		.($this->getValue('sendEmailFrom')==='fromTo'?'selected':'').'>'	.$L->get('send-from-to')	.'</option>'.PHP_EOL;
+    $html .= '<option value="fromDomain" '	.($this->getValue('sendEmailFrom')==='fromDomain'?'selected':'').'>'.$L->get('send-from-domain').'</option>'.PHP_EOL;
+    $html .= '</select>';
+    $html .= '<span class="tip">'.$L->get('send-from-which-address-tip').'</span>';
+    $html .= '</div>'.PHP_EOL;
 
-    // FROM domain email address
-	$html .= '<div>';
-	$html .= '<label>'.$L->get('Domain Email').'</label>';
-	$html .= '<input id="jsdomainFromAddress" name="domainAddress" type="text" class="form-control" value="'	.$this->getValue('domainAddress').'">';
-	$html .= '<span class="tip">'.$L->get('domain-email-tip').'</span>';
-	$html .= '</div>'.PHP_EOL;
+      // FROM domain email address
+    $html .= '<div>';
+    $html .= '<label>'.$L->get('Domain Email').'</label>';
+    $html .= '<input id="jsdomainFromAddress" name="domainAddress" type="text" class="form-control" value="'	.$this->getValue('domainAddress').'">';
+    $html .= '<span class="tip">'.$L->get('domain-email-tip').'</span>';
+    $html .= '</div>'.PHP_EOL;
 
     // select static page
     $html .= '<div>';
@@ -144,6 +146,29 @@ class pluginContact3 extends Plugin {
     $html .= '<br><br>';
 
 
+    // GDPR
+    $html .= '<h4>'.$L->get('GDPR').'</h4>';
+    $html .= $L->get('gdpr-tip');
+
+    // Activate GDPR Checkbox
+    $html .= '<div>';
+    $html .= '<label>'.$L->get('GDPR Checkbox').'</label>';
+    $html .= '<select name="gdpr-checkbox">'.PHP_EOL;
+    $html .= '<option value="false" '.($this->getValue('gdpr-checkbox')==false?'selected':'').'>'.$L->get('deactivate').'</option>'.PHP_EOL;
+    $html .= '<option value="true" '.($this->getValue('gdpr-checkbox')==true?'selected':'').'>'.$L->get('activate').'</option>'.PHP_EOL;
+    $html .= '</select>';
+    $html .= '</div>'.PHP_EOL;
+
+    // GDPR Chechbox Text
+    $html .= '<div>';
+    $html .= '<label>'.$L->get('GDPR Checkbox Legal Text').'</label>';
+    $html .= '<input name="gdpr-checkbox-text" type="text" class="form-control" value="'.$this->getValue('gdpr-checkbox-text').'">';
+    $html .= '<span class="tip">'.$L->get('gdpr-checkbox-text-tip').'</span>';
+    $html .= '</div>'.PHP_EOL;
+
+
+    $html .= '<br><br>';
+
     // Google reCaptcha v2
     $html .= '<h4>Spam Protection</h4>';
     $html .= $L->get('anti-spam-info');
@@ -185,7 +210,7 @@ class pluginContact3 extends Plugin {
       $html = '';
       $css = THEME_DIR_CSS . 'contact3.css';
       if(file_exists($css)) {
-        $html .= Theme::css('css' . DS . 'contact.css');
+        $html .= Theme::css('css' . DS . 'contact3.css');
       } else {
         $html .= '<link rel="stylesheet" href="' .$this->htmlPath(). 'layout' . DS . 'contact3.css">' .PHP_EOL;
       }
@@ -300,6 +325,9 @@ class pluginContact3 extends Plugin {
       $error = $L->get('Please enter a valid email address');
     elseif(trim($this->message)==='')
       $error = $L->get('Please enter the content of your message');
+    elseif ($this->getValue('gdpr-checkbox') && !$_POST['gdpr-checkbox']) {
+      $error = $L->get('Please accept the privacy policy');
+    }
     elseif(!$this->reCaptchaResult){
       $error = $L->get('Please check that you are not a robot');
     }
@@ -326,10 +354,16 @@ class pluginContact3 extends Plugin {
       $emailText  = '<b>'.$L->get('Your Name').': </b>'.$this->senderName.'<br>';
       $emailText .= '<b>'.$L->get('Your Email').': </b>'.$this->senderEmail.'<br>';
       $emailText .= '<b>'.$L->get('Your Message').': </b><br>'.nl2br($this->message).'<br>';
+      if($this->getValue('gdpr-checkbox')){
+        $emailText .= sanitize::htmlDecode($this->getValue('gdpr-checkbox-text')).'<br>';
+      }
     } else {
       $emailText  = $L->get('Your Name').': '.$this->senderName."\r\n\r";
       $emailText .= $L->get('Your Email').': '.$this->senderEmail."\r\n\r";
       $emailText .= $L->get('Your Message').': '."\r\n".$this->message."\r\n\r";
+      if($this->getValue('gdpr-checkbox')){
+        $emailText .= strip_tags(sanitize::htmlDecode($this->getValue('gdpr-checkbox-text')))."\r\n\r";
+      }
     }
     return $emailText;
   }
@@ -340,9 +374,9 @@ class pluginContact3 extends Plugin {
     if($this->success) {
       $html = '<div class="alert alert-success">' .$L->get('thank-you-for-contact'). '</div>' ."\r\n";
     } elseif(!is_bool($this->error)) {
-      $html = '<div class="alert alert-danger">' .$L->get('an-error-occurred-while-sending').'<br>' . $L->get('last-error').': ' . $this->error. '</div>' ."\r\n";
+      $html = '<div class="alert alert-danger">'. $this->error. '</div>' ."\r\n";
     } elseif($this->error) {
-      $html = '<div class="alert alert-danger">' .$L->get('an-error-occurred-while-sending'). '</div>' ."\r\n";
+      $html = '<div class="alert alert-danger">' .$L->get('an-error-occurred-while-sending').'</div>' ."\r\n";
     } else {
       $html = '';
     }

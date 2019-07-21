@@ -42,5 +42,10 @@
   "send-from-to": "Kime adresinden (yukarıda) e-posta gönder.",
   "send-from-domain": "Etki alanı adresinden e-posta gönder (aşağıda)",
   "domain-email": "Etki alanınız FROM adresinizden",
-  "domain-email-tip": "Bu, etki alanınızdaki aktif bir posta kutusu olacaktır. Bazı ana bilgisayarlar yalnızca bilinen bir adrese ait e-postalara izin verir."
+  "domain-email-tip": "Bu, etki alanınızdaki aktif bir posta kutusu olacaktır. Bazı ana bilgisayarlar yalnızca bilinen bir adrese ait e-postalara izin verir.",
+  "gdpr":"GDPR",
+  "gdpr-tip":"Gerekirse, forma kendi yasal metninizi içeren bir onay kutusu eklenebilir. <br> Ziyaretçi göndermek için onay kutusunu etkinleştirmelidir. Yasal metin ayrıca e-postaya eklenir.",
+  "gdpr-checkbox":"GDPR Checkbox",
+  "gdpr-checkbox-legal-text":"GDPR Checkbox Legal Text",
+  "gdpr-checkbox-text-tip":"HTML’ye izin verilir"
 }
