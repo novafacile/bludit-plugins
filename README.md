@@ -12,4 +12,4 @@
 
 ## Get a Plugin
 
-- [Contact3 v1.2.0](https://github.com/novafacile/bludit-plugins/releases/download/contact3-v1.2.0/contact3.zip) 
+- [Contact3 v1.3.0](https://github.com/novafacile/bludit-plugins/releases/download/contact3-v1.3.0/contact3.zip) 

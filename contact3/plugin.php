@@ -35,6 +35,8 @@ class pluginContact3 extends Plugin {
       'recaptcha-secret-key' => '',
       'sendEmailFrom' => 'fromUser',
       'domainAddress' => '',
+      'gdpr-checkbox' => '',
+      'gdpr-checkbox-text' => ''
     );
   }
 
@@ -58,26 +60,26 @@ class pluginContact3 extends Plugin {
     $html .= '<div>';
     $html .= '<label>'.$L->get('Your Email').'</label>';
     $html .= '<input id="jsemail" name="email" type="text" class="form-control" value="'.$this->getValue('email').'">';
-	$html .= '<span class="tip">'.$L->get('your-email-tip').'</span>';
+    $html .= '<span class="tip">'.$L->get('your-email-tip').'</span>';
     $html .= '</div>'.PHP_EOL;
 
-	// Send from which address
-	$html .= '<div>';
-	$html .= '<label>'.$L->get('send-from-which-address').'</label>';
-	$html .= '<select name="sendEmailFrom">'.PHP_EOL;
-	$html .= '<option value="fromUser" '	.($this->getValue('sendEmailFrom')==='fromUser'?'selected':'').'>'	.$L->get('send-from-user')	.'</option>'.PHP_EOL;
-	$html .= '<option value="fromTo" '		.($this->getValue('sendEmailFrom')==='fromTo'?'selected':'').'>'	.$L->get('send-from-to')	.'</option>'.PHP_EOL;
-	$html .= '<option value="fromDomain" '	.($this->getValue('sendEmailFrom')==='fromDomain'?'selected':'').'>'.$L->get('send-from-domain').'</option>'.PHP_EOL;
-	$html .= '</select>';
-	$html .= '<span class="tip">'.$L->get('send-from-which-address-tip').'</span>';
-	$html .= '</div>'.PHP_EOL;
+    // Send from which address
+    $html .= '<div>';
+    $html .= '<label>'.$L->get('send-from-which-address').'</label>';
+    $html .= '<select name="sendEmailFrom">'.PHP_EOL;
+    $html .= '<option value="fromUser" '	.($this->getValue('sendEmailFrom')==='fromUser'?'selected':'').'>'	.$L->get('send-from-user')	.'</option>'.PHP_EOL;
+    $html .= '<option value="fromTo" '		.($this->getValue('sendEmailFrom')==='fromTo'?'selected':'').'>'	.$L->get('send-from-to')	.'</option>'.PHP_EOL;
+    $html .= '<option value="fromDomain" '	.($this->getValue('sendEmailFrom')==='fromDomain'?'selected':'').'>'.$L->get('send-from-domain').'</option>'.PHP_EOL;
+    $html .= '</select>';
+    $html .= '<span class="tip">'.$L->get('send-from-which-address-tip').'</span>';
+    $html .= '</div>'.PHP_EOL;
 
-    // FROM domain email address
-	$html .= '<div>';
-	$html .= '<label>'.$L->get('Domain Email').'</label>';
-	$html .= '<input id="jsdomainFromAddress" name="domainAddress" type="text" class="form-control" value="'	.$this->getValue('domainAddress').'">';
-	$html .= '<span class="tip">'.$L->get('domain-email-tip').'</span>';
-	$html .= '</div>'.PHP_EOL;
+      // FROM domain email address
+    $html .= '<div>';
+    $html .= '<label>'.$L->get('Domain Email').'</label>';
+    $html .= '<input id="jsdomainFromAddress" name="domainAddress" type="text" class="form-control" value="'	.$this->getValue('domainAddress').'">';
+    $html .= '<span class="tip">'.$L->get('domain-email-tip').'</span>';
+    $html .= '</div>'.PHP_EOL;
 
     // select static page
     $html .= '<div>';
@@ -111,7 +113,7 @@ class pluginContact3 extends Plugin {
     /**
      * SMTP Settings
      * Contribution by Dominik Sust
-     * Git: https://github.com/HarleyDavidson86/bludit-plugins/commit/eb395c73ea4800a00f4ec5e9c9baabc5b9db19e8 
+     * Git: https://github.com/HarleyDavidson86/bludit-plugins/commit/eb395c73ea4800a00f4ec5e9c9baabc5b9db19e8
     **/
     $html .= '<h4>SMTP</h4>';
     $html .= $L->get('smtp-options');
@@ -140,9 +142,32 @@ class pluginContact3 extends Plugin {
     $html .= '<input name="password" type="password" class="form-control" value="'.$this->getValue('password').'">';
     $html .= '</div>'.PHP_EOL;
 
-    
+
     $html .= '<br><br>';
 
+
+    // GDPR
+    $html .= '<h4>'.$L->get('GDPR').'</h4>';
+    $html .= $L->get('gdpr-tip');
+
+    // Activate GDPR Checkbox
+    $html .= '<div>';
+    $html .= '<label>'.$L->get('GDPR Checkbox').'</label>';
+    $html .= '<select name="gdpr-checkbox">'.PHP_EOL;
+    $html .= '<option value="false" '.($this->getValue('gdpr-checkbox')==false?'selected':'').'>'.$L->get('deactivate').'</option>'.PHP_EOL;
+    $html .= '<option value="true" '.($this->getValue('gdpr-checkbox')==true?'selected':'').'>'.$L->get('activate').'</option>'.PHP_EOL;
+    $html .= '</select>';
+    $html .= '</div>'.PHP_EOL;
+
+    // GDPR Chechbox Text
+    $html .= '<div>';
+    $html .= '<label>'.$L->get('GDPR Checkbox Legal Text').'</label>';
+    $html .= '<input name="gdpr-checkbox-text" type="text" class="form-control" value="'.$this->getValue('gdpr-checkbox-text').'">';
+    $html .= '<span class="tip">'.$L->get('gdpr-checkbox-text-tip').'</span>';
+    $html .= '</div>'.PHP_EOL;
+
+
+    $html .= '<br><br>';
 
     // Google reCaptcha v2
     $html .= '<h4>Spam Protection</h4>';
@@ -185,7 +210,7 @@ class pluginContact3 extends Plugin {
       $html = '';
       $css = THEME_DIR_CSS . 'contact3.css';
       if(file_exists($css)) {
-        $html .= Theme::css('css' . DS . 'contact.css');
+        $html .= Theme::css('css' . DS . 'contact3.css');
       } else {
         $html .= '<link rel="stylesheet" href="' .$this->htmlPath(). 'layout' . DS . 'contact3.css">' .PHP_EOL;
       }
@@ -196,15 +221,15 @@ class pluginContact3 extends Plugin {
 
       return $html;
     }
-  } 
+  }
 
 
   // Load contact form and send email
   public function pageEnd(){
     $webhook = $this->getValue('page');
     if($this->webhook($webhook)) {
-      
-      // send email if submit 
+
+      // send email if submit
       if(isset($_POST['submit'])) {
 
 
@@ -234,7 +259,7 @@ class pluginContact3 extends Plugin {
           }
         }
         // show frontend message
-        //echo $this->frontendMessage(); 
+        //echo $this->frontendMessage();
       }
 
       // include contact form
@@ -258,7 +283,7 @@ class pluginContact3 extends Plugin {
 
   private function isBot(){
     $bot = false;
-    
+
     // check interested checkbox (simple honey pot)
     if(isset($_POST['interested'])) {
       $bot = true;
@@ -281,7 +306,7 @@ class pluginContact3 extends Plugin {
   private function readPost(){
     // removes bad content - just a little protection - could be better
 
-    if(isset($_POST['name'])) { 
+    if(isset($_POST['name'])) {
       $this->senderName =  trim(strip_tags($_POST['name']));
     }
     if(isset($_POST['email'])) {
@@ -295,11 +320,14 @@ class pluginContact3 extends Plugin {
   private function validatePost(){
     global $L;
     if(trim($this->senderName)==='')
-      $error = $L->get('Please enter your name');                            
+      $error = $L->get('Please enter your name');
     elseif(trim($this->senderEmail)==='')
       $error = $L->get('Please enter a valid email address');
     elseif(trim($this->message)==='')
       $error = $L->get('Please enter the content of your message');
+    elseif ($this->getValue('gdpr-checkbox') && !$_POST['gdpr-checkbox']) {
+      $error = $L->get('Please accept the privacy policy');
+    }
     elseif(!$this->reCaptchaResult){
       $error = $L->get('Please check that you are not a robot');
     }
@@ -326,10 +354,16 @@ class pluginContact3 extends Plugin {
       $emailText  = '<b>'.$L->get('Your Name').': </b>'.$this->senderName.'<br>';
       $emailText .= '<b>'.$L->get('Your Email').': </b>'.$this->senderEmail.'<br>';
       $emailText .= '<b>'.$L->get('Your Message').': </b><br>'.nl2br($this->message).'<br>';
+      if($this->getValue('gdpr-checkbox')){
+        $emailText .= sanitize::htmlDecode($this->getValue('gdpr-checkbox-text')).'<br>';
+      }
     } else {
       $emailText  = $L->get('Your Name').': '.$this->senderName."\r\n\r";
       $emailText .= $L->get('Your Email').': '.$this->senderEmail."\r\n\r";
       $emailText .= $L->get('Your Message').': '."\r\n".$this->message."\r\n\r";
+      if($this->getValue('gdpr-checkbox')){
+        $emailText .= strip_tags(sanitize::htmlDecode($this->getValue('gdpr-checkbox-text')))."\r\n\r";
+      }
     }
     return $emailText;
   }
@@ -342,7 +376,7 @@ class pluginContact3 extends Plugin {
     } elseif(!is_bool($this->error)) {
       $html = '<div class="alert alert-danger">' .$L->get('an-error-occurred-while-sending').'<br>' . $L->get('last-error').': ' . $this->error. '</div>' ."\r\n";
     } elseif($this->error) {
-      $html = '<div class="alert alert-danger">' .$L->get('an-error-occurred-while-sending'). '</div>' ."\r\n";
+      $html = '<div class="alert alert-danger">' .$L->get('an-error-occurred-while-sending').'</div>' ."\r\n";
     } else {
       $html = '';
     }
@@ -365,7 +399,7 @@ class pluginContact3 extends Plugin {
 				case "fromDomain":
 					$email_headers	= "From: $senderName <"		. $this->getValue('domainAddress')	.">".PHP_EOL;
 					$email_headers .= "Reply-To: $senderName <"	. $this->senderEmail				.">".PHP_EOL;
-					break;		
+					break;
 				default: // fromUser
 					$email_headers	= "From: $senderName <"		. $this->senderEmail				.">".PHP_EOL;
 			}
@@ -382,18 +416,18 @@ class pluginContact3 extends Plugin {
 		$email_headers .= 'Date: ' .date("D, j M Y G:i:s O")."\r\n"; // Sat, 7 Jun 2001 12:35:58 -0700
 
 		// send email via sendmail
-		$success = mail($this->getValue('email'), $this->getSubject(), $this->getEmailText(), $email_headers);            
+		$success = mail($this->getValue('email'), $this->getSubject(), $this->getEmailText(), $email_headers);
 
 		if(!$success){
 
 			$errorMessage = error_get_last()['message'];
 
 			if (isset($errorMessage)) {
-				$this->error = $errorMessage;		
+				$this->error = $errorMessage;
 			}
 			else {
 					$this->error = true;
-			}		
+			}
 		}
 		return $success;
 	}
@@ -416,22 +450,22 @@ class pluginContact3 extends Plugin {
 		$mail->Username = $this->getValue('username');
 		#Function is needed if Password contains special characters like &
 		$mail->Password = html_entity_decode($this->getValue('password'));
-		
+
 		$mail->CharSet = CHARSET;
 		$mail->isHTML($this->isHTML());
 
 		switch ($sendFrom) // Set email FROM address
 			{
-				case "fromTo": 
+				case "fromTo":
 					$mail->setFrom($this->getValue('email'));
 					$mail->addReplyTo($this->senderEmail, $this->senderName);
 					break;
 				case "fromDomain":
 					$mail->setFrom($this->getValue('domainAddress'));
 					$mail->addReplyTo($this->senderEmail, $this->senderName);
-					break;		
+					break;
 				default: // fromUser
-					$mail->setFrom($this->senderEmail, $this->senderName); 
+					$mail->setFrom($this->senderEmail, $this->senderName);
 			}
 
 		  $mail->addAddress($this->getValue('email'));
@@ -440,16 +474,16 @@ class pluginContact3 extends Plugin {
 
 		if($mail->send()) {
 			$success = true;
-		} 
+		}
 		else {
 			$errorMessage = error_get_last()['message'];
 
 			if (isset($errorMessage)) {
-				$this->error = $errorMessage;		
+				$this->error = $errorMessage;
 			}
 			else {
 					$this->error = true;
-			}	
+			}
 		}
 	}
 	catch (phpmailerException $e) {
@@ -475,7 +509,7 @@ class pluginContact3 extends Plugin {
       include($template);
     } else {
       include(__DIR__ . DS . 'layout' . DS . 'contact3.php');
-    }   
+    }
   }
 
   private function googleRecaptchaValidation(){
