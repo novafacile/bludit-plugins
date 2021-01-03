@@ -43,9 +43,16 @@
   "send-from-domain": "Special email sender address (below)",
   "domain-email": "Special Email Sender Address",
   "domain-email-tip": "Only required if you use a special email sender address. Some hosts only allow sending emails from a locally known address.",
+  "cc-user-in-email-label": "CC User in email?", 
+  "cc-user-in-email-tip": "By CC'ing the User it acts as conformation their email was sent. Consider if a no-reply FROM address is needed.",
+  "yes": "Yes",
+  "no": "No", 
   "gdpr":"GDPR",
+  "what-is-gdpr": "The General Data Protection Regulation (GDPR) is an EU legislation that aims to give the residents of the EU more control over their data.",
   "gdpr-tip":"If necessary, a checkbox with your own legal text can be inserted in the form.<br>The visitor must activate the checkbox to submit. The legal text is also inserted in the email.",
   "gdpr-checkbox":"GDPR Checkbox",
   "gdpr-checkbox-legal-text":"GDPR Checkbox Legal Text",
   "gdpr-checkbox-text-tip":"HTML is allowed"
+  "gdpr-enter-policy-label": "Enter your GDPR policy",
+  "gdpr-include-policy-in-email-label": "Include policy in email"  
 }

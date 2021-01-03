@@ -35,8 +35,11 @@ class pluginContact3 extends Plugin {
       'recaptcha-secret-key' => '',
       'sendEmailFrom' => 'fromUser',
       'domainAddress' => '',
+	  'ccUserInEmail' => true,
       'gdpr-checkbox' => '',
       'gdpr-checkbox-text' => ''
+	  'gdprPolicyText' => 'By filling the in above field and clicking on the send button you have consented to your supplied information being transmitted to us via email.<br>No personal data is stored within this website.',
+	  'gdprIncludeInEmail' => true,		
     );
   }
 
@@ -79,6 +82,16 @@ class pluginContact3 extends Plugin {
     $html .= '<label>'.$L->get('Domain Email').'</label>';
     $html .= '<input id="jsdomainFromAddress" name="domainAddress" type="text" class="form-control" value="'	.$this->getValue('domainAddress').'">';
     $html .= '<span class="tip">'.$L->get('domain-email-tip').'</span>';
+    $html .= '</div>'.PHP_EOL;
+
+    // CC User in the email
+    $html .= '<div>';
+    $html .= '<label>'.$L->get('cc-user-in-email-label').'</label>';
+    $html .= '<select name="ccUserInEmail">'.PHP_EOL;
+    $html .= '<option value="false" '.($this->getValue('ccUserInEmail')==false?'selected':'').'>'.$L->get('No').'</option>'.PHP_EOL;
+    $html .= '<option value="true" '.($this->getValue('ccUserInEmail')==true?'selected':'').'>'.$L->get('Yes').'</option>'.PHP_EOL;
+    $html .= '</select>';
+    $html .= '<span class="tip">'.$L->get('cc-user-in-email-tip').'</span>';
     $html .= '</div>'.PHP_EOL;
 
     // select static page
@@ -142,7 +155,6 @@ class pluginContact3 extends Plugin {
     $html .= '<input name="password" type="password" class="form-control" value="'.$this->getValue('password').'">';
     $html .= '</div>'.PHP_EOL;
 
-
     $html .= '<br><br>';
 
 
@@ -196,6 +208,26 @@ class pluginContact3 extends Plugin {
 
     $html .= '<br><br>';
 
+    $html .= '<h4>GDPR Policy</h4>';
+    $html .= $L->get('what-is-gdpr');
+	
+    // GDPR Policy
+    $html .= '<div>';
+    $html .= '<label>'.$L->get('gdpr-enter-policy-label').'</label>';
+    $html .= '<input name="gdprPolicyText" type="text" class="form-control" value="'.$this->getValue('gdprPolicyText').'">';
+    $html .= '</div>'.PHP_EOL; 
+
+    // Include GDPR Policy in the email
+    $html .= '<div>';
+    $html .= '<label>'.$L->get('gdpr-include-policy-in-email-label').'</label>';
+    $html .= '<select name="gdprIncludeInEmail">'.PHP_EOL;
+    $html .= '<option value="false" '.($this->getValue('gdprIncludeInEmail')==false?'selected':'').'>'.$L->get('No').'</option>'.PHP_EOL;
+    $html .= '<option value="true" '.($this->getValue('gdprIncludeInEmail')==true?'selected':'').'>'.$L->get('Yes').'</option>'.PHP_EOL;
+    $html .= '</select>';
+    $html .= '</div>'.PHP_EOL;
+
+    $html .= '<br><br>';
+	
     // output
     $html .= '<br><br>';
     return $html;
@@ -231,7 +263,6 @@ class pluginContact3 extends Plugin {
 
       // send email if submit
       if(isset($_POST['submit'])) {
-
 
         $this->reCaptchaResult = $this->googleRecaptchaValidation();
 
@@ -403,6 +434,10 @@ class pluginContact3 extends Plugin {
 				default: // fromUser
 					$email_headers	= "From: $senderName <"		. $this->senderEmail				.">".PHP_EOL;
 			}
+
+		if ( $this->getValue('ccUserInEmail') ) {
+			$email_headers .= "Cc: $senderName <"				. $this->senderEmail				.">".PHP_EOL;
+		}
 
 		$email_headers .= 'MIME-Version: 1.0' ."\r\n";
 
