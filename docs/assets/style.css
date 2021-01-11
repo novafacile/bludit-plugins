@@ -1,0 +1,217 @@
+/*****
+ * Style for novagallery.org
+ * @author novafacile OÜ
+ * @copyright 2021 novafacile OÜ
+ *****/
+
+body {
+  background-color: #F8F8FA;
+  font-weight: 300;
+  font-size: 1.1rem;
+  color: #432E30;
+}
+
+a {
+  color: #432E30;
+}
+
+a:hover {
+  color: #000000;
+}
+
+code {
+  color: #000000;
+}
+
+/** header **/
+ header {
+  background-image: url("../img/aleks-dorohovich-unsplash.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: #fff;
+ }
+
+ @media (max-width: 810px) { /* fix for iOS with cover and fixed background */
+  header {
+    background-attachment: initial !important;
+  }
+}
+
+ header .header-bg {
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0, 0.7);
+ }
+
+ header .logo {
+  width: 80px;
+  height: auto;
+  margin-top: 18vh;
+  margin-bottom: 1.5rem;
+ }
+
+ header h1.display-4 {
+  letter-spacing: 0.1rem;
+  font-weight: 700;
+  padding-top: 20vh;
+ }
+
+header p.lead {
+  font-size: 1.8rem;
+ }
+
+header p.lead small {
+  font-size: 0.9rem;
+  color: #bbbbbb;
+}
+
+@media (max-width: 576px){
+  header p.lead {
+    font-size: 1.5rem;
+   }
+
+   header p.lead small {
+    font-size: 0.9rem;
+  }
+
+ }
+
+header .icon {
+  color: #ffffff;
+}
+
+#scroll-to-lead {
+  cursor: pointer;
+  transition: 0.3s;
+  color: #ffffff;
+ }
+
+#scroll-to-lead:hover {
+  font-weight: 500;
+}
+
+/** content **/
+content h2 {
+  margin-bottom: 1.5rem;
+}
+
+content h3 {
+  font-size: 1.4rem;
+}
+
+content ul, content ol {
+  margin-bottom: 2rem;
+}
+content ul li, content ol li {
+  line-height: 2rem;
+}
+
+@media (max-width: 576px){
+  content ul, content ol {
+    padding-left: 1rem;
+  }
+}
+
+/** content section lead **/
+content section.lead {
+  margin: 5rem auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  line-height: 3rem;
+}
+
+content section.lead p {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+}
+
+@media (max-width: 576px){
+  content section.lead {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 450px){
+  content section.lead {
+    font-size: 1.0rem;
+  }
+}
+
+
+/*** tab navigation ***/
+.nav-tabs {
+  margin-top: 1rem;
+}
+
+
+.nav-tabs .nav-link,
+.nav-tabs .nav-link.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
+  border: none;
+  border-radius: unset;
+  background: none;
+  margin-bottom: 1px;
+  font-weight: 500;
+}
+
+.nav-tabs .nav-link.active {
+  color: #432E30;
+  background-color: #ffffff;
+}
+
+/** content articles **/
+content section {
+  margin-top: 5rem;
+}
+
+content article {
+  background: #ffffff;
+  padding: 3rem;
+}
+
+@media (max-width: 768px){
+  content article {
+    padding: 3rem 1.5rem;
+  }
+}
+
+content article strong {
+  font-weight: 500;
+}
+
+
+.card {
+  border: none;
+  border-radius: none;
+  color: #000;
+  text-align: center;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);;
+}
+
+.card .price {
+  font-weight: 600;
+  color: #3C73CD;
+  font-size: 1.8rem;
+}
+
+/** footer **/
+footer {
+  margin-top: 7rem;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+  background-color: #000000;
+  color: #ddd;
+  font-size: 1rem;
+}
+
+footer strong {
+  font-weight: 600;
+}

@@ -1,41 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bludit Plugins by novafacile</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-</head>
-<body class="bg-light">
-  <div class="container mt-4">
-    <h1 class="mb-4">Bludit Plugins</h1>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bludit Plugins by novafacile OÜ</title>
+    <meta name=description content="Free & Premium Plugins for the great Flat-File CMS Bludit.">
+    <meta name="author" content="novafacile OÜ">
+    <meta name="robots" content="index, follow">
+    <link rel="shortcut icon" type="image/x-icon" href="img/novagallery-icon.png">
+    <!-- <link rel="canonical" href="https://pludit-plugins.nova.ms" />-->
 
-    <section class="mt-4">
-      <h2>How to install a plugin</h2>
-      <ul>
-        <li>Download the plugin.</li>
-        <li>Unzip if necessary.</li>
-        <li>Go to: <a href="https://github.com/novafacile/bludit-plugins">https://github.com/novafacile/bludit-plugins</a></li>
-        <li>Copy the plugin folder with all the files inside <code>/bl-plugins/</code> folder.</li>
-        <li>Log into your Bludit panel administrator, go to <strong>Settings->Plugins</strong>, and activate your new plugin.</li>
-      </ul>  
-    </section>
-    
-    <section class="mt-4">
-      <h2>Support</h2>
-      <ul>
-          <li>Forum: <a href="https://forum.bludit.com">https://forum.bludit.com</a></li>
-          <li>Bug Reports: <a href="https://github.com/novafacile/bludit-plugins/issues">https://github.com/novafacile/bludit-plugins/issues</a></li>
-      </ul>
-    </section>
+    <link rel=stylesheet href="assets/bootstrap.min.css">
+    <link rel=stylesheet href="assets/style.css">
 
-    <section class="mt-4">
-      <h2>Get a Plugin</h2>
-      <ul>
-        <li><a href="https://github.com/novafacile/bludit-plugins/releases/download/contact3-v1.3.1/contact3.zip">Contact3</a></li>
-      </ul>
-    </section>
+  </head>
+  <body>
+    <header class="vh-100 container-fluid text-center g-0">
+      <div class="header-bg">
+        <!-- <img src="img/bludit-plugins-logo.png" class="logo">-->
+        <h1 class="display-4 px-3">Bludit Plugins</h1>
+        <p class="lead mt-4">
+        free and premium plugins <br>for Bludit CMS.<br>
+        <small class="d-inline-block mt-4">powered by novafacile OÜ</small>
+        </p>
+        <p class="mt-5 pt-md-4">
+          <a href="#home" class="me-4 btn btn-outline-light navi-btn">About</a>
+          <a href="#contact3" class="btn btn-outline-light navi-btn">Contact3</a>
+        </p>
+        <div class="position-absolute bottom-0 start-50 translate-middle-x mb-5" id="scroll-to-lead">
+          <p>More Info</p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ffffff" class="bi bi-chevron-double-down" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+            <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </div>
+      </div>
+    </header>
 
-  </div>
-</body>
+    <content>
+
+      <!-- content tabs -->
+      <section class="container-lg" id="content">
+        
+        <!-- tab nav -->
+        <div class="row">
+          <nav class="col-12 col-xl-10 offset-xl-1 col-xxl-8 offset-xxl-2">
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link navi-btn active" id="home-tab" href="#home">About</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link navi-btn" id="contact3-tab" href="#contact3">Contact3</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link navi-btn" id="docs-tab" href="#docs">Docs</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link navi-btn" id="license-tab" href="#license">License</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- tab content -->
+        <div class="row">
+          <div class="tab-content col-xl-10 offset-xl-1 col-xxl-8 offset-xxl-2">
+            <!-- home -->
+            <article class="tab-pane fade show active" id="home-content">
+              <h2>Bludit Plugins</h2>
+              <p>
+                Bludit is an easy to install and easy to use CMS for blogs & websites. Similar to other CMS like Wordpress, Bludit can be extended with plugins and themes.
+              </p>
+              <hr class="my-4">
+              <h3>Plugin Contact3</h3>
+              <p>
+                With Contact3 we provide a plugin for Bludit v3 that allows your visitors to contact you via email using a contact form.<br>
+                <a href="#contact3" class="btn btn-success mt-4 mb-2 navi-btn">More about Contact3</a>
+              </p>
+
+              <hr class="my-4">
+              <h3>About Bludit</h3>
+              <p>
+               Bludit is a flat file CMS and does not require a database. The simplicity and yet strong flexibility makes Bludit a perfect CMS for blogs and websites when the complicated and extensive overhead like Wordpress is not needed.
+              </p>
+              <p>
+                Its lightweight nature does not only make it easy to install and use, but also makes it very fast. Even on low-powered web servers & web spaces, Bludit works performantly.
+              </p>
+              <p>
+                More information about Bludit, as well as access to themes and plugins can be found on the <a href="https://www.bludit.com">official Bludit homepage</a>.
+              </p>
+            </article>
+
+        
+            <!-- Contact3 -->
+            <article class="tab-pane fade" id="contact3-content">
+              <h2>Contact3</h2>
+              <p>Contact3 is a contact form for the Bludit v3.X CMS. With the plugin your visitors can contact you via email using a contact form.</p>
+              <p>The form can be visually customized to your needs and is easy to configure.</p>
+              <hr>
+              <p class="text-center my-3">
+                <a href="https://raw.githubusercontent.com/novafacile/bludit-plugins/main/releases/contact3.zip" class="btn btn-success btn-lg">Download</a>
+              </p>
+              <hr>
+              <div class="row">
+                <div class="col-6">
+                  <h3>Features</h3>
+                  <ul>
+                    <li>Adds a contact form on a static page.</li>
+                    <li>Contact form with customizable template.</li>
+                    <li>Support for Sendmail and SMTP.</li>
+                    <li>Spam protection with Google reCPATCHA v2.</li>
+                  </ul>
+                </div>
+                <div class="col-6">
+                  <h3>Supported Languages</h3>
+                  <ul>
+                    <li>English</li>
+                    <li>German</li>
+                    <li>French</li>
+                    <li>Dutch</li>
+                    <li>Turkish</li>
+                  </ul>
+                  <p>More languanges can be added by yourself.</p>
+                </div>
+              </div>
+            </article>
+            
+            <!-- docs -->
+            <article class="tab-pane fade" id="docs-content">
+              <h2>Docs</h2>
+              <h3>How to install a plugin</h3>
+              <ul>
+                <li>Download the plugin.</li>
+                <li>Unzip if necessary.</li>
+                <li>Copy the plugin folder with all the files inside <code>/bl-plugins/</code> folder.</li>
+                <li>Log into your Bludit panel administrator, go to <strong>Settings -> Plugins</strong>, and activate your new plugin.</li>
+              </ul>
+              <h3>Support</h3>
+              <ul>
+                <li>Community Support: <a href="https://forum.bludit.org/">Official Bludit Forum</a></li>
+                <li>Bugs & Feature-Requests: <a href="https://github.com/novafacile/bludit-plugins/issues">Github Issues</a></li>
+              </ul>
+            </article>
+
+            <!-- license -->
+            <article class="tab-pane fade" id="license-content">
+              <h2>License</h2>
+              <p><strong>Bludit Plugins by novafacile OÜ are currently published under MIT License</strong></p>
+              <p>Copyright 2021 by novafacile OÜ</p>
+              <p>
+                Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+              </p>
+              <p>
+                The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+              </p>
+              <p>
+                THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+              </p>
+            </article>
+
+
+
+          </div>
+        </div>
+
+      </section>
+
+    </content>
+
+    <!-- footer -->
+    <footer class="text-center">
+      <section class="container">
+        <div class="row">
+          <div class="col-12 col-sm-6 text-sm-end pe-sm-4 mb-4">
+            <p><strong>Legal Notice</strong></p>
+            <p>
+              <strong>novafacile OÜ</strong><br>
+              registry code: 14455201<br>
+              e-Business Register Estonia
+            </p>
+          </div>
+          <div class="col-12 col-sm-6 text-sm-start ps-sm-4 mb-4">
+            <p><strong>Privacy Statement</strong></p>
+            <p>
+              <strong>pure privacy</strong><br>
+              only technical cookies<br>
+              only technical required scripts<br>
+              no user tracking<br>
+            </p>
+          </div>
+          <div class="col-12 mt-4">
+            &copy; 2021 by novafacile OÜ
+          </div>
+        </div>
+      </section>
+    </footer>
+
+    <script src="assets/scripts.js" type="text/javascript" charset="utf-8"></script>
+  
+  </body>
 </html>
