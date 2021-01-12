@@ -1,5 +1,5 @@
 /*******
- * JS for novagallery.org
+ * JS for novafacile products
  * @author novafacile OÜ
  * @copyright 2021 novafacile OÜ
  *******/
