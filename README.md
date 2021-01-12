@@ -1,5 +1,8 @@
 ## Bludit Plugins by novafacile OÜ
 
+### About
+> Official project website: https://bludit-plugins.novafacile.com
+
 ### How to install a plugin
 - Download the plugin.
 - Unzip if necessary.
