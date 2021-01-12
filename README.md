@@ -3,7 +3,7 @@
 ### About
 > Official project website: https://bludit-plugins.novafacile.com
 
-### How to install a plugin
+### How to Install a Plugin
 - Download the plugin.
 - Unzip if necessary.
 - Copy the plugin folder with all the files inside `/bl-plugins/` folder.
