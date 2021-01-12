@@ -5,7 +5,7 @@
  *  @package Bludit
  *  @subpackage Plugins
  *  @author novafacile OÜ
- *  @version 1.0.1
+ *  @version 1.3.2
  *  @release 2018-11-25
  *  @info plugin based on contact plugin by Frédéric K (http://flatboard.free.fr)
  *
@@ -205,7 +205,10 @@ class pluginContact3 extends Plugin {
 
   // Load CSS for contact form
   public function siteHead() {
-    $webhook = $this->getValue('page');
+    global $site;
+    $pagePrefix = $site->getField('uriPage');
+    $pagePrefix = ltrim($pagePrefix, '/');
+    $webhook = $pagePrefix.$this->getValue('page');
     if($this->webhook($webhook)) {
       $html = '';
       $css = THEME_DIR_CSS . 'contact3.css';
@@ -226,7 +229,10 @@ class pluginContact3 extends Plugin {
 
   // Load contact form and send email
   public function pageEnd(){
-    $webhook = $this->getValue('page');
+    global $site;
+    $pagePrefix = $site->getField('uriPage');
+    $pagePrefix = ltrim($pagePrefix, '/');
+    $webhook = $pagePrefix.$this->getValue('page');
     if($this->webhook($webhook)) {
       
       // send email if submit 
