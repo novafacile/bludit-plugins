@@ -57,7 +57,6 @@ function validateAnchor(anchor){
   }
 }
 
-
 /*** bind events ***/
 document.addEventListener("DOMContentLoaded", (event) => {
 
@@ -100,4 +99,5 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   });
 
-})
+});
+
