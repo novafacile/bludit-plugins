@@ -2,4 +2,5 @@
 .contact3 input[name="interested"] { display: none }
 .contact3 .form-check { margin-bottom: 1rem; }
 .contact3 .form-check-input, .contact3 .form-check-label { cursor: pointer; }
-.contact3 .captcha { margin-top: 1rem; margin-bottom: 1rem; }
+.contact3 .contact3-lq { margin-bottom: 0.5rem; }
+.contact3 .contact3-lqa { max-width: 200px; }

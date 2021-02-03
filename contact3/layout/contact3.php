@@ -8,9 +8,9 @@
  *  @author     novafacile OÜ
  *  @copyright  2021 by novafacile OÜ
  *  @license    MIT
- *  @version    2.0.0
+ *  @version    2.1.0-beta1
  *  @see        https://github.com/novafacile/bludit-plugins
- *  @release    2021-01-31
+ *  @release    2021-02-03
  *  @notes      idea based on https://github.com/Fred89/bludit-plugins/tree/master/contact
  *  This program is distributed in the hope that it will be useful - WITHOUT ANY WARRANTY.
  */
@@ -38,7 +38,10 @@
     </div>
   <?php endif; ?>   
 
-  <?php echo $this->captchaForm(); ?>
+  <div class="form-group">
+      <?php echo $this->captchaForm('form-control contact3-lqa'); // parameter is/are optional class(es) for logical question answer text input ?>   
+  </div>
+
 
   <button id="submit" name="submit" type="submit" class="btn btn-primary"><?php echo $L->get('Send'); ?></button>
 </form>

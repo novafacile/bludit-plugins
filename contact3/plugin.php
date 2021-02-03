@@ -8,9 +8,9 @@
  *  @author     novafacile OÜ
  *  @copyright  2021 by novafacile OÜ
  *  @license    MIT
- *  @version    2.0.0-beta1
+ *  @version    2.1.0-beta1
  *  @see        https://github.com/novafacile/bludit-plugins
- *  @release    2021-01-30
+ *  @release    2021-02-03
  *  @notes      idea based on https://github.com/Fred89/bludit-plugins/tree/master/contact
  *  This program is distributed in the hope that it will be useful - WITHOUT ANY WARRANTY.
  *
@@ -48,7 +48,9 @@ class pluginContact3 extends Plugin {
       'recaptcha-site-key' => '',
       'recaptcha-secret-key' => '',
       'hcaptcha-site-key' => '',
-      'hcaptcha-secret-key' => ''
+      'hcaptcha-secret-key' => '',
+      'logical-question-0' => '',
+      'logical-answer-0' => ''
     );
   }
 
@@ -306,6 +308,7 @@ class pluginContact3 extends Plugin {
                 '' => $L->get('deactivate'),
                 'reCaptcha' => $L->get('Google reCaptcha'),
                 'hCaptcha' => $L->get('hCaptcha'),
+                'logical-question' => $L->get('Logical Question')
               ),
               'selected' => $this->getValue('spam-protection'),
               'class' => 'mb-4 short-input'
@@ -335,19 +338,38 @@ class pluginContact3 extends Plugin {
     $html .= Bootstrap::formTitle(array('title' => $L->get('hCaptcha')));
     $html .= '<p>'.$L->get('Before activation, you need to register your website at <a href="https://www.hcaptcha.com/" target="_blank">hCaptcha</a>. The <i>Site Key</i> and <i>Secret Key</i> are required.').'</p>';
 
-    // reCaptcha website key
+    // hCaptcha website key
     $html .= Bootstrap::formInputText(array(
               'name' => 'hcaptcha-site-key',
               'label' => $L->get('Website Key'),
               'value' => $this->getValue('hcaptcha-site-key')
               ));
 
-    // reCaptcha website secret
+    // hCaptcha website secret
     $html .= Bootstrap::formInputText(array(
               'name' => 'hcaptcha-secret-key',
               'type' => 'password',
               'label' => $L->get('Secret Key'),
               'value' => $this->getValue('hcaptcha-secret-key')
+              ));
+
+    // Logical Question
+    $html .= Bootstrap::formTitle(array('title' => $L->get('Logical Question')));
+    $html .= '<p>'.$L->get('Use a logical question for simple spam protection.').'</p>';
+
+    // Logical Question Value
+    $html .= Bootstrap::formInputText(array(
+              'name' => 'logical-question-0',
+              'label' => $L->get('Question'),
+              'value' => $this->getValue('logical-question-0'),
+              'tip' => $L->get('Example: &quot;Please enter the second word of the following sentence: My sister loves cookies.&quot;')
+              ));
+
+    $html .= Bootstrap::formInputText(array(
+              'name' => 'logical-answer-0',
+              'label' => $L->get('Answer'),
+              'value' => $this->getValue('logical-answer-0'),
+              'tip' => $L->get('To minimize erroneous entries, the response is always checked case-insensitively.')
               ));
 
     // close spam protection tab
@@ -357,7 +379,6 @@ class pluginContact3 extends Plugin {
     $html .= '</div>';
     return $html;
   }
-
 
   // send email and redirect to page with contact form
   public function beforeAll(){
@@ -380,8 +401,9 @@ class pluginContact3 extends Plugin {
         }
       }
 
-      if(!$this->captchaValidation()){
-        $this->errorMessage .= $L->get('Please confirm that you are a human and not a robot.').'<br>';
+      $validateCaptcha = $this->captchaValidation();
+      if($validateCaptcha !== true){
+        $this->errorMessage .= $L->get($validateCaptcha).'<br>';
       }
 
       // stop if error
@@ -492,21 +514,19 @@ class pluginContact3 extends Plugin {
   }
 
 
-  public function captchaForm(){
+  public function captchaForm($inputClass = ''){
+    global $L;
     switch ($this->getValue('spam-protection')) {
       case 'reCaptcha':
-        return '<div class="captcha g-recaptcha" data-sitekey="'.$this->getValue('recaptcha-site-key').'"></div>';
+        return '<div class="g-recaptcha" data-sitekey="'.$this->getValue('recaptcha-site-key').'"></div>';
         break;
       case 'hCaptcha':
-        return '<div class="captcha h-captcha" data-sitekey="'.$this->getValue('hcaptcha-site-key').'"></div>';
+        return '<div class="h-captcha" data-sitekey="'.$this->getValue('hcaptcha-site-key').'"></div>';
         break;
-    }
-
-    // should end here but next 'if' is required for config compatibility
-    if($this->getValue('google-recaptcha')){ 
-      return $html = '<div class="g-recaptcha" data-sitekey="'.$this->getValue('recaptcha-site-key').'"></div>';
-    } else {
-      return;
+      case 'logical-question':
+        return '<div class="contact3-lq">'.$this->getValue('logical-question-0').'</div>
+              <input type="text" name="contact3-lqa" class="'.$inputClass.'" placeholder="'.$L->get('Your Answer').'" autocomplete="off" required>';
+        break;
     }
   }
 
@@ -521,7 +541,7 @@ class pluginContact3 extends Plugin {
 
 
   /****
-   * private functions
+   * private methods
    *****/
   
   private function webhookUrl(){
@@ -665,7 +685,6 @@ class pluginContact3 extends Plugin {
   }
 
   private function captchaValidation(){
-    // Todo: compatibility for config with only reCaptcha
     if(!$this->getValue('spam-protection')){
       return true;
     }
@@ -675,7 +694,11 @@ class pluginContact3 extends Plugin {
         $secretKey = $this->getValue('recaptcha-secret-key');
         $json = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secretKey.'&response='.$_POST['g-recaptcha-response']);
         $data = json_decode($json);
-        return $data->success;
+        if($data->success === true){
+          return true;
+        } else {
+          return 'Please confirm that you are not a robot.';
+        }
         break;
       
       case 'hCaptcha':
@@ -690,11 +713,24 @@ class pluginContact3 extends Plugin {
         curl_setopt($verify, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($verify);
         $data = json_decode($response);
-        return $data->success;
+        if($data->success === true){
+          return true;
+        } else {
+          return 'Please confirm that you are a human.';
+        }
+        break;
+
+      case 'logical-question':
+        if(isset($_POST['contact3-lqa'])){
+          $answer = trim(ucwords($this->getValue('logical-answer-0')));
+          $input = trim(ucwords($_POST['contact3-lqa']));
+          if($answer === $input) { return true; }
+        }
+        return 'Please correct your answer so that we recognize you as a human being.';
         break;
 
       default:
-        return false;
+        return 'Sorry, there seems to be an error in validating if you are a human.';
     }
   }
 
