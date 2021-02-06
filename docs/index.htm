@@ -12,6 +12,7 @@
 
     <link rel=stylesheet href="https://cdn.nova.ms/assets/bootstrap/5.0.0/bootstrap.min.css">
     <link rel=stylesheet href="https://cdn.nova.ms/cmp/novaconsent/novaconsent.css">
+    <link rel=stylesheet href="https://cdn.nova.ms/assets/simplelightbox/2.2.2/simple-lightbox.min.css">
     <link rel=stylesheet href="assets/style.css">
     
   </head>
@@ -108,10 +109,18 @@
                 <div class="col-12 col-md-6">
                   <h3>Features</h3>
                   <ul>
-                    <li>Adds a contact form on a static page.</li>
-                    <li>Contact form with customizable template.</li>
-                    <li>Support for Sendmail and SMTP.</li>
-                    <li>Spam protection with Google reCPATCHA v2.</li>
+                    <li>Adds a contact form to a selected page</li>
+                    <li>Customizable form template</li>
+                    <li>Support for PHP mail() and SMTP.</li>
+                    <li>GDPR compliant</li>
+                    <li>send copy of mail to user</li>
+                    <li>Spam protection with:
+                      <ul>
+                        <li>Google reCPATCHA v2</li>
+                        <li>hCPATCHA</li>
+                        <li>Logical Question</li>
+                      </ul>
+                    </li>
                   </ul>
                 </div>
                 <div class="col-12 col-md-6">
@@ -120,10 +129,38 @@
                     <li>English</li>
                     <li>German</li>
                     <li>French</li>
+                    <li>Spanish</li>
                     <li>Dutch</li>
                     <li>Turkish</li>
                   </ul>
                   <p>More languanges can be added by yourself.</p>
+                </div>
+  
+                <div class="col-12">
+                  <hr>
+                  <h3>Contact3 Screenshots</h3>
+                </div>
+                <div class="row gallery contact3-gallery">
+                  <div class="col-6 p-3 text-center">
+                    <a href="img/contact3/contact3-form.jpg">
+                      <img src="img/contact3/contact3-form.jpg" alt="Contact3 form" title="Contact3 Form">
+                    </a>
+                  </div>
+                  <div class="col-6 p-3 text-center">
+                    <a href="img/contact3/contact3-settings.jpg">
+                      <img src="img/contact3/contact3-settings.jpg" alt="Contact3 settings" title="Contact3 Settings">
+                    </a>
+                  </div>
+                  <div class="col-6 p-3 text-center">
+                    <a href="img/contact3/contact3-settings-gdpr.jpg">
+                      <img src="img/contact3/contact3-settings-gdpr.jpg" alt="Contact3 GDPR Settings" title="Contact3 GDPR Settings">
+                    </a>
+                  </div>
+                  <div class="col-6 p-3 text-center">
+                    <a href="img/contact3/contact3-settings-spamprotection.jpg">
+                      <img src="img/contact3/contact3-settings-spamprotection.jpg" alt="Contact3 Spam Protection Settings" title="Contact3 Spam Protection Settings">
+                    </a>
+                  </div>
                 </div>
               </div>
             </article>
@@ -137,6 +174,11 @@
                 <li>Unzip if necessary.</li>
                 <li>Copy the plugin folder with all the files inside <code>/bl-plugins/</code> folder.</li>
                 <li>Log into your Bludit panel administrator, go to <strong>Settings -> Plugins</strong>, and activate your new plugin.</li>
+              </ul>
+              <h3>Contact3</h3>
+              <ul>
+                <li>All configurations are explained in the settings.</li>
+                <li>For an individual template just copy the files <code>contact3.php</code> and <code>contact3.css</code> from the plugin folder <code>/layout</code> into your own template directory and customize them.</li>
               </ul>
               <h3>Support</h3>
               <ul>
@@ -200,6 +242,10 @@
 
     <script src="assets/scripts.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://cdn.nova.ms/cmp/novaconsent/novaconsent.min.js" async></script>
+    <script src="https://cdn.nova.ms/assets/simplelightbox/2.2.2/simple-lightbox.min.js"></script>
+    <script>
+      var lightbox = new SimpleLightbox('.contact3-gallery a', {});
+    </script>
 
   </body>
 </html>

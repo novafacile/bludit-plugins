@@ -202,6 +202,16 @@ content article strong {
   font-size: 1.8rem;
 }
 
+content .gallery img {
+  max-width: 100%;
+  padding: 1rem;
+  border: 1px solid #eee;
+}
+
+.sl-overlay {
+  opacity: 1;
+}
+
 /** footer **/
 footer {
   margin-top: 7rem;
