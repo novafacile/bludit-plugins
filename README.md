@@ -15,7 +15,7 @@
 
 ### Get a Plugin
 
-- [Contact3 v2.1.0](https://github.com/novafacile/bludit-plugins/raw/main/releases/contact3.zip) 
+- [Contact3](https://github.com/novafacile/bludit-plugins/raw/main/releases/contact3.zip) 
 
 ### Contact3 Docs
 
