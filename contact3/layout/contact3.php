@@ -8,9 +8,9 @@
  *  @author     novafacile OÜ
  *  @copyright  2021 by novafacile OÜ
  *  @license    MIT
- *  @version    2.1.0
+ *  @version    2.1.1
  *  @see        https://github.com/novafacile/bludit-plugins
- *  @release    2021-02-06
+ *  @release    2021-02-27
  *  @notes      idea based on https://github.com/Fred89/bludit-plugins/tree/master/contact
  *  This program is distributed in the hope that it will be useful - WITHOUT ANY WARRANTY.
  */

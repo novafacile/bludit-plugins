@@ -8,9 +8,9 @@
  *  @author     novafacile OÜ
  *  @copyright  2021 by novafacile OÜ
  *  @license    MIT
- *  @version    2.1.0
+ *  @version    2.1.1
  *  @see        https://github.com/novafacile/bludit-plugins
- *  @release    2021-02-06
+ *  @release    2021-02-27
  *  @notes      idea based on https://github.com/Fred89/bludit-plugins/tree/master/contact
  *  This program is distributed in the hope that it will be useful - WITHOUT ANY WARRANTY.
  *
@@ -37,6 +37,7 @@ class pluginContact3 extends Plugin {
       'user-cc-subject' => '',
       'smtphost' => '',
       'smtpport' => '',
+      'smtpencryption' => '',
       'username' => '',
       'password' => '',
       'sendEmailFrom' => 'fromUser',
@@ -232,6 +233,19 @@ class pluginContact3 extends Plugin {
               'label' => $L->get('SMTP Port'),
               'class' => 'short-input',
               'value' => $this->getValue('smtpport')
+              ));
+
+    // smtp encryption
+    $html .= Bootstrap::formSelect(array(
+              'name' => 'smtpencryption',
+              'label' => $L->get('SMTP Encryption'),
+              'class' => 'short-input',
+              'options' => array(
+                false => $L->get('deactivate'),
+                'starttls' => $L->get('STARTTLS'),
+                'smtps' => $L->get('SSL/TLS')
+              ),
+              'selected' => $this->getValue('smtpencryption')
               ));
 
     // smtp username
@@ -567,6 +581,15 @@ class pluginContact3 extends Plugin {
         $mail->isSMTP();
         $mail->Host = $this->getValue('smtphost');
         $mail->Port = $this->getValue('smtpport');
+        switch ($this->getValue('smtpencryption')) {
+          case 'starttls':
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+          break;
+          case 'smtps':
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            break;
+        }
+         
         $mail->SMTPAuth = true;
         $mail->Username = $this->getValue('username');
         $mail->Password = html_entity_decode($this->getValue('password')); // Function is needed if password contains special characters like '&'
