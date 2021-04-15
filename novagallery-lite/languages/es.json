@@ -1,0 +1,27 @@
+{
+  "plugin-data":
+  {
+    "name": "novaGallery Lite",
+    "description": "Galería de imágenes simple para Bludit3 basada en <a href=\"https://novagallery.org\" target=\"_blank\">novaGallery</a>."
+  },
+  "image-gallery": "Galería de imágenes",
+  "drop-files-here-or-click-to-upload": "Suelta los archivos aquí o haz clic para subirlos.",
+  "upload-will-start-immediately": "La carga comenzará inmediatamente.",
+  "file-is-to-big-Max-file-size:": "El archivo es demasiado grande. Tamaño máximo del archivo:",
+  "this-is-not-a-jpge-or-png": "Esto no es un JPEG o PNG.",
+  "server-error-during-upload.": "Error del servidor durante la carga.",
+  "cancel-upload": "Cancelar la carga",
+  "upload-canceled": "Carga cancelada",
+  "cancel-upload?": "¿Cancelar subida?",
+  "remove": "Eliminar",
+  "upload": "Subir",
+  "reload-page": "Recargar página",
+  "settings-for-novagallery-lite": "Configuración de novaGallery Lite",
+  "gallery-title": "Título de la galería",
+  "this-is-the-title-of-the-gallery-shown-in-frontend-(optional)": "Título de la galería que se muestra en el frontend (opcional).",
+  "image-gallery-page": "Página de la galería de imágenes",
+  "only-published-content-appears-in-this-list-remove-the-selected-page-to-deactivate-the-image-gallery": "En esta lista sólo aparece el contenido publicado. Elimina la página seleccionada para desactivar la galería de imágenes.",
+  "start-typing-to-see-a-list-of-suggestions": "Empieza a escribir para ver una lista de sugerencias.",
+  "protect-image-storage": "Proteger el almacenamiento",
+  "if-activated,-the-stored-images-will-not-be-deleted-on-unsinstall": "Si se activa, las imágenes almacenadas no se borrarán al desinstalar."
+}

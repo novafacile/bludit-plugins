@@ -1,0 +1,11 @@
+/** Lightbox **/
+.sl-overlay {
+  background: #ffffff;
+  opacity: 1;
+}
+
+.sl-wrapper .sl-close,
+.sl-wrapper .sl-navigation button,
+.sl-wrapper .sl-counter { 
+  color: #333333; opacity: 1; 
+}
