@@ -2,7 +2,7 @@
   "plugin-data":
   {
     "name": "novaGallery Lite",
-    "description": "Galerie d'images simple pour Bludit3 basée sur <a href=\"https://novagallery.org\" target=\"_blank\">novaGallery</a>."
+    "description": "Galerie d'images simple pour Bludit3 basée sur <a href=\"https://novagallery.org\" target=\"_blank\">novaGallery</a> et <a href=\"https://simplelightbox.com\" target=\"_blank\">SimpleLightbox</a>."
   },
   "image-gallery": "Galerie d'images",
   "drop-files-here-or-click-to-upload": "Déposer les fichiers ici ou cliquer pour télécharger.",

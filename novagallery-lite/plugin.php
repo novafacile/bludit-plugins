@@ -8,7 +8,7 @@
  *  @author     novafacile OÜ
  *  @copyright  2021 by novafacile OÜ
  *  @license    AGPL-3.0
- *  @version    1.0.1-beta
+ *  @version    1.0.2-beta
  *  @see        https://github.com/novafacile/bludit-plugins
  *  @release    2021-04-16
  *  @notes      based on PHP Image Gallery novaGallery - https://novagallery.org
@@ -320,7 +320,6 @@ class pluginNovaGalleryLite extends Plugin {
   public function siteHead() {
     if($this->webhook($this->webhookUrl())) {
       $html = '';
-      $html = $this->includeCSS('dropzone.min.css');
       $html .= $this->includeCSS('simple-lightbox.min.css');
       
       $css = THEME_DIR_CSS . 'novagallery.css';
@@ -339,10 +338,8 @@ class pluginNovaGalleryLite extends Plugin {
   public function siteBodyEnd() {
     if($this->webhook($this->webhookUrl())) {
       $html = '';
-      $html = $this->includeJS('dropzone.min.js');
       $html .= $this->includeJS('simple-lightbox.min.js');
-      $html .= '<script>var lightbox = new SimpleLightbox(".novagallery .image", {});</script>';
-
+      $html .= '<script>var lightbox = new SimpleLightbox(".novagallery .novagallery-image .novagallery-image-link", {});</script>';
       return $html;
     }
   }
