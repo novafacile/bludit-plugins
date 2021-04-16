@@ -8,9 +8,9 @@
  *  @author     novafacile OÜ
  *  @copyright  2021 by novafacile OÜ
  *  @license    AGPL-3.0
- *  @version    1.0.0-beta
+ *  @version    1.0.1-beta
  *  @see        https://github.com/novafacile/bludit-plugins
- *  @release    2021-03-27
+ *  @release    2021-04-16
  *  @notes      based on PHP Image Gallery novaGallery - https://novagallery.org
  *  This program is distributed in the hope that it will be useful - WITHOUT ANY WARRANTY.
  *
@@ -286,7 +286,7 @@ class pluginNovaGalleryLite extends Plugin {
     $set = $set[$size];
     
     if(!file_exists($cacheDir)){
-      mkdir($cacheDir, 777, true);
+      Filesystem::mkdir($cacheDir, true);
     }
 
     $image = new Image();

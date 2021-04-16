@@ -58,7 +58,7 @@ if (!empty($_FILES)) {
     // check & create cache dir
     $cacheDir = $cache.DS.$set['cacheName'];
     if(!file_exists($cacheDir)){
-      mkdir($cacheDir, 777, true);
+      mkdir($cacheDir, 755, true);
     }
     // create image
     $image->setImage($targetFile, $set['size'], $set['size'], $set['format']);
@@ -75,7 +75,7 @@ if (!empty($_FILES)) {
     // check & create cache dir
     $cacheDir = $cache.DS.$set['cacheName'];
     if(!file_exists($cacheDir)){
-      mkdir($cacheDir, 777, true);
+      mkdir($cacheDir, 755, true);
     }
     $image->setImage($targetFile, $set['size'], $set['size'], $set['format']);
     $image->saveImage($storage.DS.'cache'.DS.$set['cacheName'].DS.$fileName, $set['quality']);    

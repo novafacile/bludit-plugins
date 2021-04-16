@@ -2,8 +2,8 @@
 	"author": "novafacile",
 	"email": "",
 	"website": "https://bludit-plugins.novafacile.com",
-	"version":"1.0.0-beta",
-	"releaseDate": "2021-03-27",
+	"version":"1.0.1-beta",
+	"releaseDate": "2021-04-16",
 	"license": "AGPL-3.0",
 	"compatible": "3.13.1",
 	"notes": "This is the free version of the Plugin \"novaGallery for Bludit\". Find this plugin on Github: https://github.com/novafacile/bludit-plugins"
