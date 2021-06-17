@@ -24,7 +24,7 @@
 - For an individual template just copy the files `contact3.php` and `contact3.css` from the plugin folder `/layout` into your own template directory and customize them.
 - Screenshots and more details: [Official Contact3 Plugin Page](https://bludit-plugins.novafacile.com#contact3)
 
-### imageGallery Lite Docs
+### ImageGallery Lite Docs
 
 - Adds an image gallery on a page.
 - Includes a lightbox
