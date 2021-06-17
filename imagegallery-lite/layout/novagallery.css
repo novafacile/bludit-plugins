@@ -1,4 +1,4 @@
-/** novaGallery Grid **/
+/** ImageGallery Grid **/
 .novagallery {
   display: grid;
   grid-gap: 15px;
@@ -18,7 +18,7 @@
 }
 
 .sl-wrapper .sl-close,
-.sl-wrapper .sl-navigation button,
-.sl-wrapper .sl-counter { 
-  color: #333333; opacity: 1; 
+.sl-wrapper .sl-counter,
+.sl-wrapper .sl-navigation button {
+  color: #333333;
 }

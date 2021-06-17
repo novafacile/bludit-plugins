@@ -1,0 +1,7 @@
+{
+  "plugin-data":
+  {
+    "name": "ImageGallery Lite",
+    "description": "Image gallery (lite version) for Bludit3 based on <a href=\"https://novagallery.org\" target=\"_blank\">novaGallery</a> and <a href=\"https://simplelightbox.com\" target=\"_blank\">SimpleLightbox</a>."
+  }
+}

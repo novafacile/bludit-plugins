@@ -26,8 +26,8 @@
         <small class="d-inline-block mt-4">powered by novafacile OÜ</small>
         </p>
         <p class="mt-5 pt-md-4">
-          <a href="#home" class="me-4 btn btn-outline-light navi-btn">About</a>
-          <a href="#contact3" class="btn btn-outline-light navi-btn">Contact3</a>
+          <a href="#contact3" class="me-3 btn btn-outline-light navi-btn">Contact3</a>
+          <a href="#imagegallery" class="btn btn-outline-light navi-btn">Image Gallery</a>
         </p>
         <div class="position-absolute bottom-0 start-50 translate-middle-x mb-5" id="scroll-to-lead">
           <p>More Info</p>
@@ -55,6 +55,9 @@
                 <a class="nav-link navi-btn" id="contact3-tab" href="#contact3">Contact3</a>
               </li>
               <li class="nav-item" role="presentation">
+                <a class="nav-link navi-btn" id="imagegallery-tab" href="#imagegallery">Image Gallery</a>
+              </li>
+              <li class="nav-item" role="presentation">
                 <a class="nav-link navi-btn" id="docs-tab" href="#docs">Docs</a>
               </li>
               <li class="nav-item" role="presentation">
@@ -79,7 +82,12 @@
                 With Contact3 we provide a plugin for Bludit v3 that allows your visitors to contact you via email using a contact form.<br>
                 <a href="#contact3" class="btn btn-success btn-lg mt-4 mb-2 navi-btn">Get Contact3</a>
               </p>
-
+              <hr class="my-4">
+              <h3>Plugin Image Gallery</h3>
+              <p>
+                With Image Gallery we provide a plugin for Bludit v3 that allows you to add an image gallery to your Bludit CMS.<br>
+                <a href="#imagegallery" class="btn btn-success btn-lg mt-4 mb-2 navi-btn">Get Image Gallery</a>
+              </p>
               <hr class="my-4">
               <h3>About Bludit</h3>
               <p>
@@ -164,6 +172,69 @@
                 </div>
               </div>
             </article>
+
+            <!-- ImageGallery -->
+            <article class="tab-pane fade" id="imagegallery-content">
+              <h2>ImageGallery</h2>
+              <p>ImageGallery is an image gallery for the Bludit v3.X CMS. With this plugin you can extend your Bludit CMS with an image gallery.</p>
+              <p>The image gallery can be visually customized to your needs and is easy to configure.</p>
+              <p>With the current &quot;Lite Version&quot; you can add images to one album. An extended pro version to manage multiple albums is in development.</p>
+              <hr>
+              <p class="text-center my-3">
+                <a href="https://download.novafacile.com/bludit-plugins/imagegallery-lite.zip" class="btn btn-success btn-lg me-3">Download</a>
+                <a href="https://github.com/novafacile/bludit-plugins" class="btn btn-outline-dark btn-lg">GitHub</a>
+              </p>
+              <hr>
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <h3>Features</h3>
+                  <ul>
+                    <li>Adds an image gallery on a page</li>
+                    <li>Includes a lightbox</li>
+                    <li>Images can be managed in the admin interface.</li>
+                    <li>Thumbnails are generated automatically</li>
+                  </ul>
+                </div>
+                <div class="col-12 col-md-6">
+                  <h3>Supported Languages</h3>
+                  <ul>
+                    <li>English</li>
+                    <li>German</li>
+                    <li>French</li>
+                    <li>Spanish</li>
+                  </ul>
+                  <p>More languanges can be added by yourself.</p>
+                </div>
+  
+                <div class="col-12">
+                  <hr>
+                  <h3>ImageGallery Screenshots</h3>
+                </div>
+                <div class="row gallery imagegallery-gallery">
+                  <div class="col-12 col-md-6 p-3 text-center">
+                    <a href="img/imagegallery/gallery.jpg">
+                      <img src="img/imagegallery/gallery.jpg" alt="Image Gallery" title="Image Gallery">
+                    </a>
+                  </div>
+                  <div class="col-12 col-md-6 p-3 text-center">
+                    <a href="img/imagegallery/lightbox.jpg">
+                      <img src="img/imagegallery/lightbox.jpg" alt="ImageGallery Lightbox" title="ImageGallery Lightbox">
+                    </a>
+                  </div>
+                  <div class="col-12 col-md-6 p-3 text-center">
+                    <a href="img/imagegallery/manage-images.jpg">
+                      <img src="img/imagegallery/manage-images.jpg" alt="ImageGallery Manage Images" title="ImageGallery Manage Images">
+                    </a>
+                  </div>
+                  <div class="col-12 col-md-6 p-3 text-center">
+                    <a href="img/imagegallery/manage-settings.jpg">
+                      <img src="img/imagegallery/manage-settings.jpg" alt="ImageGallery Settings" title="ImageGallery Setting">
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
             
             <!-- docs -->
             <article class="tab-pane fade" id="docs-content">
@@ -180,6 +251,14 @@
                 <li>All configurations are explained in the settings.</li>
                 <li>For an individual template just copy the files <code>contact3.php</code> and <code>contact3.css</code> from the plugin folder <code>/layout</code> into your own template directory and customize them.</li>
               </ul>
+              <h3>Image Gallery</h3>
+              <ul>
+                <li>Image are managed in the admin interface.</li>
+                <li>All configurations are explained in the settings.</li>
+                <li>Thumbnails are generated automatically.</li>
+                <li>For an individual layout just copy the files <code>novagallery.php</code> and <code>novagallery.css</code> from the plugin folder <code>/layout</code> into your own template directory and customize them.</li>
+                <li>Extended version with multiple albums is in development.</li>
+              </ul>
               <h3>Support</h3>
               <ul>
                 <li>Community Support: <a href="https://forum.bludit.org/">Official Bludit Forum</a></li>
@@ -190,7 +269,7 @@
             <!-- license -->
             <article class="tab-pane fade" id="license-content">
               <h2>License</h2>
-              <p><strong>Bludit Plugins by novafacile OÜ are currently published under MIT License</strong></p>
+              <p><strong>Most Bludit Plugins by novafacile OÜ are published under MIT License</strong></p>
               <p>Copyright 2021 by novafacile OÜ</p>
               <p>
                 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -201,6 +280,8 @@
               <p>
                 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
               </p>
+              <p><strong>AGPL-3.0 for Image Gallery Plugin</strong></p>
+              <p>Plugin &quot;Image Gallery&quot; is published under AGPL-3.0 because it's based on the image gallery <a href="https://novagallery.org" target="_blank">novaGallery</a>.</p>
             </article>
 
 
@@ -245,6 +326,7 @@
     <script src="https://cdn.nova.ms/assets/simplelightbox/2.2.2/simple-lightbox.min.js"></script>
     <script>
       var lightbox = new SimpleLightbox('.contact3-gallery a', {});
+      var lightbox = new SimpleLightbox('.imagegallery-gallery a', {});
     </script>
 
   </body>

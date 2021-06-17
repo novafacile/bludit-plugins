@@ -1,8 +1,8 @@
 {
   "plugin-data":
   {
-    "name": "novaGallery Lite",
-    "description": "Galerie d'images simple pour Bludit3 basée sur <a href=\"https://novagallery.org\" target=\"_blank\">novaGallery</a> et <a href=\"https://simplelightbox.com\" target=\"_blank\">SimpleLightbox</a>."
+    "name": "ImageGallery Lite",
+    "description": "Galerie d'images (lite version) pour Bludit3 basée sur <a href=\"https://novagallery.org\" target=\"_blank\">novaGallery</a> et <a href=\"https://simplelightbox.com\" target=\"_blank\">SimpleLightbox</a>."
   },
   "image-gallery": "Galerie d'images",
   "drop-files-here-or-click-to-upload": "Déposer les fichiers ici ou cliquer pour télécharger.",
@@ -16,12 +16,15 @@
   "remove": "Retirer",
   "upload": "Télécharger",
   "reload-page": "Recharger la page",
-  "settings-for-novagallery-lite": "Paramètres de novaGallery Lite",
+  "settings-for-imagegallery-lite": "Paramètres de ImageGallery Lite",
   "gallery-title": "Titre de la galerie",
   "this-is-the-title-of-the-gallery-shown-in-frontend-(optional)": "Ceci est le titre de la galerie affiché en frontend (optionnel).",
   "image-gallery-page": "Page de la galerie d'images",
   "only-published-content-appears-in-this-list-remove-the-selected-page-to-deactivate-the-image-gallery": "Seul le contenu publié apparaît dans cette liste. Supprimez la page sélectionnée pour désactiver la galerie d'images.",
   "start-typing-to-see-a-list-of-suggestions": "Commencez à taper pour voir une liste de suggestions.",
+  "default-is-\"white\"-if-a-custom-css-file-is-used-for-the-image-gallery,-\"default\"-should-be-selected": "La valeur par défaut est \"blanc\". Si un fichier CSS personnalisé est utilisé pour la galerie d'images, il convient de sélectionner \"Défaut\".",
+  "black": "Noir",
+  "grey": "Gris",
   "protect-image-storage": "Protéger le stockage",
   "if-activated,-the-stored-images-will-not-be-deleted-on-unsinstall": "Si elle est activée, les images stockées ne seront pas supprimées lors de la désinstallation."
 }

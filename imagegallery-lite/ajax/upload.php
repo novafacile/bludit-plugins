@@ -26,11 +26,16 @@ if(strpos($album, '..'.DS) !== false){
 
 // check storage
 $basePath = dirname( __FILE__, 4); // Bludit3 Base
-$storage = $basePath.DS.'bl-content'.DS.'novagallery'.DS.$_POST['album'];
+$storage = $basePath.DS.'bl-content'.DS.'imagegallery'.DS.$_POST['album'];
 $cache = $storage.DS.'cache';
 
 if(!file_exists($storage)){
   AJAX::exit(404, 'Album Not Found');
+}
+
+// check cache dir
+if(!file_exists($cache)){
+  mkdir($cache, 0755);
 }
 
 // perform upload
@@ -40,11 +45,10 @@ if (!empty($_FILES)) {
     $targetFile =  $storage.DS.$fileName;
     $success = move_uploaded_file($tempFile,$targetFile);
 
-
     // create thumb & large
     require $basePath.DS.'bl-kernel'.DS.'helpers'.DS.'image.class.php';
     $image = new Image();
-    // todo: read config
+    // feature for pro version: read config
 
     // thumb
     $thumb = [
@@ -58,7 +62,7 @@ if (!empty($_FILES)) {
     // check & create cache dir
     $cacheDir = $cache.DS.$set['cacheName'];
     if(!file_exists($cacheDir)){
-      mkdir($cacheDir, 755, true);
+      mkdir($cacheDir, 0755);
     }
     // create image
     $image->setImage($targetFile, $set['size'], $set['size'], $set['format']);
@@ -75,7 +79,7 @@ if (!empty($_FILES)) {
     // check & create cache dir
     $cacheDir = $cache.DS.$set['cacheName'];
     if(!file_exists($cacheDir)){
-      mkdir($cacheDir, 755, true);
+      mkdir($cacheDir, 0755);
     }
     $image->setImage($targetFile, $set['size'], $set['size'], $set['format']);
     $image->saveImage($storage.DS.'cache'.DS.$set['cacheName'].DS.$fileName, $set['quality']);    

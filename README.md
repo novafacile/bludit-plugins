@@ -16,7 +16,7 @@
 ### Get a Plugin
 
 - [Contact3](https://download.novafacile.com/bludit-plugins/contact3.zip)
-- [novaGallery Lite](https://github.com/novafacile/bludit-plugins/raw/main/releases/novagallery-lite.zip)
+- [imageGallery Lite](https://download.novafacile.com/bludit-plugins/imagegallery-lite.zip)
 
 ### Contact3 Docs
 
@@ -24,13 +24,13 @@
 - For an individual template just copy the files `contact3.php` and `contact3.css` from the plugin folder `/layout` into your own template directory and customize them.
 - Screenshots and more details: [Official Contact3 Plugin Page](https://bludit-plugins.novafacile.com#contact3)
 
-### novaGallery Lite Docs
+### imageGallery Lite Docs
 
-- Adds a simple photo gallery on a page.
+- Adds an image gallery on a page.
 - Includes a lightbox
 - Images can be managed in the admin interface.
 - Thumbnails are generated automatically
 - All configurations are explained in the settings.
 - For an individual template just copy the files `novagallery.php` and `novagallery.css` from the plugin folder `/layout` into your own template directory and customize them.
-- Extended version with multiple albums is in development.
-- License Info: Because of the AGPL-3.0 license of novaGallery, the AGPL-3.0 license is also valid for this plugin.
+- Pro version with multiple albums is in development.
+- License Info: Because of the AGPL-3.0 license of used novaGallery, this plugin is published under the AGPL-3.0 license.

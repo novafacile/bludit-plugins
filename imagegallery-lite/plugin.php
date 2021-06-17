@@ -1,28 +1,29 @@
 <?php
 /**
- *  Image Gallery - Simple Image Gallery for Bludit3
+ *  Image Gallery Lite - Simple Image Gallery for Bludit3
  *
  *  @package    Bludit
- *  @subpackage novaGallery Lite
+ *  @subpackage ImageGallery Lite
  *  @category   Plugins
  *  @author     novafacile OÜ
  *  @copyright  2021 by novafacile OÜ
  *  @license    AGPL-3.0
- *  @version    1.0.2-beta
+ *  @version    1.1.0
  *  @see        https://github.com/novafacile/bludit-plugins
- *  @release    2021-04-16
+ *  @release    2021-06-18
  *  @notes      based on PHP Image Gallery novaGallery - https://novagallery.org
  *  This program is distributed in the hope that it will be useful - WITHOUT ANY WARRANTY.
  *
  */
 
-class pluginNovaGalleryLite extends Plugin {
+class pluginImageGalleryLite extends Plugin {
 
   // init plugin
   public function init() {
     $this->dbFields = array(
       'gallery-title' => '',
       'page' => '',
+      'lightbox-theme' => 'white',
       'protect-storage' => false
     );
 
@@ -32,8 +33,7 @@ class pluginNovaGalleryLite extends Plugin {
     parent::install($position);
     // create storage or storage protection
     if(file_exists($this->storage('album'))){
-      // Todo: set storage as protected if already exists
-      // $this->dbFields['protect-storage'] = true; // <-- this doesn't work
+      $this->db['protect-storage'] = true;
     } else {
       Filesystem::mkdir($this->storage('album'), true);
     }
@@ -146,7 +146,7 @@ class pluginNovaGalleryLite extends Plugin {
    /*** Settings ***/
     $html .= '<div class="tab-pane fade" id="novagallery-settings" role="tabpanel" aria-labelledby="novagallery-settings-tab">';
     $html .= Bootstrap::formTitle(array('title' => $L->get('Settings')));
-    $html .= '<p>'.$L->get('Settings for novaGallery Lite').'</p>';
+    $html .= '<p>'.$L->get('Settings for ImageGallery Lite').'</p>';
 
 
     // gallery name
@@ -202,6 +202,21 @@ class pluginNovaGalleryLite extends Plugin {
       })
     });
     </script>';
+
+    // set lightbox theme
+    $html .= Bootstrap::formSelect(array(
+              'name' => 'lightbox-theme',
+              'label' => $L->get('Lightbox Theme'),
+              'class' => 'short-input',
+              'options' => array(
+                'default' => $L->get('Default'),
+                'grey' => $L->get('Grey'),
+                'black' => $L->get('Black')
+              ),
+              'selected' => $this->getValue('lightbox-theme'),
+              'tip'=> $L->get('Default is "White". If a custom CSS file is used for the image gallery, "Default" should be selected.')
+              ));
+
 
     // prevent storage deletion on uninstall
     $html .= Bootstrap::formSelect(array(
@@ -329,6 +344,11 @@ class pluginNovaGalleryLite extends Plugin {
         $html .= '<link rel="stylesheet" href="' .$this->htmlPath(). 'layout' . DS . 'novagallery.css">' .PHP_EOL;
       }
 
+      // custom css settings
+      $html .= '<style>'.PHP_EOL;
+      $html .= $this->lightboxCSS($this->getValue('lightbox-theme'));
+      $html .= '</style>'.PHP_EOL;
+
       return $html;
     }
   } 
@@ -401,9 +421,9 @@ class pluginNovaGalleryLite extends Plugin {
     if($htmlPath){
       global $site;
       $url = $this->addSlash($site->url());
-      $path = $url.'bl-content/novagallery/'.$album;
+      $path = $url.'bl-content/imagegallery/'.$album;
     } else {
-      $path = PATH_CONTENT.'novagallery'.DS.$album;
+      $path = PATH_CONTENT.'imagegallery'.DS.$album;
     }
 
     return $this->addSlash($path);
@@ -415,6 +435,31 @@ class pluginNovaGalleryLite extends Plugin {
     $gallery = new novaGallery($storage, $onlyWithImages, $maxCacheAge);
     $images = $gallery->images($sort);
     return $images;
+  }
+
+  private function lightboxCSS($theme){
+    if($theme == 'default'){
+      return;
+    }
+
+    switch ($theme) {
+      case 'grey':
+        $background = '#555555';
+        $buttons = '#ffffff';
+        break;
+
+      case 'black':
+        $background = '#000000';
+        $buttons = '#dddddd';
+        break;
+
+      default:
+        $background = '#ffffff';
+        $buttons = '#333333';
+        break;
+    }
+
+    return '.sl-overlay{background:'.$background.';}.sl-wrapper .sl-close,.sl-wrapper .sl-counter,.sl-wrapper .sl-navigation button{color:'.$buttons.'}';
   }
 
 

@@ -1,16 +1,16 @@
 <?php 
 /**
- *  novaGallery Lite for Bludit - simple image gallery for Bludit 3
+ *  ImageGallery Lite for Bludit
  *
  *  @package    Bludit
- *  @subpackage novaGallery Lite
+ *  @subpackage ImageGallery Lite
  *  @category   Plugins
  *  @author     novafacile OÜ
  *  @copyright  2021 by novafacile OÜ
  *  @license    AGPL-3.0
- *  @version    1.0.2-beta
+ *  @version    1.1.0
  *  @see        https://github.com/novafacile/bludit-plugins
- *  @release    2021-04-16
+ *  @release    2021-06-18
  *  @notes      based on PHP Image Gallery novaGallery - https://novagallery.org
  *  This program is distributed in the hope that it will be useful - WITHOUT ANY WARRANTY.
  */

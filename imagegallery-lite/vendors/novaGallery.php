@@ -1,6 +1,6 @@
 <?php
 /**
- * Gallery - List Images and Albums
+ * novaGallery - List Images and Albums
  * @author novafacile OÜ
  * @copyright Copyright (c) 2021 by novafacile OÜ
  * @license AGPL-3.0
