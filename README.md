@@ -1,6 +1,10 @@
 ## Bludit Plugins by novafacile OÜ
 
 ### About
+
+* Contact3: Contact form plugin for Bludit CMS
+* ImageGallery: Image gallery plugin for Bludit CMS
+
 > Official project website: https://bludit-plugins.novafacile.com
 
 ### How to Install a Plugin
@@ -15,8 +19,8 @@
 
 ### Get a Plugin
 
-- [Contact3](https://download.novafacile.com/bludit-plugins/contact3.zip)
-- [ImageGallery Lite](https://download.novafacile.com/bludit-plugins/imagegallery-lite.zip)
+- [Download Contact3](https://download.novafacile.com/bludit-plugins/contact3.zip)
+- [Download ImageGallery Lite](https://download.novafacile.com/bludit-plugins/imagegallery-lite.zip)
 
 ### Contact3 Docs
 
