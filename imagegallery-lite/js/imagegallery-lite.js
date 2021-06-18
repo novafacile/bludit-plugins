@@ -1,8 +1,8 @@
 
 $(function(){
-  var lightbox = new SimpleLightbox(".novagallery-images .image", {});
+  var lightbox = new SimpleLightbox(".imagegallery-lite-images .image", {});
 
-  $('.novagallery-del-file').bind("click", function(){
+  $('.imagegallery-lite-del-file').bind("click", function(){
     let url = $(this).data("url") + 'ajax/delete-file.php';
     let album = $(this).data("album");
     let file = $(this).data("file");
@@ -14,7 +14,7 @@ $(function(){
       'file': file,
       'tokenCSRF': tokenCSRF
     }, function(){
-      let selector = '#novagallery-image-' + number;
+      let selector = '#imagegallery-lite-image-' + number;
       $(selector).hide();
     }).fail(function(){
       alert('Error. Could not delete file.');

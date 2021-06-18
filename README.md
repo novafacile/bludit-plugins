@@ -31,6 +31,6 @@
 - Images can be managed in the admin interface.
 - Thumbnails are generated automatically
 - All configurations are explained in the settings.
-- For an individual template just copy the files `novagallery.php` and `novagallery.css` from the plugin folder `/layout` into your own template directory and customize them.
+- For an individual template just copy the files `imagegallery-lite.php` and `imagegallery-lite.css` from the plugin folder `/layout` into your own template directory and customize them.
 - Pro version with multiple albums is in development.
 - License Info: Because of the AGPL-3.0 license of used novaGallery, this plugin is published under the AGPL-3.0 license.

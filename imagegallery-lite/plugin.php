@@ -8,7 +8,7 @@
  *  @author     novafacile OÜ
  *  @copyright  2021 by novafacile OÜ
  *  @license    AGPL-3.0
- *  @version    1.1.0
+ *  @version    1.2.0
  *  @see        https://github.com/novafacile/bludit-plugins
  *  @release    2021-06-18
  *  @notes      based on PHP Image Gallery novaGallery - https://novagallery.org
@@ -17,6 +17,8 @@
  */
 
 class pluginImageGalleryLite extends Plugin {
+
+  private $storageRoot = 'imagegallery';
 
   // init plugin
   public function init() {
@@ -71,7 +73,7 @@ class pluginImageGalleryLite extends Plugin {
     $html .= $this->includeJS('simple-lightbox.min.js');
     $html .= '<script>
               Dropzone.autoDiscover = false;
-              var imageGalleryUpload = new Dropzone("div#novagallery-upload", {
+              var imageGalleryUpload = new Dropzone("div#imagegallery-lite-upload", {
                 url: "'.$this->domainPath().'ajax/upload.php",
                 params: {
                   "tokenCSRF": "'.$security->getTokenCSRF().'",
@@ -88,10 +90,10 @@ class pluginImageGalleryLite extends Plugin {
                 dictCancelUploadConfirmation: "'.$L->get('Cancel upload?').'",
                 dictRemoveFile: "'.$L->get('Remove').'"
               });
-              imageGalleryUpload.on("queuecomplete", function() { $("#novagallery-reload-button").removeClass("d-none"); });
-              imageGalleryUpload.on("addedfile", function(file) { $("#novagallery-reload-button").addClass("d-none"); });
+              imageGalleryUpload.on("queuecomplete", function() { $("#imagegallery-lite-reload-button").removeClass("d-none"); });
+              imageGalleryUpload.on("addedfile", function(file) { $("#imagegallery-lite-reload-button").addClass("d-none"); });
               </script>';
-    $html .= $this->includeJS('novagallery.js');
+    $html .= $this->includeJS('imagegallery-lite.js');
     return $html;
 
   }
@@ -113,27 +115,27 @@ class pluginImageGalleryLite extends Plugin {
     /*** form start ***/
     $html = "\n";
     $html .= '<style type="text/css">
-            .plugin-form .novagallery-form label {margin-top: 0 !important; }
-            .plugin-form .novagallery-form .short-input { max-width: 200px };
+            .plugin-form .imagegallery-lite-form label {margin-top: 0 !important; }
+            .plugin-form .imagegallery-lite-form .short-input { max-width: 200px };
             </style>';
 
     /*** tab navi ***/
-    $html .= '<div class="tab-content novagallery-form" id="nav-tabContent">';
+    $html .= '<div class="tab-content imagegallery-lite-form" id="nav-tabContent">';
     $html .= '<nav class="mb-3">
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-novagallery-image-tab" data-toggle="tab" href="#novagallery-images" role="tab" aria-controls="nav-novagallery-images" aria-selected="true">'.$L->get('Images').'</a>
-        <a class="nav-item nav-link" id="nav-novagallery-settings-tab" data-toggle="tab" href="#novagallery-settings" role="tab" aria-controls="nav-novagallery-settings" aria-selected="false">'.$L->get('Settings').'</a>
+        <a class="nav-item nav-link active" id="nav-imagegallery-lite-image-tab" data-toggle="tab" href="#imagegallery-lite-images" role="tab" aria-controls="nav-imagegallery-lite-images" aria-selected="true">'.$L->get('Images').'</a>
+        <a class="nav-item nav-link" id="nav-imagegallery-lite-settings-tab" data-toggle="tab" href="#imagegallery-lite-settings" role="tab" aria-controls="nav-imagegallery-lite-settings" aria-selected="false">'.$L->get('Settings').'</a>
       </div>
     </nav>
     ';
 
     /*** Images ***/
-    $html .= '<div class="tab-pane fade show active" id="novagallery-images" role="tabpanel" aria-labelledby="novagallery-image-tab">';
+    $html .= '<div class="tab-pane fade show active" id="imagegallery-lite-images" role="tabpanel" aria-labelledby="imagegallery-lite-image-tab">';
 
     // Upload
     $html .= Bootstrap::formTitle(array('title' => '<i class="fa fa-upload"></i> '.$L->get('Upload')));
-    $html .= '<div class="dropzone mb-2" id="novagallery-upload" style="border-style:dotted;"></div>';
-    $html .= '<div class="w-100 text-center mb-5"><a href="'.$this->pluginUrl().'" class="d-none btn btn-primary px-4" id="novagallery-reload-button">'.$L->get('Reload page').'</a></div>';
+    $html .= '<div class="dropzone mb-2" id="imagegallery-lite-upload" style="border-style:dotted;"></div>';
+    $html .= '<div class="w-100 text-center mb-5"><a href="'.$this->pluginUrl().'" class="d-none btn btn-primary px-4" id="imagegallery-lite-reload-button">'.$L->get('Reload page').'</a></div>';
 
     // Image List
     $html .= Bootstrap::formTitle(array('title' => '<i class="fa fa-image"></i> '.$L->get('Images')));
@@ -144,7 +146,7 @@ class pluginImageGalleryLite extends Plugin {
 
 
    /*** Settings ***/
-    $html .= '<div class="tab-pane fade" id="novagallery-settings" role="tabpanel" aria-labelledby="novagallery-settings-tab">';
+    $html .= '<div class="tab-pane fade" id="imagegallery-lite-settings" role="tabpanel" aria-labelledby="imagegallery-lite-settings-tab">';
     $html .= Bootstrap::formTitle(array('title' => $L->get('Settings')));
     $html .= '<p>'.$L->get('Settings for ImageGallery Lite').'</p>';
 
@@ -337,11 +339,11 @@ class pluginImageGalleryLite extends Plugin {
       $html = '';
       $html .= $this->includeCSS('simple-lightbox.min.css');
       
-      $css = THEME_DIR_CSS . 'novagallery.css';
+      $css = THEME_DIR_CSS . 'imagegallery-lite.css';
       if(file_exists($css)) {
-        $html .= Theme::css('css' . DS . 'novagallery.css');
+        $html .= Theme::css('css' . DS . 'imagegallery-lite.css');
       } else {
-        $html .= '<link rel="stylesheet" href="' .$this->htmlPath(). 'layout' . DS . 'novagallery.css">' .PHP_EOL;
+        $html .= '<link rel="stylesheet" href="' .$this->htmlPath(). 'layout' . DS . 'imagegallery-lite.css">' .PHP_EOL;
       }
 
       // custom css settings
@@ -359,7 +361,7 @@ class pluginImageGalleryLite extends Plugin {
     if($this->webhook($this->webhookUrl())) {
       $html = '';
       $html .= $this->includeJS('simple-lightbox.min.js');
-      $html .= '<script>var lightbox = new SimpleLightbox(".novagallery .novagallery-image .novagallery-image-link", {});</script>';
+      $html .= '<script>var lightbox = new SimpleLightbox(".imagegallery-lite .imagegallery-lite-image .imagegallery-lite-image-link", {});</script>';
       return $html;
     }
   }
@@ -376,14 +378,14 @@ class pluginImageGalleryLite extends Plugin {
 
     $images = $this->images($album, $sort);
     $path = $this->storage($album, true);
-    $pathThumbnail = $path.'/cache/thumb/';
-    $pathLarge = $path.'/cache/large/';
+    $pathThumbnail = $path.'cache/thumb/';
+    $pathLarge = $path.'cache/large/';
 
-    $template = THEME_DIR_PHP . 'novagallery.php';
+    $template = THEME_DIR_PHP . 'imagegallery-lite.php';
     if(file_exists($template)) {
       include($template);
     } else {
-      include(__DIR__ . DS . 'layout' . DS . 'novagallery.php');
+      include(__DIR__ . DS . 'layout' . DS . 'imagegallery-lite.php');
     }   
 
   }
@@ -403,14 +405,14 @@ class pluginImageGalleryLite extends Plugin {
   private function webhookImages(){
     global $site;
     $pagePrefix = $site->getField('uriPage');
-    $pagePrefix = ltrim($pagePrefix, '/');
-    return $pagePrefix.'bl-content/novagallery';
+    $pagePrefix = ltrim($pagePrefix, DS);
+    return $pagePrefix.'bl-content/'.$this->storageRoot;
   }
 
   private function addSlash($string){
     $lastChar = substr($string, -1);
-    if($lastChar != '/'){
-      $string = $string.'/';
+    if($lastChar != DS){
+      $string = $string.DS;
     }
 
     return $string;
@@ -421,9 +423,9 @@ class pluginImageGalleryLite extends Plugin {
     if($htmlPath){
       global $site;
       $url = $this->addSlash($site->url());
-      $path = $url.'bl-content/imagegallery/'.$album;
+      $path = $url.'bl-content'.DS.$this->storageRoot.DS.$album;
     } else {
-      $path = PATH_CONTENT.'imagegallery'.DS.$album;
+      $path = PATH_CONTENT.$this->storageRoot.DS.$album;
     }
 
     return $this->addSlash($path);
@@ -496,12 +498,12 @@ class pluginImageGalleryLite extends Plugin {
     $html = '<div class="row w-100 text-left">';
     $i = 0;
     foreach ($images as $image => $timestamp) {
-      $html .= '<div class="col-3 mb-5 text-break novagallery-images text-center" id="novagallery-image-'.++$i.'">
+      $html .= '<div class="col-3 mb-5 text-break imagegallery-lite-images text-center" id="imagegallery-lite-image-'.++$i.'">
                   <a href="'.$path.'cache/large/'.$image.'" class="image">
                     <img src="'.$path.'cache/thumb/'.$image.'" style="max-width: 100%;max-height:300px;">
                   </a>
                   <div class="text-left">'.$image.'<br>
-                    <i class="fa fa-trash novagallery-del-file" style="cursor:pointer"
+                    <i class="fa fa-trash imagegallery-lite-del-file" style="cursor:pointer"
                       data-url="'.$this->domainPath().'" 
                       data-album="'.$album.'" 
                       data-file="'.$image.'"

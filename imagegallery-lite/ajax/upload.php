@@ -26,7 +26,8 @@ if(strpos($album, '..'.DS) !== false){
 
 // check storage
 $basePath = dirname( __FILE__, 4); // Bludit3 Base
-$storage = $basePath.DS.'bl-content'.DS.'imagegallery'.DS.$_POST['album'];
+$storageRoot = 'imagegallery';
+$storage = $basePath.DS.'bl-content'.DS.$storageRoot.DS.$_POST['album'];
 $cache = $storage.DS.'cache';
 
 if(!file_exists($storage)){

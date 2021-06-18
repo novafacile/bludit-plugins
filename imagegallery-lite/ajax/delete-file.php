@@ -35,8 +35,9 @@ if(strpos($file, '..'.DS) !== false){
 
 // check file
 $basePath = dirname( __FILE__, 4); // Bludit3 Base
+$storageRoot = 'imagegallery';
 $cacheName = 'cache';
-$albumDir = $basePath.DS.'bl-content'.DS.'imagegallery'.DS.$_POST['album'];
+$albumDir = $basePath.DS.'bl-content'.DS.$storageRoot.DS.$_POST['album'];
 $cacheDir = $albumDir.DS.$cacheName;
 $fileThumb = $cacheDir.DS.'thumb'.DS.$file;
 $fileLarge = $cacheDir.DS.'large'.DS.$file;
