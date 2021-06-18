@@ -26,7 +26,7 @@
 
 - All configurations are explained in the settings.
 - For an individual template just copy the files `contact3.php` and `contact3.css` from the plugin folder `/layout` into your own template directory and customize them.
-- Screenshots and more details: [Official Contact3 Plugin Page](https://bludit-plugins.novafacile.com#contact3)
+- Screenshots and more details: [Official Bludit Contact3 Plugin Page](https://bludit-plugins.novafacile.com#contact3)
 
 ### ImageGallery Lite Docs
 
@@ -38,3 +38,4 @@
 - For an individual template just copy the files `imagegallery-lite.php` and `imagegallery-lite.css` from the plugin folder `/layout` into your own template directory and customize them.
 - Pro version with multiple albums is in development.
 - License Info: Because of the AGPL-3.0 license of used novaGallery, this plugin is published under the AGPL-3.0 license.
+- Screenshots and more details: [Official Bludit ImageGallery Plugin Page](https://bludit-plugins.novafacile.com#imagegallery)
