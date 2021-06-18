@@ -1,9 +1,12 @@
 ## ImageGallery for Bludit CMS
 
 ### About
+
+Image Gallery Plugin for Bludit CMS.
+
 > Official project website: https://bludit-plugins.novafacile.com
 
-### How to Install a Plugin
+### How to Install Plugin
 - Download the plugin.
 - Unzip if necessary.
 - Copy the plugin folder with all the files inside `/bl-plugins/` folder.
@@ -15,7 +18,7 @@
 
 ### Download ImageGallery
 
-- [ImageGallery Lite](https://download.novafacile.com/bludit-plugins/imagegallery-lite.zip)
+- [Download ImageGallery Lite](https://download.novafacile.com/bludit-plugins/imagegallery-lite.zip)
 
 ### ImageGallery Lite Docs
 
