@@ -2,8 +2,8 @@
 
 ### About
 
-* Contact3: Contact form plugin for Bludit CMS
-* ImageGallery: Image gallery plugin for Bludit CMS
+* **Contact3**: Contact form plugin for Bludit CMS
+* **ImageGallery**: Image gallery plugin for Bludit CMS
 
 > Official project website: https://bludit-plugins.novafacile.com
 
