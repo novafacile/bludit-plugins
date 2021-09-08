@@ -1,12 +1,12 @@
 /** ImageGallery Grid **/
-.imagegallery-lite {
+.imagegallery {
   display: grid;
   grid-gap: 15px;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   margin-top: 15px;
 }
 
-.imagegallery-lite .imagegallery-lite-image img {
+.imagegallery .imagegallery-image img {
   max-width: 100%;
   max-height: 400px;
 }

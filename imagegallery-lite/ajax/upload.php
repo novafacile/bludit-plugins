@@ -24,7 +24,10 @@ if(strpos($album, '..'.DS) !== false){
   AJAX::exit();
 }
 
-// check storage
+// get plugin path
+$pluginPath = dirname(pathinfo(__FILE__, PATHINFO_DIRNAME));
+
+// set images storage
 $basePath = dirname( __FILE__, 4); // Bludit3 Base
 $storageRoot = 'imagegallery';
 $storage = $basePath.DS.'bl-content'.DS.$storageRoot.DS.$_POST['album'];
@@ -43,48 +46,57 @@ if(!file_exists($cache)){
 if (!empty($_FILES)) { 
     $fileName = $_FILES['file']['name'];
     $tempFile = $_FILES['file']['tmp_name'];
-    $targetFile =  $storage.DS.$fileName;
-    $success = move_uploaded_file($tempFile,$targetFile);
+    $file =  $storage.DS.$fileName;
+    $success = move_uploaded_file($tempFile,$file);
+
+    // default config
+    // feature for pro version: read config form settings
+    $imageSettings = [
+      'thumb' => [
+        'cacheName' => 'thumb',
+        'size' => 400,
+        'format' => 'crop',
+        'quality' => 80
+      ],
+      'large' => [
+        'cacheName' => 'large',
+        'size' => 1500,
+        'format' => 'auto',
+        'quality' => 90
+      ]
+    ];
 
     // create thumb & large
-    require $basePath.DS.'bl-kernel'.DS.'helpers'.DS.'image.class.php';
-    $image = new Image();
-    // feature for pro version: read config
+    require $pluginPath.DS.'vendors'.DS.'SimpleImage.php';
+    $image = new \claviska\SimpleImage();
 
-    // thumb
-    $thumb = [
-      'cacheName' => 'thumb',
-      'size' => 400,
-      'format' => 'crop',
-      'quality' => 80
-    ];
-    $set = $thumb;
+    foreach ($imageSettings as $value) {
+      $cacheName = $value['cacheName'];
+      $cacheDir = $cache.DS.$cacheName;
+      $cacheFile = $storage.DS.'cache'.DS.$cacheName.DS.$fileName;
+      
+      if(!file_exists($cacheDir)){
+        mkdir($cacheDir, 0755);
+      }
 
-    // check & create cache dir
-    $cacheDir = $cache.DS.$set['cacheName'];
-    if(!file_exists($cacheDir)){
-      mkdir($cacheDir, 0755);
+      $image
+        ->fromFile($file)
+        ->autoOrient();
+      $mimeType = $image->getMimeType();
+      
+      switch ($value['format']) {
+          case 'crop':
+            $image->thumbnail($value['size'], $value['size']);
+            break;          
+          default:
+            $image->bestFit($value['size'], $value['size']);
+            break;
+        }  
+
+      $image->toFile($cacheFile, $mimeType, $value['quality']);
+
     }
-    // create image
-    $image->setImage($targetFile, $set['size'], $set['size'], $set['format']);
-    $image->saveImage($storage.DS.'cache'.DS.$set['cacheName'].DS.$fileName, $set['quality']);
-
-    // large
-    $large = [
-      'cacheName' => 'large',
-      'size' => 1000,
-      'format' => 'auto',
-      'quality' => 90
-    ];
-    $set = $large;
-    // check & create cache dir
-    $cacheDir = $cache.DS.$set['cacheName'];
-    if(!file_exists($cacheDir)){
-      mkdir($cacheDir, 0755);
-    }
-    $image->setImage($targetFile, $set['size'], $set['size'], $set['format']);
-    $image->saveImage($storage.DS.'cache'.DS.$set['cacheName'].DS.$fileName, $set['quality']);    
-
+  
     // clear files cache
     @unlink($cache.DS.'files.php');
 

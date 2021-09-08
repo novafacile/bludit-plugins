@@ -30,4 +30,3 @@ Image Gallery Plugin for Bludit CMS.
 - For an individual template just copy the files `imagegallery-lite.php` and `imagegallery-lite.css` from the plugin folder `/layout` into your own template directory and customize them.
 - Pro version with multiple albums is in development.
 - License: AGPL-3.0
-- Screenshots and more details: [Official Bludit ImageGallery Plugin Page](https://bludit-plugins.novafacile.com#imagegallery)

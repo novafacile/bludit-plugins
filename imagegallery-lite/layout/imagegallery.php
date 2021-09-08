@@ -16,10 +16,10 @@
   <h3><?php echo $this->getValue('gallery-title'); ?></h3>
 <?php endif; ?>
 
-  <div class="imagegallery-lite">
+  <div class="imagegallery">
     <?php foreach ($images as $image => $timestamp): ?>
-    <div class="imagegallery-lite-image">
-      <a href="<?php echo $pathLarge.$image; ?>" class="imagegallery-lite-image-link">
+    <div class="imagegallery-image">
+      <a href="<?php echo $pathLarge.$image; ?>" class="imagegallery-image-link">
         <img src="<?php echo $pathThumbnail.$image; ?>">
       </a>
     </div>

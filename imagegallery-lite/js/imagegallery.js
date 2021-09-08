@@ -1,8 +1,8 @@
 
 $(function(){
-  var lightbox = new SimpleLightbox(".imagegallery-lite-images .image", {});
+  var lightbox = new SimpleLightbox(".imagegallery-images .image", {});
 
-  $('.imagegallery-lite-del-file').bind("click", function(){
+  $('.imagegallery-del-file').bind("click", function(){
     let url = $(this).data("url") + 'ajax/delete-file.php';
     let album = $(this).data("album");
     let file = $(this).data("file");
@@ -14,7 +14,7 @@ $(function(){
       'file': file,
       'tokenCSRF': tokenCSRF
     }, function(){
-      let selector = '#imagegallery-lite-image-' + number;
+      let selector = '#imagegallery-image-' + number;
       $(selector).hide();
     }).fail(function(){
       alert('Error. Could not delete file.');
