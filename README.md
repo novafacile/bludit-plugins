@@ -5,7 +5,7 @@
 * **Contact3**: Contact form plugin for Bludit CMS
 * **ImageGallery**: Image gallery plugin for Bludit CMS
 
-> Official project website: https://bludit-plugins.novafacile.com
+> Official project website: https://bludit-plugins.com
 
 ### How to Install a Plugin
 - Download the plugin.
