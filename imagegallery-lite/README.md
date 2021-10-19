@@ -4,7 +4,7 @@
 
 Image Gallery Plugin for Bludit CMS.
 
-> Official project website: https://bludit-plugins.novafacile.com
+> Official project website: https://bludit-plugins.com
 
 ### How to Install Plugin
 - Download the plugin.
