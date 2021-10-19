@@ -24,4 +24,4 @@ Contact Form Plugin for Bludit CMS.
 
 - All configurations are explained in the settings.
 - For an individual template just copy the files `contact3.php` and `contact3.css` from the plugin folder `/layout` into your own template directory and customize them.
-- Screenshots and more details: [Official Bludit Contact3 Plugin Page](https://bludit-plugins.novafacile.com#contact3)
+- Screenshots and more details: [Official Bludit Contact3 Plugin Page](https://bludit-plugins.com#contact3)
