@@ -1,12 +1,11 @@
 <?php defined('BLUDIT') or die('Bludit CMS.');
-
 /**
- * AJAX Helper for novafacile Bludit Plugins
- * @author novafacile OÜ
- * @copyright 2021 by novafacile OÜ
- * @license MIT
- * @see https://github.com/novafacile/bludit-plugins
- *  This program is distributed in the hope that it will be useful - WITHOUT ANY WARRANTY.
+ * AJAX helper for novafacile Bludit Plugins
+ * @author    novafacile OÜ
+ * @copyright 2022 by novafacile OÜ
+ * @license   MIT
+ * @see       https://bludit-plugins.com
+ * This program is distributed in the hope that it will be useful - WITHOUT ANY WARRANTY.
  */
 
 class AJAX {

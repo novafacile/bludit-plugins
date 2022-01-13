@@ -1,4 +1,4 @@
-## ImageGallery for Bludit CMS
+## ImageGallery Lite for Bludit CMS
 
 ### About
 
@@ -14,9 +14,9 @@ Image Gallery Plugin for Bludit CMS.
 
 ### Support
 - Forum: https://forum.bludit.com
-- Bug Reports: https://github.com/novafacile/bludit-plugins/issues
+- Bug reports: https://github.com/novafacile/bludit-plugins/issues
 
-### Download ImageGallery
+### Download ImageGallery 
 
 - [Download ImageGallery Lite](https://download.novafacile.com/bludit-plugins/imagegallery-lite.zip)
 
@@ -28,5 +28,7 @@ Image Gallery Plugin for Bludit CMS.
 - Thumbnails are generated automatically
 - All configurations are explained in the settings.
 - For an individual template just copy the files `imagegallery-lite.php` and `imagegallery-lite.css` from the plugin folder `/layout` into your own template directory and customize them.
-- Pro version with multiple albums is in development.
-- License: AGPL-3.0
+- Pro version with multiple albums is available at https://bludit-plugins.com
+
+### License
+AGPL-3.0

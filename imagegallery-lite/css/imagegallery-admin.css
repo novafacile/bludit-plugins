@@ -1,0 +1,11 @@
+.plugin-form input[type="text"]:disabled, .plugin-form textarea:disabled, .plugin-form select:disabled {
+  background-color: #e9ecef;
+}
+
+.select2-dropdown { 
+  z-index: 999999991;
+}
+
+.pointer {
+  cursor: pointer; 
+}

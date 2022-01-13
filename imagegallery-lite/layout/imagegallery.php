@@ -15,18 +15,12 @@
 <?php if($this->getValue('gallery-title')): ?>
   <h3><?php echo $this->getValue('gallery-title'); ?></h3>
 <?php endif; ?>
-
   <div class="imagegallery">
-    <?php foreach ($images as $image => $timestamp): ?>
+    <?php foreach ($images as $image): ?>
     <div class="imagegallery-image">
-      <a href="<?php echo $pathLarge.$image; ?>" class="imagegallery-image-link">
-        <img src="<?php echo $pathThumbnail.$image; ?>">
+      <a href="<?= $image['large'] ?>" class="imagegallery-image-link">
+        <img src="<?= $image['thumbnail'] ?>">
       </a>
     </div>
     <?php endforeach; ?>
   </div>
-
-
-
-
-

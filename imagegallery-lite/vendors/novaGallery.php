@@ -7,7 +7,7 @@
  * @link https://novagallery.org
  * to disable cache just set maxCacheAge to 'false' on initialization
  **/
-
+namespace novafacile;
 class novaGallery {
   
   protected $dir = '';
@@ -215,7 +215,7 @@ class novaGallery {
   protected function writeCache($dir){
     $cacheDir =  $dir.'/'.$this->cacheDir;
     if(!file_exists($cacheDir)){
-      mkdir($cacheDir, 0777, true);
+      mkdir($cacheDir, 0755, true);
     }
     $cacheFile = $cacheDir.'/'.$this->cacheFile;
     $content = ['images' => $this->images, 'albums' => $this->albums];
