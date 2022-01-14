@@ -28,7 +28,7 @@
   "grey": "Gris",
   "custom-(pro-only)": "Personnalisé (Pro only)",
   "protect-image-storage": "Protéger le stockage",
-  "if-activated,-the-stored-images-will-not-be-deleted-on-unsinstall": "Si elle est activée, les images stockées ne seront pas supprimées lors de la désinstallation.",
+  "if-activated,-the-stored-images-will-not-be-deleted-on-uninstall": "Si elle est activée, les images stockées ne seront pas supprimées lors de la désinstallation.",
   "default-image-sort": "Tri des images",
   "newest-first": "Les plus récentes en premier",
   "oldest-first": "Le plus ancien en premier",

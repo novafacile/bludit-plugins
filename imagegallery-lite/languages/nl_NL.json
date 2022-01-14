@@ -28,7 +28,7 @@
   "grey": "Grijs",
   "custom-(pro-only)": "Eigen kleuren (Pro-versie)",
   "protect-image-storage": "Afbeeldingenopslag beschermen",
-  "if-activated,-the-stored-images-will-not-be-deleted-on-unsinstall": "Indien ingeschakeld zullen de afbeeldingen bij deïnstallatie niet worden verwijderd.",
+  "if-activated,-the-stored-images-will-not-be-deleted-on-uninstall": "Indien ingeschakeld zullen de afbeeldingen bij deïnstallatie niet worden verwijderd.",
   "default-image-sort": "Standaardvolgorde afbeeldingen",
   "newest-first": "Nieuwste eerst",
   "oldest-first": "Oudste eerst",

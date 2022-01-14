@@ -28,7 +28,7 @@
   "grey": "Grau",
   "custom-(pro-only)": "Benutzerdefiniert (Nur Pro)",
   "protect-image-storage": "Bilderspeicher schützen",
-  "if-activated,-the-stored-images-will-not-be-deleted-on-unsinstall": "Wenn aktiviert, werden die gespeicherten Bilder bei der Deinstallation nicht gelöscht.",
+  "if-activated,-the-stored-images-will-not-be-deleted-on-uninstall": "Wenn aktiviert, werden die gespeicherten Bilder bei der Deinstallation nicht gelöscht.",
   "default-image-sort": "Bilderstortierung",
   "newest-first": "Neuste zuerst",
   "oldest-first": "Älteste zuerst",
