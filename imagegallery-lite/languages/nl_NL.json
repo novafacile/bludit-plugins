@@ -1,8 +1,8 @@
 {
   "plugin-data":
   {
-    "name": "ImageGallery Pro",
-    "description": "Galerij voor Bludit3, gebaseerd op <a href=\"https://novagallery.org\" target=\"_blank\">novaGallery</a> en <a href=\"https://simplelightbox.com\" target=\"_blank\">SimpleLightbox</a>."
+    "name": "ImageGallery Lite",
+    "description": "Galerij (Lite Version) voor Bludit3, gebaseerd op <a href=\"https://novagallery.org\" target=\"_blank\">novaGallery</a> en <a href=\"https://simplelightbox.com\" target=\"_blank\">SimpleLightbox</a>."
   },
   "image-gallery": "Galerij",
   "drop-files-here-or-click-to-upload": "Sleep afbeeldingen hierheen of klik hier om te uploaden",

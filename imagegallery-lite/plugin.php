@@ -220,7 +220,7 @@ class pluginImageGalleryLite extends Plugin {
                 true => $L->get('activate'),
               ),
               'selected' => $this->getValue('protect-storage'),
-              'tip'=> $L->get('If activated, the stored images will not be deleted on unsinstall.')
+              'tip'=> $L->get('If activated, the stored images will not be deleted on uninstall.')
               ));
 
 
