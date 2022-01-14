@@ -8,7 +8,7 @@
   "drop-files-here-or-click-to-upload": "Déposer les fichiers ici ou cliquer pour télécharger.",
   "upload-will-start-immediately": "Le téléchargé va commencer immédiatement.",
   "file-is-to-big-Max-file-size:": "Le fichier est trop gros. Taille maximale du fichier:",
-  "this-is-not-a-jpge-or-png": "Ce n'est pas un JPEG ou un PNG.",
+  "this-is-not-a-jpeg-or-png": "Ce n'est pas un JPEG ou un PNG.",
   "server-error-during-upload.": "Erreur du serveur pendant le téléchargement.",
   "cancel-upload": "Annuler le téléchargement",
   "upload-canceled": "Téléchargement annulé",
