@@ -8,9 +8,9 @@
  * @author     novafacile OÜ
  * @copyright  2022 by novafacile OÜ
  * @license    AGPL-3.0
- * @version    1.4.0
+ * @version    1.4.1
  * @see        https://bludit-plugins.com
- * @release    2022-01-13
+ * @release    2022-01-17
  * @notes      based on PHP Image Gallery novaGallery - https://novagallery.org
  * This program is distributed in the hope that it will be useful - WITHOUT ANY WARRANTY.
  */
