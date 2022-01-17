@@ -11,11 +11,11 @@ body {
   color: #432E30;
 }
 
-a {
+a, .nav-tabs .nav-link {
   color: #432E30;
 }
 
-a:hover {
+a:hover, .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus, .nav-tabs .nav-link.active {
   color: #000000;
 }
 
@@ -99,6 +99,10 @@ content h2 {
 
 content h3 {
   font-size: 1.4rem;
+}
+
+content h4 {
+  font-size: 1.2rem;
 }
 
 content ul, content ol {
@@ -186,7 +190,7 @@ content article strong {
 
 
 .card {
-  border: none;
+  border: 1px solid #e4e4e4;
   border-radius: none;
   color: #000;
   text-align: center;
