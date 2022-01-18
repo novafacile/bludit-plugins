@@ -7,7 +7,7 @@ Image Gallery Pro Plugin for Bludit CMS.
 > Official project website: https://bludit-plugins.com
 
 ### How to Install Plugin
-- Download the plugin.
+- [Buy & download](https://bludit-plugins.com#imagegallery) the plugin (only $ 5).
 - Unzip if necessary.
 - Copy the plugin folder with all the files inside `/bl-plugins/` folder.
 - Log into your Bludit panel administrator, go to **Settings->Plugins**, and activate your new plugin.
