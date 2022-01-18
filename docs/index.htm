@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bludit Plugins by novafacile OÜ</title>
-    <meta name="description" content="Free & premium plugins for the great flat file CMS Bludit. Contact3 the contact form for Bludit; ImageGallery the image gallery for Bludit">
+    <meta name="description" content="Free & premium plugins for the great flat file CMS Bludit. Contact3 the contact form for Bludit; ImageGallery the image gallery for Bludit; Online Shop Plugin for Bludit">
     <meta name="author" content="novafacile OÜ">
     <meta name="robots" content="index, follow">
     <!-- <link rel="shortcut icon" type="image/x-icon" href=""> -->
@@ -26,8 +26,9 @@
         <small class="d-inline-block mt-4">powered by novafacile OÜ</small>
         </p>
         <p class="mt-5 pt-md-4">
-          <a href="#contact3" class="me-3 btn btn-outline-light navi-btn">Contact3</a>
-          <a href="#imagegallery" class="btn btn-outline-light navi-btn">Image Gallery</a>
+          <a href="#contact3" class="mb-4 mx-2 btn btn-outline-light navi-btn">Contact3</a>
+          <a href="#imagegallery" class="mb-4 mx-2 btn btn-outline-light navi-btn">Image Gallery</a>
+          <a href="#onlineshop" class="mx-2 mb-4 btn btn-outline-light navi-btn">Online Shop Plugin</a>
         </p>
         <div class="position-absolute bottom-0 start-50 translate-middle-x mb-5" id="scroll-to-lead">
           <p>More Info</p>
@@ -56,6 +57,9 @@
               </li>
               <li class="nav-item" role="presentation">
                 <a class="nav-link navi-btn" id="imagegallery-tab" href="#imagegallery">Image Gallery</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link navi-btn" id="onlineshop-tab" href="#onlineshop">Online Shop Plugin</a>
               </li>
               <li class="nav-item" role="presentation">
                 <a class="nav-link navi-btn" id="docs-tab" href="#docs">Docs</a>
@@ -312,6 +316,75 @@
               </div>
             </article>
             
+            
+            <!-- Online Shop -->
+            <article class="tab-pane fade" id="onlineshop-content">
+              <h2>Online Shop Plugin</h2>
+              <p>The Online Shop (by Ecwid) plugin integrates a fully functional online store into Bludit v3.X CMS, including shopping cart and checkout. With the plugin you can sell products through your Bludit website. The product & order management is done by Ecwid. You only need a free account with Ecwid. In the free version you can sell up to 10 different products.</p>
+              <p>Current version of Online Shop (by Ecwid) for Bludit CMS: v1.0.0</p>
+              <hr>
+              <p class="text-center my-3">
+                <a href="https://download.novafacile.com/bludit-plugins/onlineshop-ecwid.zip" class="btn btn-success btn-lg me-3">Download</a>
+                <a href="https://github.com/novafacile/bludit-plugins" class="btn btn-outline-dark btn-lg">GitHub</a>
+              </p>
+              <hr>
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <h3>Features</h3>
+                  <ul>
+                    <li>Full integration of an Ecwid online store:</li>
+                    <ul class="mb-0">
+                      <li>Product overview</li>
+                      <li>Product detail page</li>
+                      <li>Shopping cart</li>
+                      <li>Checkout</li>
+                    </ul>
+                    <li>Direct link to product & store management at Ecwid</li>
+                  </ul>
+                </div>
+                <div class="col-12 col-md-6">
+                  <h3>Supported Languages</h3>
+                  <ul>
+                    <li>English</li>
+                    <li>German</li>
+                    <li>French</li>
+                    <li>Spanish</li>
+                    <li>Dutch</li>
+                    <li>Portuguese</li>
+                  </ul>
+                  <p>More languanges can be added by yourself.</p>
+                </div>
+  
+                <div class="col-12">
+                  <hr>
+                  <h3>Online Shop Screenshots</h3>
+                </div>
+                <div class="row gallery onlineshop-gallery">
+                  <div class="col-12 col-md-6 p-3 text-center">
+                    <a href="img/onlineshop/online-shop_ecwid-store-product-list.png">
+                      <img src="img/onlineshop/online-shop_ecwid-store-product-list.png" alt="Online Shop - Product List" title="Online Shop - Product List">
+                    </a>
+                  </div>
+                  <div class="col-12 col-md-6 p-3 text-center">
+                    <a href="img/onlineshop/online-shop_ecwid-store-product-view.png">
+                      <img src="img/onlineshop/online-shop_ecwid-store-product-view.png" alt="Online Shop - Product View" title="Online Shop - Product View">
+                    </a>
+                  </div>
+                  <div class="col-12 col-md-6 p-3 text-center">
+                    <a href="img/onlineshop/online-shop_ecwid-store-cart.png">
+                      <img src="img/onlineshop/online-shop_ecwid-store-cart.png" alt="Online Shop - Shopping Cart" title="Online Shop - Shopping Cart">
+                    </a>
+                  </div>
+                  <div class="col-12 col-md-6 p-3 text-center">
+                    <a href="img/onlineshop/online-shop_ecwid-store-settings.png">
+                      <img src="img/onlineshop/online-shop_ecwid-store-settings.png" alt="Online Shop - Settings" title="Online Shop - Settings">
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+
             <!-- docs -->
             <article class="tab-pane fade" id="docs-content">
               <h2>Docs</h2>
@@ -473,6 +546,7 @@
     <script>
       var lightbox = new SimpleLightbox('.contact3-gallery a', {});
       var lightbox = new SimpleLightbox('.imagegallery-gallery a', {});
+      var lightbox = new SimpleLightbox('.onlineshop-gallery a', {});
     </script>
 
     <script src="https://cdn.paddle.com/paddle/paddle.js"></script>

@@ -1,0 +1,21 @@
+{
+  "plugin-data":
+  {
+    "name": "Online Shop (Ecwid Store)",
+    "description": "Gratis online winkel aangedreven door <a href=\"http://go.ecwid.com/bludit-onlineshop\" target=\"_blank\">Ecwid</a>"
+  },
+  "shop-page": "Winkel Pagina",
+  "only-published-content-appears-in-this-list-remove-the-selected-page-to-deactivate-the-online-shop": "Alleen gepubliceerde inhoud verschijnt in deze lijst. Verwijder de geselecteerde pagina om de online shop te deactiveren.",
+  "ecwid-store-id": "Ecwid Store ID",
+  "store-id-of-your-ecwid-online-shop-instruction-see-below": "Store ID van uw Ecwid Online Shop. Instructie zie hieronder.",
+  "free-online-shop-by-ecwid": "Gratis Online Shop door Ecwid",
+  "to-get-a-store-id,-you-need-an-account-at-ecwidcom-with-this-online-store-provider-you-can-create-an-online-store-for-free-with-all-the-necessary-features-with-just-a-few-clicks-and-manage-your-products": "Om een Store ID te krijgen, heeft u een account nodig bij <a href=\"http://go.ecwid.com/bludit-onlineshop\" target=\"_blank\">Ecwid.com</a>. Met deze online winkel provider kunt u gratis een online winkel maken met alle benodigde functies met slechts een paar klikken en uw producten en bestellingen beheren. <b>Met de gratis versie kunt u tot 10 verschillende producten verkopen.</b> Indien u meer dan 10 producten wenst te verkopen, kunt u uw account uitbreiden vanaf slechts 12,50 €/maand (excl. BTW).",
+  "register-for-free":"Gratis registreren",
+  "manage-online-shop": "Online Shop beheren",
+  "for-payment-processing-you-also-need-eg-a-paypal-account-or-that-of-another-payment-provider-that-can-be-connected-to-an-ecwid-online-store-instructions-and-help-can-be-found-in-the-<a-href=\"http://goecwidcom/bludit-onlineshop-help\"-target=\"_blank\">ecwid-help-center</a>": "Voor betalingsverwerking heeft u ook een Paypal account nodig of die van een andere betalingsprovider die gekoppeld kan worden aan een Ecwid online winkel. Instructies en hulp kunt u vinden in het <a href=\"http://go.ecwid.com/bludit-onlineshop-help\" target=\"_blank\">Ecwid Help Center</a>.",
+  "how-to-get-store-id": "Hoe de Store ID te krijgen",
+  "login-into-your-ecwid-account": "Log in op uw Ecwid account",
+  "scroll-down-to-page-bottom": "Scroll naar beneden naar de onderkant van de pagina",
+  "copy-store-id": "Kopieer Store ID",
+  "example": "Voorbeeld"
+}

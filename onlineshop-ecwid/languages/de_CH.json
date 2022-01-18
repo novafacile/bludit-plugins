@@ -1,0 +1,21 @@
+{
+  "plugin-data":
+  {
+    "name": "Online Shop (Ecwid Store)",
+    "description": "Kostenloser Online Shop powered by <a href=\"http://go.ecwid.com/bludit-onlineshop\" target=\"_blank\">Ecwid</a>"
+  },
+  "shop-page": "Shop Seite",
+  "ecwid-store-id": "Ecwid Store ID",
+  "only-published-content-appears-in-this-list-remove-the-selected-page-to-deactivate-the-online-shop": "In dieser Liste erscheinen nur veröffentlichte Inhalte. Entfernen Sie die ausgewählte Seite, um den Online Shop zu deaktivieren.",
+  "store-id-of-your-ecwid-online-shop-instruction-see-below": "Store ID Ihres Ecwid Online Shops. Anleitung siehe unten.",
+  "free-online-shop-by-ecwid": "Kostenloser Online Shop von Ecwid",
+  "to-get-a-store-id,-you-need-an-account-at-ecwidcom-with-this-online-store-provider-you-can-create-an-online-store-for-free-with-all-the-necessary-features-with-just-a-few-clicks-and-manage-your-products": "Um ein Shop ID zu erhalten, benötigen Sie ein Account bei <a href=\"http://go.ecwid.com/bludit-onlineshop\" target=\"_blank\">Ecwid.com</a>. Bei diesem Online Shop Anbieter können Sie kostenlos einen Online Shop mit allen dafür notwendigen Funktionen mit nur wenigen Klicks erstellen und ihre Produkte verwalten. <b>Mit der kostenlosen Variante können Sie bis zu 10 verschiedene Produkte verkaufen.</b> Wenn Sie mehr Produkte verkaufen möchten, können Sie ab nur 12,50 €/Monat (exkl. MwSt.) ihr Account erweitern.",
+  "register-for-free":"Kostenlose registrieren",
+  "manage-online-shop": "Online-Shop verwalten",
+  "for-payment-processing-you-also-need-eg-a-paypal-account-or-that-of-another-payment-provider-that-can-be-connected-to-an-ecwid-online-store-instructions-and-help-can-be-found-in-the-<a-href=\"http://goecwidcom/bludit-onlineshop-help\"-target=\"_blank\">ecwid-help-center</a>": "Für die Zahlungsabwicklung benötigen Sie zusätzlich z.B. ein Paypal-Account oder das eines anderen Zahlungsanbieters, der sich mit einem Ecwid-Online-Shop verbinden lässt. Anleitungen und Hilfe finden Sie dazu im <a href=\"http://go.ecwid.com/bludit-onlineshop-help\" target=\"_blank\">Ecwid Hilfe Center</a>.",
+  "how-to-get-store-id": "Store ID erhalten",
+  "login-into-your-ecwid-account": "Loggen Sie sich in ihr Ecwid-Account ein",
+  "scroll-down-to-page-bottom": "Scrollen sie nach unten bis an das Seitenende",
+  "copy-store-id": "Kopieren Sie die Store ID",
+  "example": "Beispiel"
+}

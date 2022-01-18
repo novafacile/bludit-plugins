@@ -1,0 +1,21 @@
+{
+  "plugin-data":
+  {
+    "name": "Tienda online (Ecwid Store)",
+    "description": "Tienda online gratuita powered by <a href=\"http://go.ecwid.com/bludit-onlineshop\" target=\"_blank\">Ecwid</a>"
+  },
+  "shop-page": "Página de la tienda",
+  "only-published-content-appears-in-this-list-remove-the-selected-page-to-deactivate-the-online-shop": "En esta lista sólo aparece el contenido publicado. Elimine la página seleccionada para desactivar la tienda online.",
+  "ecwid-store-id": "Ecwid Store ID",
+  "store-id-of-your-ecwid-online-shop-instruction-see-below": "Store ID de su Ecwid Online Shop. Instrucciones ver abajo.",
+  "free-online-shop-by-ecwid": "Tienda online gratuita de Ecwid",
+  "to-get-a-store-id,-you-need-an-account-at-ecwidcom-with-this-online-store-provider-you-can-create-an-online-store-for-free-with-all-the-necessary-features-with-just-a-few-clicks-and-manage-your-products": "Para obtener un Store ID, necesita una cuenta en <a href=\"http://go.ecwid.com/bludit-onlineshop\" target=\"_blank\">Ecwid.com</a>. Con este proveedor de tiendas online puedes crear una tienda online gratis con todas las características necesarias con sólo unos pocos clics y gestionar tus productos y pedidos. <b>Con la versión gratuita puedes vender hasta 10 productos diferentes.</b> Si quieres vender más de 10 productos, puedes ampliar tu cuenta desde sólo 12,50 €/mes (sin IVA).",
+  "register-for-free":"Regístrese gratis",
+  "manage-online-shop": "Gestionar la tienda online",
+  "for-payment-processing-you-also-need-eg-a-paypal-account-or-that-of-another-payment-provider-that-can-be-connected-to-an-ecwid-online-store-instructions-and-help-can-be-found-in-the-<a-href=\"http://goecwidcom/bludit-onlineshop-help\"-target=\"_blank\">ecwid-help-center</a>": "Para el procesamiento de pagos también necesita, por ejemplo, una cuenta de Paypal o de otro proveedor de pagos que pueda conectarse a una tienda online de Ecwid. Las instrucciones y la ayuda se pueden encontrar en el <a href=\"http://go.ecwid.com/bludit-onlineshop-help\" target=\"_blank\">Centro de Ayuda de Ecwid</a>.",
+  "how-to-get-store-id": "Cómo obtener el Store ID",
+  "login-into-your-ecwid-account": "Inicie sesión en su cuenta de Ecwid",
+  "scroll-down-to-page-bottom": "Desplácese hasta el final de la página",
+  "copy-store-id": "Copiar el Store ID",
+  "example": "Ejemplo"
+}

@@ -4,6 +4,7 @@
 
 * **Contact3**: Contact form plugin for Bludit CMS
 * **ImageGallery**: Image gallery plugin for Bludit CMS
+* **Online Shop** by Ecwid: Online Store for Bludit CMS
 
 > Official project website: https://bludit-plugins.com
 
@@ -22,6 +23,7 @@
 - [Download Contact3](https://download.novafacile.com/bludit-plugins/contact3.zip)
 - [Download ImageGallery Lite](https://download.novafacile.com/bludit-plugins/imagegallery-lite.zip)
 - [Buy ImageGallery Pro ($5)](https://bludit-plugins.com#imagegallery)
+- [Download Online Shop by Ecwid](https://download.novafacile.com/bludit-plugins/onlineshop-ecwid)
 
 ### Contact3 Docs
 
@@ -52,3 +54,10 @@
   - `imagegallery-pro-album.php` (Single album on single page)
   - `imagegallery.css` 
 - License Info: All rights reserved [(Get License)](https://bludit-plugins.com#imagegallery)
+
+### Online Shop by Ecwid Docs
+
+- [Download Bludit Online Shop Plugin](https://download.novafacile.com/bludit-plugins/onlineshop-ecwid)
+- [Register for free at Ecwid](http://go.ecwid.com/bludit-onlineshop-register)
+- How to link Ecwid Store and Bludit is described in the plugin settings
+- The content of the selected page will be completely replaced with the online store.
