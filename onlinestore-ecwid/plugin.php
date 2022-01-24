@@ -8,9 +8,9 @@
  * @author     novafacile OÜ
  * @copyright  2022 by novafacile OÜ
  * @license    MIT
- * @version    1.1.0
+ * @version    1.1.1
  * @see        https://bludit-plugins.com
- * @release    2022-01-19
+ * @release    2022-01-24
  * This program is distributed in the hope that it will be useful - WITHOUT ANY WARRANTY.
  */
 
@@ -18,8 +18,8 @@ class pluginOnlineStoreEcwid extends Plugin {
 
   public function init() {
     $this->dbFields = [
-      'storeId'		=> '',
-      'page'	=> ''
+      'storeId'   => '',
+      'page'  => ''
     ];
   }
 
@@ -41,7 +41,7 @@ class pluginOnlineStoreEcwid extends Plugin {
     </nav>
     ';
 
-		// basics
+    // basics
     $html .= '<div class="tab-pane fade show active" id="onlinestore-general" role="tabpanel" aria-labelledby="onlinestore-general-tab">';
     $html .= Bootstrap::formTitle(array('title' => $L->get('General')));
 
@@ -100,29 +100,29 @@ class pluginOnlineStoreEcwid extends Plugin {
 
 
     $html .= '<div class="alert alert-info mt-5">
-  							<h4 class="alert-heading">'.$L->get('Free Online Store by Ecwid').'</h4>
-  							<p>
-  								'.$L->get('To get a Store ID, you need an account at Ecwid.com. With this online store provider you can create an online store for free with all the necessary features with just a few clicks and manage your products.').'<br><br>
-  								<a href="http://go.ecwid.com/bludit-onlinestore-register" target="_blank" class="btn btn-success">'.$L->get('Register For Free').'</a>
-  								<a href="http://go.ecwid.com/bludit-onlinestore-login" target="_blank" class="btn btn-info">'.$L->get('Manage Online Store').'</a>
-  							</p>
-  							<hr>
-  							<p class="mb-0 small text-muted">
-  								'.$L->get('For payment processing you also need e.g. a Paypal account or that of another payment provider that can be connected to an Ecwid online store. Instructions and help can be found in the <a href="http://go.ecwid.com/bludit-onlinestore-help" target="_blank">Ecwid Help Center</a>.').'
-  							</p>
-								</div>
-    				';
+                <h4 class="alert-heading">'.$L->get('Free Online Store by Ecwid').'</h4>
+                <p>
+                  '.$L->get('To get a Store ID, you need an account at Ecwid.com. With this online store provider you can create an online store for free with all the necessary features with just a few clicks and manage your products.').'<br><br>
+                  <a href="http://go.ecwid.com/bludit-onlinestore-register" target="_blank" class="btn btn-success">'.$L->get('Register For Free').'</a>
+                  <a href="http://go.ecwid.com/bludit-onlinestore-login" target="_blank" class="btn btn-info">'.$L->get('Manage Online Store').'</a>
+                </p>
+                <hr>
+                <p class="mb-0 small text-muted">
+                  '.$L->get('For payment processing you also need e.g. a Paypal account or that of another payment provider that can be connected to an Ecwid online store. Instructions and help can be found in the <a href="http://go.ecwid.com/bludit-onlinestore-help" target="_blank">Ecwid Help Center</a>.').'
+                </p>
+                </div>
+            ';
 
     $html .= '<div class="alert alert-info mt-5">
-	    					<h4>'.$L->get('How to Get Store ID').'</h4>
-	    					<ol>
-	    						<li><a href="http://go.ecwid.com/bludit-onlinestore-login" target="_blank">'.$L->get('Login into your Ecwid account').'</a></li>
-	    						<li>'.$L->get('Scroll down to page bottom').'</li>
-	    						<li>'.$L->get('Copy Store ID').'</li>
-	    					</ol>
-	    					<h5>'.$L->get('Example').'</h5>
-	    					<p><img src="'.$this->domainPath().'assets/get-store-id.jpg" class="border border-dark img-fluid" /></p>
-    					</div>';
+                <h4>'.$L->get('How to Get Store ID').'</h4>
+                <ol>
+                  <li><a href="http://go.ecwid.com/bludit-onlinestore-login" target="_blank">'.$L->get('Login into your Ecwid account').'</a></li>
+                  <li>'.$L->get('Scroll down to page bottom').'</li>
+                  <li>'.$L->get('Copy Store ID').'</li>
+                </ol>
+                <h5>'.$L->get('Example').'</h5>
+                <p><img src="'.$this->domainPath().'assets/get-store-id.jpg" class="border border-dark img-fluid" /></p>
+              </div>';
 
 
     return $html;
@@ -140,20 +140,24 @@ class pluginOnlineStoreEcwid extends Plugin {
   }
 
   private function getStoreTag(){
-  	$tag = '<div id="my-store-'.$this->getValue('storeId').'"></div>
-						<div>
-						<script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?'.$this->getValue('storeId').'&data_platform=code&data_date=2022-01-17" charset="utf-8"></script><script type="text/javascript"> xProductBrowser("categoriesPerRow=3","views=grid(20,3) list(60) table(60)","categoryView=grid","searchView=list","id=my-store-'.$this->getValue('storeId').'");</script>
-						</div>';
-		return $tag;
+    $tag = '<div id="my-store-'.$this->getValue('storeId').'"></div>
+            <div>
+            <script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?'.$this->getValue('storeId').'&data_platform=code&data_date=2022-01-17" charset="utf-8"></script><script type="text/javascript"> xProductBrowser("categoriesPerRow=3","views=grid(20,3) list(60) table(60)","categoryView=grid","searchView=list","id=my-store-'.$this->getValue('storeId').'");</script>
+            </div>';
+    return $tag;
   }
 
   /** 
    * frontend methods 
    **/
   public function beforeSiteLoad() {
-  	if($GLOBALS['WHERE_AM_I']=='page') {
-  		$GLOBALS['page']->setField('content', $this->getStoreTag());
-  	}
+    if(!$this->webhook($this->webhookUrl())){
+      return;
+    }
+
+    if($GLOBALS['WHERE_AM_I']=='page') {
+      $GLOBALS['page']->setField('content', $this->getStoreTag());
+    }
   }
 
   /**
