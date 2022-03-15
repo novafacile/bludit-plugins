@@ -31,7 +31,6 @@ foreach ($_POST as $key => $value) {
     AJAX::exit();
   }
   $value = filter_var($value, FILTER_SANITIZE_STRING);
-  $value = preg_replace('/[^\p{L}\p{N}\s.-]/u', '', $value);
   $_POST[$key] = $value;
 }
 

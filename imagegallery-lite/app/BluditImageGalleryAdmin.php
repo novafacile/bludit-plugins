@@ -12,7 +12,7 @@
  */
 namespace novafacile;
 
-class BluditImageGalleryAdmin extends BluditImageGallery {
+class BluditImageGalleryAdmin extends BluditImageGalleryLite {
 
   public function outputImagesAdmin($album){
     global $L;

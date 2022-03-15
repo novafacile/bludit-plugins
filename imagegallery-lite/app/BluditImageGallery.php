@@ -12,7 +12,7 @@
  */
 namespace novafacile;
 
-class BluditImageGallery {
+class BluditImageGalleryLite {
 
   protected $gallery = null;
   protected $storageRoot = 'imagegallery';

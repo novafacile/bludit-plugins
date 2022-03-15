@@ -8,9 +8,9 @@
  * @author     novafacile OÜ
  * @copyright  2022 by novafacile OÜ
  * @license    AGPL-3.0
- * @version    1.4.1
+ * @version    1.4.2
  * @see        https://bludit-plugins.com
- * @release    2022-01-17
+ * @release    2022-03-15
  * @notes      based on PHP Image Gallery novaGallery - https://novagallery.org
  * This program is distributed in the hope that it will be useful - WITHOUT ANY WARRANTY.
  */
@@ -59,7 +59,7 @@ class pluginImageGalleryLite extends Plugin {
 
   public function adminHead(){
     global $url;  
-    if (!$url->slug() == $this->pluginSlug()) {
+    if ($url->slug() != $this->pluginSlug()) {
       return false;
     }
     $html = $this->includeCSS('dropzone.min.css');
@@ -68,10 +68,53 @@ class pluginImageGalleryLite extends Plugin {
     $html .= $this->includeCSS('imagegallery-admin.css');
     return $html;
   }
+  
+  public function adminBodyBegin(){
+  	$imageGalleryAdminPath = HTML_PATH_ADMIN_ROOT."imagegallery-lite";
+  	$currentPath = strtok($_SERVER["REQUEST_URI"],'?');
+  	if($currentPath == $imageGalleryAdminPath){
+  		ob_start();
+  	}
+  }
 
   public function adminBodyEnd(){
+  	$imageGalleryAdminPath = HTML_PATH_ADMIN_ROOT."imagegallery-lite";
+  	$currentPath = strtok($_SERVER["REQUEST_URI"],'?');
+  	if($currentPath == $imageGalleryAdminPath){
+   		// Fetch Content
+      $content = ob_get_contents();
+      ob_end_clean();
+  
+  		// load ImageGallery album admin
+  		$html = 'ImageGallery Admin Content';
+  		
+  		$album = 'album';
+    	$domainPath = $this->domainPath();
+  		
+  		// get helper object
+	    require_once('app/BluditImageGalleryHelper.php');
+	    $helper = new \novafacile\BluditImageGalleryHelper();
+	
+	    // load required JS
+	    $html .= $this->includeJS('simple-lightbox.min.js');
+	    $html .= $this->includeJS('jquery-confirm.min.js');
+	    $html .= $helper->adminJSData($domainPath);
+	    if($album){
+	      $html .= $this->includeJS('dropzone.min.js');
+	      $html .= $helper->dropzoneJSData($album);
+	    }
+	    $html .= $this->includeJS('imagegallery-admin.js');
+	    
+	  	// remove old admin content (error message)
+  		$regexp = "#(\<div class=\"col-lg-10 pt-3 pb-1 h-100\"\>)(.*?)(\<\/div\>)#s";
+  		$content = preg_replace($regexp, "$1{$html}$3", $content);
+  		echo $content;
+  		
+  		return;
+  	}
+  	
     global $url;
-    if (!$url->slug() == $this->pluginSlug()) {
+    if ($url->slug() != $this->pluginSlug()) {
       return false;
     }
     $album = 'album';
@@ -95,12 +138,8 @@ class pluginImageGalleryLite extends Plugin {
 
   // Shortcut on sidebar
   public function adminSidebar() {
-    global $login, $L;
-    if ($login->role() === 'admin' || $login->role() === 'author') {
-      return '<a class="nav-link" href="'.$this->pluginUrl().'">'.$L->get('Image Gallery').'</a>';
-    } else {
-      return '';
-    }
+    global $L;
+    return '<a class="nav-link" href="'.$this->pluginUrl().'">'.$L->get('Image Gallery').'</a>';
   }
 
   // config form
@@ -281,14 +320,14 @@ class pluginImageGalleryLite extends Plugin {
 
   // Load CSS for gallery
   public function siteHead() {
-    if($this->webhookAlbum() !== false) {
+    if($this->webhookAlbum() != false) {
       $html = $this->includeCSS('simple-lightbox.min.css');
       
       $css = THEME_DIR_CSS . 'imagegallery.css';
       if(file_exists($css)) {
         $html .= Theme::css('css/imagegallery.css');
       } else {
-        $html .= '<link rel="stylesheet" href="' .$this->htmlPath(). 'layout/imagegallery.css">' .PHP_EOL;
+        $html .= '<link rel="stylesheet" type="text/css" href="'.$this->domainPath().'layout/imagegallery.css?version='.BLUDIT_VERSION.'">'.PHP_EOL;
       }
 
       // custom css settings
@@ -302,7 +341,7 @@ class pluginImageGalleryLite extends Plugin {
 
   // Load JS for gallery
   public function siteBodyEnd() {
-    if($this->webhookAlbum() !== false){
+    if($this->webhookAlbum() != false){
       $html = $this->includeJS('simple-lightbox.min.js');
       $html .= '<script>var lightbox = new SimpleLightbox(".imagegallery .imagegallery-image .imagegallery-image-link", {});</script>';
       return $html;
@@ -324,9 +363,11 @@ class pluginImageGalleryLite extends Plugin {
     ];
 
     // load classes
-    require_once('vendors/novaGallery.php');
+    if(!class_exists('novafacile\novaGallery', true)){
+      require_once('vendors/novaGallery.php');
+    }
     require_once('app/BluditImageGallery.php');
-    $gallery = new novafacile\BluditImageGallery($config);
+    $gallery = new novafacile\BluditImageGalleryLite($config); // load lite features
 
    
     $images = $gallery->images($album, $config['imagesSort']);
@@ -410,3 +451,4 @@ class pluginImageGalleryLite extends Plugin {
   }
 
 }
+
