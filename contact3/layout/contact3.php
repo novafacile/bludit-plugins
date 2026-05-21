@@ -20,15 +20,18 @@
   <input type="hidden" name="tokenCSRF" value="<?php echo $security->getTokenCSRF(); ?>">
   
   <div class="form-group">
-     <input id="name" type="text" name="name" value="<?php echo sanitize::html($this->senderName); ?>" placeholder="<?php echo $L->get('Your Name'); ?>" class="form-control" required>
+     <label for="name"><?php echo $L->get('Your Name'); ?></label>
+     <input id="name" type="text" name="name" value="<?php echo sanitize::html($this->senderName); ?>" class="form-control" required>
   </div>
 
   <div class="form-group">
-     <input id="email" type="email" name="email" value="<?php echo sanitize::email($this->senderEmail); ?>" placeholder="<?php echo $L->get('Your Email'); ?>" class="form-control" required>
+     <label for="email"><?php echo $L->get('Your Email'); ?></label>
+     <input id="email" type="email" name="email" value="<?php echo sanitize::email($this->senderEmail); ?>" class="form-control" required>
   </div>
 
   <div class="form-group">
-     <textarea id="message" rows="6" name="message" placeholder="<?php echo $L->get('Your Message'); ?>" class="form-control" required><?php echo sanitize::html($this->message); ?></textarea>
+     <label for="message"><?php echo $L->get('Your Message'); ?></label>     
+     <textarea id="message" rows="6" name="message" class="form-control" required><?php echo sanitize::html($this->message); ?></textarea>
   </div>
 
   <?php if ($this->getValue('gdpr-checkbox')): ?>
